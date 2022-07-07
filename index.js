@@ -9,7 +9,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
-  database: "SmartHomeControl"
+  database: "uGiveDb"
 });
 
 // connect to the db
