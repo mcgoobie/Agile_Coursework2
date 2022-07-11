@@ -72,7 +72,6 @@ a {
           justify-content: end;
   -ms-flex-line-pack: center;
       align-content: center;
-  padding-right: 1rem;
   width: 100%;
 }
 
@@ -197,6 +196,7 @@ a {
   background-position-y: 7rem;
   background-repeat: no-repeat;
   position: relative;
+  margin-bottom: 3rem;
 }
 
 .heroSection::after {
@@ -269,6 +269,33 @@ a {
   }
   .heroSection_inner h1 {
     font-size: 3rem;
+  }
+}
+
+.donationSection {
+  width: 100vw;
+  height: 400px;
+}
+
+.donationSection_desc {
+  text-align: center;
+}
+
+.donationSection_desc h1 {
+  font-family: "M-Medium";
+  font-size: 1.5rem;
+  text-align: center;
+  padding-bottom: 0.3rem;
+}
+
+.donationSection_desc p {
+  font-family: "M-Regular";
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 768px) {
+  .donationSection_desc h1 {
+    font-size: 2rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -60,7 +60,6 @@ a {
     display: grid;
     justify-content: end;
     align-content: center;
-    padding-right: 1rem;
     width: 100%;
     .menu {
       width: 100%;
@@ -150,6 +149,7 @@ a {
   background-position-y: 7rem;
   background-repeat: no-repeat;
   position: relative;
+  margin-bottom: 3rem;
   &::after {
     content: "";
     position: absolute;
@@ -201,6 +201,34 @@ a {
     &_inner {
       h1 {
         font-size: 3rem;
+      }
+    }
+  }
+}
+
+// DONATION MATTERS SECTION
+.donationSection {
+  width: 100vw;
+  height: 400px;
+  &_desc {
+    text-align: center;
+    h1 {
+      font-family: "M-Medium";
+      font-size: 1.5rem;
+      text-align: center;
+      padding-bottom: 0.3rem;
+    }
+    p {
+      font-family: "M-Regular";
+      font-size: 0.8rem;
+    }
+  }
+
+  // Media queries
+  @include tablet-portrait {
+    &_desc {
+      h1 {
+        font-size: 2rem;
       }
     }
   }
