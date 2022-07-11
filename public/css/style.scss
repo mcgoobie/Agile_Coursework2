@@ -1,0 +1,207 @@
+@import "_breakpoints.scss";
+
+// Fonts
+@font-face {
+  font-family: "M-Medium";
+  src: url("/fonts/Montserrat-Medium.ttf");
+}
+@font-face {
+  font-family: "M-Regular";
+  src: url("/fonts/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: "M-SemiBold";
+  src: url("/fonts/Montserrat-SemiBold.ttf");
+}
+@font-face {
+  font-family: "M-Black";
+  src: url("/fonts/Montserrat-Black.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// BODY
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f3f1ec;
+  overflow-x: hidden;
+  font-size: 1rem;
+}
+
+// A
+a {
+  text-decoration: none;
+  color: black;
+}
+
+// ******** HOME PAGE ********//
+
+// HEADER
+.mainHeader {
+  width: 100vw;
+  height: 50px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  &_logo {
+    font-family: "M-Black";
+    font-size: 1.5rem;
+  }
+  &_nav {
+    display: grid;
+    justify-content: end;
+    align-content: center;
+    padding-right: 1rem;
+    width: 100%;
+    .menu {
+      width: 100%;
+      display: none;
+      font-family: "M-Medium";
+      text-decoration: none;
+      list-style: none;
+    }
+    .hamburger {
+      cursor: pointer;
+      span {
+        width: 35px;
+        height: 3px;
+        background-color: black;
+        opacity: 1;
+        display: block;
+        margin: 0.5rem 0rem;
+      }
+    }
+  }
+  &_mobileMenu {
+    display: none;
+    font-family: "M-Medium";
+    grid-column: 1/4;
+    list-style: none;
+    text-decoration: none;
+    height: 100px;
+    .menu-item {
+      background-color: black;
+      color: white;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      padding: 0.9rem 0rem;
+    }
+  }
+  &_signupBtn {
+    display: none;
+    font-family: "M-SemiBold";
+    color: white;
+    width: 150px;
+    height: 50px;
+    border-radius: 2rem;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+  }
+
+  //Media Queries
+  @include desktop {
+    padding: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    &_logo {
+      font-family: "M-Black";
+      font-size: 2rem;
+    }
+    &_nav {
+      display: grid;
+      justify-content: stretch;
+      align-content: center;
+      width: 100%;
+      .menu {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .hamburger {
+        display: none;
+      }
+    }
+    &_signupBtn {
+      display: grid;
+      justify-self: end;
+    }
+  }
+}
+
+// HERO SECTION
+.heroSection {
+  width: 100vw;
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/hero-bg.jpg");
+  background-size: cover;
+  background-position-y: 7rem;
+  background-repeat: no-repeat;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: black;
+  }
+  &_inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-family: "M-SemiBold";
+      font-size: 2rem;
+      text-align: center;
+    }
+    p {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "M-Black";
+      width: 200px;
+      height: 50px;
+      background-color: black;
+      color: white;
+      border-radius: 2rem;
+      cursor: pointer;
+    }
+  }
+
+  // Media queries
+  @include tablet-portrait {
+    height: 450px;
+    background-position-y: -1%;
+    &_inner {
+      h1 {
+        font-size: 2.5rem;
+        width: 80%;
+      }
+    }
+  }
+  @include desktop {
+    height: 510px;
+    background-position-y: 0rem;
+    &_inner {
+      h1 {
+        font-size: 3rem;
+      }
+    }
+  }
+}
