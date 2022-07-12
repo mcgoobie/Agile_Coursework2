@@ -6,4 +6,14 @@ module.exports = function (app) {
     res.render("index.html");
   });
 
+  // Route for Register Page
+  app.get("/register", function (req, res) {
+    res.render("register.html");
+  });
+
+  // Route for login Page
+  app.get("/login", function (req, res) {
+    res.render("login.html");
+  });
+
 }
