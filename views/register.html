@@ -26,15 +26,17 @@
             placeholder="Confirm Password" maxlength="20" onfocusout="checkPassword()" required><br />
           <p class="formleft-warning"></p>
           <button class="next-btn" type="button" onclick="enableContactForm()">Next</button>
+          <p class="register-backToHome-tag">Go back to <a href="/">Home</a></p>
         </div>
         <div id="register-form-right" class="register-formbody-right">
           <h1>Personal Particulars</h1>
           <p class="register-num-heading">- Where/how may we contact you? -</p>
-          <input class="mobilenum-input" id="mobilenum" name="mobilenum" type="number" placeholder="Mobile number"
-            maxlength="8"><br />
-          <input class="email-input" id="email" name="email" type="text" placeholder="Email Address" required><br />
+          <input class="mobilenum-input" id="mobilenum" name="mobilenum" type="text" pattern="\d*" placeholder="Mobile number"
+            maxlength="8" required><br />
+          <input class="email-input" id="email" name="email" type="text" placeholder="Email Address" onfocusout="validateEmail(this)" required><br />
           <input class="address-input" id="address" name="address" type="text" placeholder="Address" required><br />
-          <input class="postal-input" id="postal" name="postal" type="number" placeholder="Postal Code" required><br />
+          <input class="postal-input" id="postal" name="postal" type="text" pattern="\d*" maxlength="6" placeholder="Postal Code" required><br />
+          <p class="formright-warning"></p>
           <button class="register-btn" id="register-btn" type="submit">Register</button>
         </div>
       </form>
@@ -114,6 +116,23 @@
         document.getElementsByClassName("formleft-warning")[0].style.display = "block";
         document.getElementsByClassName("formleft-warning")[0].innerHTML = "There have been fields left empty, fill them out before proceeding.";
         document.getElementsByClassName("next-btn")[0].disabled = true;
+      }
+    }
+
+    function validateEmail(obj) {
+      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      var email = document.getElementById(obj.id);
+
+      if (email.value.match(mailformat)) {
+        email.style.borderColor = "#ececec";
+        document.getElementsByClassName("formright-warning")[0].style.display = "none";
+        document.getElementById("register-btn").disabled = false;
+      }
+      else {
+        email.style.borderColor = "red";
+        document.getElementsByClassName("formright-warning")[0].style.display = "block";
+        document.getElementsByClassName("formright-warning")[0].innerHTML = "Please enter a valid email address.";
+        document.getElementById("register-btn").disabled = true;
       }
     }
   </script>

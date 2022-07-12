@@ -41,6 +41,10 @@ a {
   color: black;
 }
 
+a:hover {
+  font-style: italic;
+}
+
 .mainHeader {
   width: 100vw;
   height: 50px;
@@ -135,6 +139,10 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.mainHeader_signupBtn a {
+  color: white;
 }
 
 @media screen and (min-width: 1024px) {
@@ -251,7 +259,7 @@ a {
   cursor: pointer;
 }
 
-// Login and Register Pages
+/* ------------------- Login and Register Pages ------------------- */
 
 .login-body,
 .register-body {
@@ -259,6 +267,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "M-Regular";
 }
 
 .login-content,
@@ -281,10 +290,12 @@ a {
 
 .login-formbody h1 {
   margin-top: 25%;
+  font-family: "M-SemiBold";
 }
 
 .register-formbody-left h1,
 .register-formbody-right h1 {
+  font-family: "M-SemiBold";
   margin-top: 10%;
 }
 
@@ -322,7 +333,8 @@ a {
   width: 80%;
   padding: 10px;
   padding-left: 20px;
-  margin-bottom: 5%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
   border: 1px solid #ececec;
   border-radius: 20px;
 }
@@ -352,7 +364,8 @@ a {
   font-style: italic;
 }
 
-.formleft-warning {
+.formleft-warning,
+.formright-warning {
   color: red;
   font-style: italic;
   display: none;
@@ -375,8 +388,8 @@ a {
   width: 100px;
 }
 
-.next-btn {
-  margin-top: 0;
+.register-backToHome-tag {
+  margin-top: 2%;
 }
 
 .login-banner {
@@ -392,6 +405,7 @@ a {
 
 .login-bannertext {
   font-size: 42px;
+  font-family: "M-SemiBold";
 }
 
 @media screen and (min-width: 768px) {
