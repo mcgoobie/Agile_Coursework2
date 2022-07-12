@@ -204,12 +204,20 @@ a {
       }
     }
   }
+  @include lg {
+    &_inner {
+      h1 {
+        font-size: 4rem;
+      }
+    }
+  }
 }
 
 // DONATION MATTERS SECTION
 .donationSection {
   width: 100vw;
-  height: 400px;
+  height: 330px;
+  padding: 1rem;
   &_desc {
     text-align: center;
     h1 {
@@ -223,6 +231,32 @@ a {
       font-size: 0.8rem;
     }
   }
+  &_images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1.5rem 1rem;
+    .image {
+      width: 100px;
+      height: 50%;
+      background-image: url("../img/donation.jpg");
+      background-size: cover;
+      border: 3px solid black;
+      border-radius: 1rem;
+      display: grid;
+      justify-self: center;
+      align-self: center;
+    }
+    .imageCenter {
+      width: 100%;
+      height: 150px;
+      background-image: url("../img/donation.jpg");
+      background-size: cover;
+      border: 3px solid black;
+      border-radius: 1rem;
+      display: grid;
+      justify-self: center;
+    }
+  }
 
   // Media queries
   @include tablet-portrait {
@@ -231,5 +265,134 @@ a {
         font-size: 2rem;
       }
     }
+    &_images {
+      padding-top: 2.3rem;
+      .image {
+        width: 60%;
+      }
+    }
   }
+  @include desktop {
+    height: 80vh;
+    margin-bottom: 2rem;
+    &_images {
+      .image {
+        width: 60%;
+      }
+      .imageCenter {
+        height: 300px;
+      }
+    }
+  }
+}
+
+// REWARDS SECTION
+.rewardSection {
+  width: 100vw;
+  height: 350px;
+  padding: 1rem;
+  display: grid;
+  justify-content: center;
+  &_desc {
+    text-align: center;
+
+    h1 {
+      font-family: "M-Medium";
+      font-size: 1.5rem;
+      text-align: center;
+      padding-bottom: 0.3rem;
+    }
+    p {
+      font-family: "M-Regular";
+      font-size: 0.8rem;
+    }
+  }
+  &_img {
+    padding: 1.5rem 1rem;
+    width: 100%;
+    height: 200px;
+    background-image: url("../img/rewards.jpg");
+    background-size: cover;
+    border: 3px solid black;
+  }
+
+  // Media Queries
+  @include tablet-portrait {
+    &_desc {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+  @include desktop {
+    height: 60vh;
+    &_img {
+      display: grid;
+      justify-content: center;
+    }
+  }
+}
+
+// PROCESS SECTION
+.processSection {
+  width: 100vw;
+  height: 40vh;
+  padding: 1rem;
+  display: grid;
+  justify-content: center;
+  h1 {
+    font-family: "M-Medium";
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  &_processes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    .process {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 1rem;
+      padding: 2.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .img1 {
+        width: 40px;
+        height: 40px;
+        background-image: url("../img/icon1.png");
+        background-size: cover;
+      }
+      .img2 {
+        width: 40px;
+        height: 40px;
+        background-image: url("../img/icon2.png");
+        background-size: cover;
+      }
+      .img3 {
+        width: 40px;
+        height: 40px;
+        background-image: url("../img/icon3.png");
+        background-size: cover;
+      }
+
+      .headerText {
+        font-family: "M-SemiBold";
+        font-size: 1.2rem;
+        text-align: center;
+      }
+      .subText {
+        font-family: "M-Regular";
+        font-size: 0.8rem;
+        text-align: center;
+        padding: 0.5rem 0rem;
+      }
+    }
+  }
+
+  // Media Queries
 }
