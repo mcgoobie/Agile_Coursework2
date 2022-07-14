@@ -417,13 +417,14 @@ a {
 
 .processSection {
   width: 100vw;
-  height: 40vh;
+  height: 100vh;
   padding: 1rem;
   display: -ms-grid;
   display: grid;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .processSection h1 {
@@ -448,7 +449,7 @@ a {
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
-  padding: 2.5rem 1rem;
+  padding: 1.5rem 1rem 2.5rem 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -489,6 +490,7 @@ a {
   font-family: "M-SemiBold";
   font-size: 1.2rem;
   text-align: center;
+  padding-top: 0.5rem;
 }
 
 .processSection_processes .process .subText {
@@ -496,5 +498,238 @@ a {
   font-size: 0.8rem;
   text-align: center;
   padding: 0.5rem 0rem;
+}
+
+@media screen and (min-width: 768px) {
+  .processSection {
+    height: 50vh;
+  }
+  .processSection h1 {
+    font-size: 2rem;
+  }
+  .processSection_processes {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+  .processSection_processes .process {
+    padding: 1.5rem 1rem 2.5rem 1rem;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .processSection {
+    height: 90vh;
+    margin-bottom: 3rem;
+  }
+  .processSection_processes .process {
+    height: 400px;
+    padding-top: 0rem;
+    padding-bottom: 5rem;
+  }
+  .processSection_processes .process .headerText {
+    font-size: 1.4rem;
+  }
+  .processSection_processes .process .img1,
+  .processSection_processes .process .img2,
+  .processSection_processes .process .img3 {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.locationSection {
+  width: 100vw;
+  height: 50vh;
+  padding: 1rem;
+  display: -ms-grid;
+  display: grid;
+  margin-bottom: 2rem;
+}
+
+.locationSection_desc {
+  text-align: center;
+}
+
+.locationSection_desc h1 {
+  font-family: "M-Medium";
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.locationSection_desc p {
+  font-family: "M-Regular";
+  font-size: 0.8rem;
+}
+
+.locationSection_form .locationForm {
+  height: 100%;
+  padding: 1.4rem 2rem 1rem 2rem;
+  background-color: white;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 4rem;
+}
+
+.locationSection_form .locationForm label {
+  font-family: "M-Regular";
+}
+
+.locationSection_form .locationForm input[type="text"] {
+  width: 100%;
+  outline: none;
+  border: 2px solid #ccc;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  font-family: "M-Semibold";
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}
+
+.locationSection_form .locationForm .btn {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  font-family: "M-Semibold";
+  padding: 1rem 0rem 0rem 0rem;
+  cursor: pointer;
+}
+
+.locationSection_form .locationForm .btn p {
+  position: relative;
+}
+
+.locationSection_form .locationForm .btn p::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+}
+
+@media screen and (min-width: 768px) {
+  .locationSection {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 1.5rem 0rem 1.5rem;
+  }
+  .locationSection_desc {
+    padding-right: 1rem;
+    text-align: start;
+    padding-top: 1rem;
+  }
+  .locationSection_desc h1 {
+    font-size: 2rem;
+  }
+  .locationSection_form {
+    height: 60%;
+  }
+}
+
+.footer {
+  width: 100vw;
+  height: 50vh;
+  color: white;
+  background-color: black;
+  padding: 1.5rem 1rem;
+}
+
+.footer_top {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+
+.footer_top .col-2 {
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+
+.footer_top_col {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.footer_top_col h2 {
+  font-family: "M-Semibold";
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.footer_top_col h2:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 20%;
+  height: 2px;
+  background-color: white;
+}
+
+.footer_top_col p {
+  font-family: "M-Regular";
+  font-size: 0.8rem;
+}
+
+.footer_top_logo {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.footer_top_logo p {
+  font-family: "M-Black";
+  font-size: 1.5rem;
+}
+
+.footer_btm {
+  padding-top: 1rem;
+}
+
+.footer_btm p {
+  font-family: "M-SemiBold";
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    height: 35vh;
+    padding-top: 2rem;
+  }
+  .footer_top {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 1rem;
+  }
+  .footer_top .col-1 {
+    -ms-grid-column: 1;
+    grid-column: 1;
+  }
+  .footer_top .col-2 {
+    -ms-grid-column: 2;
+    grid-column: 2;
+  }
+  .footer_top_logo {
+    -ms-grid-column: 3;
+    grid-column: 3;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 /*# sourceMappingURL=style.css.map */
