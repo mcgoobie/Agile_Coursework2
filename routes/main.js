@@ -15,6 +15,11 @@ module.exports = function (app) {
     res.render("login.html");
   });
 
+  // Route for rewards page
+  app.get("/rewards", function (req, res) {
+    res.render("rewards.html");
+  });
+
   // app.post("/loginsuccess", function (req, res) {
   //   let sqlquery =
   //     "SELECT username FROM user WHERE username = ? AND password = ?";
