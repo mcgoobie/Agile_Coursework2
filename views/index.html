@@ -19,6 +19,9 @@
           <a href="/rewards"><li class="menu-item">Rewards</li></a>
           <a href="/articles"><li class="menu-item">Articles</li></a>
           <a href="/schedule"><li class="menu-item">Schedule pickup</li></a>
+          <% if(user) { %>
+          <p>Hello <%= user %></p>
+          <% } %>
         </ul>
         <div class="hamburger">
           <span></span>

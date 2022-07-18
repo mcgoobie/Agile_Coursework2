@@ -1,9 +1,17 @@
+const session = require('express-session');
 // The main.js file of your application
 module.exports = function (app) {
 
+  app.use(session({
+    secret: 'secretkey',
+    name: 'uniqueSessionID',
+    resave: true,
+    saveUninitialized: false
+  }))
+
   // Route for Home Page
   app.get("/", function (req, res) {
-    res.render("index.html");
+      res.render("index.html", {user:req.session.currentUser});
   });
 
   // Route for Register Page
@@ -19,11 +27,15 @@ module.exports = function (app) {
   app.post("/loginsuccess", function (req, res) {
     let sqlquery = "SELECT username FROM user WHERE username = ? AND password = ?";
     let loginDetails = [req.body.username, req.body.password];
+    let username = req.body.username;
+
+    let errorString = encodeURIComponent('Your username/password appears to be invalid. Please try again.');
 
     db.query(sqlquery, loginDetails, (err, result) => {
-      if (err) {
-        return console.error(err.message);
+      if (err || result == '') {
+        res.redirect("/login?errorMsg=" + errorString);
       } else {
+        req.session.currentUser = username;
         res.redirect("/");
       }
     });
@@ -42,4 +54,7 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/maps", function (req,res) {
+    res.render("maps.html");
+  })
 }
