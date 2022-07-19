@@ -1,0 +1,154 @@
+/* ------------------- Login and Register Pages ------------------- */
+
+.login-body,
+.register-body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "M-Regular";
+}
+
+.login-content,
+.register-content {
+  margin: 0;
+  background-color: #f3f1ec;
+  border-radius: 50px;
+  width: 1200px;
+  height: 700px;
+  box-shadow: 0px 0px 40px 20px #d0cecc;
+  position: relative;
+}
+
+.login-formbody {
+  float: left;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+}
+
+.login-formbody h1 {
+  margin-top: 25%;
+  font-family: "M-SemiBold";
+}
+
+.register-formbody-left h1,
+.register-formbody-right h1 {
+  font-family: "M-SemiBold";
+  margin-top: 10%;
+}
+
+.login-form {
+  width: 75%;
+  display: inline-block;
+  height: 500px;
+}
+
+.register-form {
+  width: 100%;
+  display: inline-block;
+  height: 100%;
+  border-radius: 50px;
+}
+
+.register-formbody-left {
+  float: left;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+}
+
+.register-formbody-right {
+  float: right;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  background-color: #eae7dd;
+  border-radius: 0px 50px 50px 0px;
+}
+
+.login-form input,
+.register-form input {
+  width: 80%;
+  padding: 10px;
+  padding-left: 20px;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  border: 1px solid #ececec;
+  border-radius: 20px;
+}
+
+.register-form input {
+  width: 60%;
+}
+
+.register-para-0 {
+  margin-top: 0px;
+  color: red;
+  font-style: italic;
+}
+
+.register-para-1 {
+  margin-top: 20px;
+  color: gray;
+}
+
+.register-para-2 {
+  margin-top: 80px;
+  color: gray;
+}
+
+.register-para-1 a,
+.register-para-2 a {
+  color: rgb(68, 68, 68);
+}
+
+.register-para-1 a:hover,
+.register-para-2 a:hover {
+  color: rgb(55, 55, 55);
+  font-style: italic;
+}
+
+.formleft-warning,
+.formright-warning {
+  color: red;
+  font-style: italic;
+  display: none;
+}
+
+.register-num-heading {
+  color: gray;
+  font-style: italic;
+}
+
+.login-btn,
+.next-btn,
+.register-btn {
+  margin-top: 5%;
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+  border: none;
+  padding: 15px;
+  width: 100px;
+}
+
+.register-backToHome-tag {
+  margin-top: 2%;
+}
+
+.login-banner {
+  float: right;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eae7dd;
+  border-radius: 0px 50px 50px 0px;
+}
+
+.login-bannertext {
+  font-size: 42px;
+  font-family: "M-SemiBold";
+}

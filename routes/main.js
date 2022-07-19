@@ -11,7 +11,7 @@ module.exports = function (app) {
 
   // Route for Home Page
   app.get("/", function (req, res) {
-      res.render("index.html", {user:req.session.currentUser});
+    res.render("index.html", { user: req.session.currentUser });
   });
 
   // Route for Register Page
@@ -22,6 +22,11 @@ module.exports = function (app) {
   // Route for login Page
   app.get("/login", function (req, res) {
     res.render("login.html");
+  });
+
+  // Route for rewards page
+  app.get("/rewards", function (req, res) {
+    res.render("rewards.html");
   });
 
   app.post("/loginsuccess", function (req, res) {
@@ -54,7 +59,13 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/maps", function (req,res) {
+  app.get("/maps", function (req, res) {
     res.render("maps.html");
   })
+
+  app.post("/locatePoints", function (req, res) {
+    let locationName = encodeURIComponent([req.body.donationPoint]);
+    console.log(locationName);
+    res.redirect("/maps?location=" + locationName);
+  });
 }

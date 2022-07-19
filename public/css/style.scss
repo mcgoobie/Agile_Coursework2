@@ -137,7 +137,7 @@ a {
   }
 }
 
-// HERO SECTION
+// // HERO SECTION
 .heroSection {
   width: 100vw;
   height: 380px;
@@ -187,7 +187,7 @@ a {
   // Media queries
   @include tablet-portrait {
     height: 450px;
-    background-position-y: -1%;
+    // background-position-y: -1%;
     &_inner {
       h1 {
         font-size: 2.5rem;
@@ -196,11 +196,18 @@ a {
     }
   }
   @include desktop {
-    height: 510px;
+    height: 90vh;
     background-position-y: 0rem;
     &_inner {
       h1 {
         font-size: 3rem;
+      }
+    }
+  }
+  @include lg {
+    &_inner {
+      h1 {
+        font-size: 4rem;
       }
     }
   }
@@ -209,7 +216,8 @@ a {
 // DONATION MATTERS SECTION
 .donationSection {
   width: 100vw;
-  height: 400px;
+  height: 330px;
+  padding: 1rem;
   &_desc {
     text-align: center;
     h1 {
@@ -223,6 +231,32 @@ a {
       font-size: 0.8rem;
     }
   }
+  &_images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1.5rem 1rem;
+    .image {
+      width: 100px;
+      height: 50%;
+      background-image: url("../img/donation.jpg");
+      background-size: cover;
+      border: 3px solid black;
+      border-radius: 1rem;
+      display: grid;
+      justify-self: center;
+      align-self: center;
+    }
+    .imageCenter {
+      width: 100%;
+      height: 150px;
+      background-image: url("../img/donation.jpg");
+      background-size: cover;
+      border: 3px solid black;
+      border-radius: 1rem;
+      display: grid;
+      justify-self: center;
+    }
+  }
 
   // Media queries
   @include tablet-portrait {
@@ -230,6 +264,354 @@ a {
       h1 {
         font-size: 2rem;
       }
+    }
+    &_images {
+      padding-top: 2.3rem;
+      .image {
+        width: 60%;
+      }
+    }
+  }
+  @include desktop {
+    height: 80vh;
+    margin-bottom: 2rem;
+    &_images {
+      .image {
+        width: 60%;
+      }
+      .imageCenter {
+        height: 300px;
+      }
+    }
+  }
+}
+
+// REWARDS SECTION
+.rewardSection {
+  width: 100vw;
+  height: 350px;
+  padding: 1rem;
+  display: grid;
+  justify-content: center;
+  &_desc {
+    text-align: center;
+
+    h1 {
+      font-family: "M-Medium";
+      font-size: 1.5rem;
+      text-align: center;
+      padding-bottom: 0.3rem;
+    }
+    p {
+      font-family: "M-Regular";
+      font-size: 0.8rem;
+    }
+  }
+  &_img {
+    padding: 1.5rem 1rem;
+    width: 100%;
+    height: 200px;
+    background-image: url("../img/rewards.jpg");
+    background-size: cover;
+    border: 3px solid black;
+  }
+
+  // Media Queries
+  @include tablet-portrait {
+    &_desc {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+  @include desktop {
+    height: 60vh;
+    &_img {
+      display: grid;
+      justify-content: center;
+    }
+  }
+}
+
+// PROCESS SECTION
+.processSection {
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  display: grid;
+  justify-content: center;
+  margin-bottom: 2rem;
+  h1 {
+    font-family: "M-Medium";
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  &_processes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    .process {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 1rem;
+      padding: 1.5rem 1rem 2.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .img1 {
+        width: 40px;
+        height: 40px;
+        background-image: url("../img/icon1.png");
+        background-size: cover;
+      }
+      .img2 {
+        width: 40px;
+        height: 40px;
+        background-image: url("../img/icon2.png");
+        background-size: cover;
+      }
+      .img3 {
+        width: 40px;
+        height: 40px;
+        background-image: url("../img/icon3.png");
+        background-size: cover;
+      }
+
+      .headerText {
+        font-family: "M-SemiBold";
+        font-size: 1.2rem;
+        text-align: center;
+        padding-top: 0.5rem;
+      }
+      .subText {
+        font-family: "M-Regular";
+        font-size: 0.8rem;
+        text-align: center;
+        padding: 0.5rem 0rem;
+      }
+    }
+  }
+
+  // Media Queries
+  @include tablet-portrait {
+    height: 50vh;
+    h1 {
+      font-size: 2rem;
+    }
+    &_processes {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      .process {
+        padding: 1.5rem 1rem 2.5rem 1rem;
+        height: 100%;
+      }
+    }
+  }
+  @include desktop {
+    height: 90vh;
+    margin-bottom: 3rem;
+    &_processes {
+      .process {
+        height: 400px;
+        padding-top: 0rem;
+        padding-bottom: 5rem;
+        .headerText {
+          font-size: 1.4rem;
+        }
+        .img1,
+        .img2,
+        .img3 {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+  }
+}
+
+// LOCATION SECTION
+.locationSection {
+  width: 100vw;
+  height: 50vh;
+  padding: 1rem;
+  display: grid;
+  margin-bottom: 2rem;
+  &_desc {
+    text-align: center;
+    h1 {
+      font-family: "M-Medium";
+      font-size: 1.5rem;
+      padding-bottom: 0.5rem;
+    }
+    p {
+      font-family: "M-Regular";
+      font-size: 0.8rem;
+    }
+  }
+  &_form {
+    .locationForm {
+      height: 100%;
+      padding: 1.4rem 2rem 1rem 2rem;
+      background-color: white;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 4rem;
+      label {
+        font-family: "M-Regular";
+      }
+      input[type="text"] {
+        width: 100%;
+        outline: none;
+        border: 2px solid #ccc;
+        border-radius: 2rem;
+        padding: 0.5rem 1rem;
+        font-family: "M-Semibold";
+        font-size: 1rem;
+        margin-top: 0.2rem;
+      }
+      .btn {
+        width: 100%;
+        display: grid;
+        justify-content: end;
+        font-family: "M-Semibold";
+        padding: 1rem 0rem 0rem 0rem;
+        cursor: pointer;
+        p {
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+          }
+        }
+      }
+    }
+  }
+
+  // Media Queries
+  @include tablet-portrait {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 1.5rem 0rem 1.5rem;
+    &_desc {
+      padding-right: 1rem;
+      text-align: start;
+      padding-top: 1rem;
+      h1 {
+        font-size: 2rem;
+      }
+    }
+    &_form {
+      height: 60%;
+    }
+  }
+}
+
+// FOOTER
+.footer {
+  width: 100vw;
+  height: 50vh;
+  color: white;
+  background-color: black;
+  padding: 1.5rem 1rem;
+  &_top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    .col-2 {
+      grid-column: 1;
+    }
+    &_col {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      h2 {
+        font-family: "M-Semibold";
+        position: relative;
+        margin-bottom: 1rem;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 20%;
+          height: 2px;
+          background-color: white;
+        }
+      }
+      p {
+        font-family: "M-Regular";
+        font-size: 0.8rem;
+      }
+    }
+    &_logo {
+      grid-column: 2;
+      display: grid;
+      justify-content: center;
+      p {
+        font-family: "M-Black";
+        font-size: 1.5rem;
+      }
+    }
+  }
+  &_btm {
+    padding-top: 1rem;
+    p {
+      font-family: "M-SemiBold";
+      font-size: 0.8rem;
+      text-align: center;
+    }
+  }
+
+  // Media Queries
+  @include tablet-portrait {
+    height: 35vh;
+    padding-top: 2rem;
+    &_top {
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 1rem;
+      .col-1 {
+        grid-column: 1;
+      }
+      .col-2 {
+        grid-column: 2;
+      }
+      &_logo {
+        grid-column: 3;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+// ******** REWARDS PAGE ********//
+.rewardsHeroSection {
+  width: 100vw;
+  height: 280px;
+  text-align: center;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &_inner {
+    h1 {
+      font-family: "M-SemiBold";
+      font-size: 2rem;
+      text-align: center;
+    }
+    p {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "M-Regular";
+      font-size: 0.9rem;
     }
   }
 }

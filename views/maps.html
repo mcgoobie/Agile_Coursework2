@@ -5,64 +5,24 @@
   <title>Maps</title>
 </head>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mapStyling.css">
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpmobSIOtFht6MrYp3ytLRTHBS5MyobY8&libraries=places&callback=initMap">
+  </script>
+<script type="text/javascript" src="scripts/googleAPI.js"></script>
 
-<body>
-  <input type="text" id="location-txtfield" name="location">
-  <button type="button" onclick="getQuery()">Search</button>
-  <div id="map" style="width:75%;height:60%;">
+<body class="map-body">
+  <div class="map-content">
+    <h1>Location of donation drive</h1>
+    <div class="map-canvas" id="map">
+    </div>
+    <p>Go back to <a href="/">Home</a></p>
   </div>
   <script>
-    var map;
-    var service;
-    var infowindow;
-
-    function initMap() {
-      // centres map on this co-ordinates
-      var singapore = new google.maps.LatLng(1.374948, 103.878960);
-
-      infowindow = new google.maps.InfoWindow();
-
-      map = new google.maps.Map(
-        document.getElementById('map'), { center: singapore, zoom: 15 });
-    }
-
-    function getQuery() {
-      var location = document.getElementById('location-txtfield').value;
-
-      var request = {
-        query: location,
-        fields: ['name', 'geometry'],
-      };
-
-      var service = new google.maps.places.PlacesService(map);
-
-      service.findPlaceFromQuery(request, function (results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-          }
-          map.setCenter(results[0].geometry.location);
-        }
-      });
-    }
-
-    function createMarker(place) {
-      if (!place.geometry || !place.geometry.location) return;
-
-      const marker = new google.maps.Marker({
-        map,
-        position: place.geometry.location,
-      });
-
-      google.maps.event.addListener(marker, "click", () => {
-        infowindow.setContent(place.name || "");
-        infowindow.open(map);
-      });
-    }
+    window.addEventListener('load', (event) => {
+      getQuery()
+    });
   </script>
-  <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpmobSIOtFht6MrYp3ytLRTHBS5MyobY8&libraries=places&callback=initMap">
-    </script>
 </body>
 
 </html>

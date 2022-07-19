@@ -5,7 +5,7 @@
   <title>Login</title>
 </head>
 <link rel="stylesheet" href="css/style.css">
-
+<link rel="stylesheet" href="css/signInStyling.css">
 <body>
   <div class="login-body">
     <div class="login-content">
@@ -26,7 +26,7 @@
     </div>
   </div>
   <script type="text/javascript">
-    window.onload = function () {
+    window.addEventListener('load', (event) => {
       const params = new URLSearchParams(window.location.search);
       var error = params.get('errorMsg');
 
@@ -36,7 +36,7 @@
         document.getElementsByClassName("username-input")[0].style.borderColor = "red";
         document.getElementsByClassName("password-input")[0].style.borderColor = "red";
       }
-    }
+    });
   </script>
 </body>
 
