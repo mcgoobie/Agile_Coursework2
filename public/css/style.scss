@@ -68,6 +68,7 @@ a {
       text-decoration: none;
       list-style: none;
     }
+
     .hamburger {
       cursor: pointer;
       span {
@@ -106,6 +107,9 @@ a {
     background-color: black;
     justify-content: center;
     align-items: center;
+    .primaryBtn {
+      color: white;
+    }
   }
 
   //Media Queries
@@ -613,5 +617,77 @@ a {
       font-family: "M-Regular";
       font-size: 0.9rem;
     }
+  }
+}
+
+.rewardsOfferSection {
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    text-align: center;
+    font-family: "M-SemiBold";
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    text-decoration: underline;
+  }
+
+  @include desktop {
+    height: 80vh;
+    p {
+      font-size: 1.8rem;
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  cursor: pointer;
+
+  @include tablet-portrait {
+    width: 90%;
+    height: 80%;
+  }
+  @include desktop {
+    width: 95%;
+    height: 95%;
+  }
+}
+
+.mySlides {
+  display: none;
+  padding: 1rem;
+  padding-top: 0rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.divImage1 {
+  width: 100%;
+  height: 200px;
+  background-image: url("../img/goofy.jpg");
+  background-size: cover;
+  border: 4px solid black;
+  border-radius: 2rem;
+  @include desktop {
+    height: 350px;
+  }
+}
+
+.divImage2 {
+  width: 100%;
+  height: 200px;
+  background-image: url("../img/resort.jpg");
+  background-size: cover;
+  border: 4px solid black;
+  border-radius: 2rem;
+  @include desktop {
+    height: 350px;
   }
 }
