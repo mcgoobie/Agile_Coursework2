@@ -1,0 +1,25 @@
+.map-body h1 {
+  font-family: "M-SemiBold";
+  font-size: 2rem;
+  text-align: center;
+}
+
+.map-content {
+  width: 60%;
+  height: 50%;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.map-content p {
+  margin-top: 10px;
+  font-family: "M-Regular";
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+.map-canvas {
+  width: 100%;
+  height: 100%;
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+}

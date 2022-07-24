@@ -41,6 +41,10 @@ a {
   color: black;
 }
 
+a:hover {
+  font-style: italic;
+}
+
 .mainHeader {
   width: 100vw;
   height: 50px;
@@ -135,6 +139,10 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.mainHeader_signupBtn a {
+  color: white;
 }
 
 @media screen and (min-width: 1024px) {
