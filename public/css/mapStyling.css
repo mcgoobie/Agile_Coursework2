@@ -6,9 +6,15 @@
 
 .map-content {
   width: 60%;
-  height: 50%;
+  height: 70%;
   margin: auto;
   margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 1.4rem 2rem 1rem 2rem;
+  background-color: white;
+  -webkit-box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+  border-radius: 4rem;
 }
 
 .map-content p {
@@ -20,6 +26,6 @@
 
 .map-canvas {
   width: 100%;
-  height: 100%;
-  box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+  height: 80%;
+  /* box-shadow: 5px 5px 5px rgb(0 0 0 / 20%); */
 }

@@ -12,12 +12,81 @@
 <script type="text/javascript" src="scripts/googleAPI.js"></script>
 
 <body class="map-body">
+  <!-- HEADER -->
+  <header class="mainHeader">
+    <!-- Logo -->
+    <div class="mainHeader_logo"><a href="/">uGive</a></div>
+    <!-- Nav -->
+    <nav class="mainHeader_nav">
+      <ul class="menu">
+        <a href="/about">
+          <li class="menu-item">About</li>
+        </a>
+        <a href="/rewards">
+          <li class="menu-item menu-active">Rewards</li>
+        </a>
+        <a href="/articles">
+          <li class="menu-item">Articles</li>
+        </a>
+        <a href="/schedule">
+          <li class="menu-item">Schedule pickup</li>
+        </a>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <!-- Sign in btn -->
+    <div class="mainHeader_signupBtn">
+      <p>Sign in/Login</p>
+    </div>
+    <ul class="mainHeader_mobileMenu">
+      <a href="/about">
+        <li class="menu-item">About</li>
+      </a>
+      <a href="/rewards">
+        <li class="menu-item">Rewards</li>
+      </a>
+      <a href="/articles">
+        <li class="menu-item">Articles</li>
+      </a>
+      <a href="/schedule">
+        <li class="menu-item">Schedule pickup</li>
+      </a>
+    </ul>
+  </header>
+  <!-- END OF HEADER -->
   <div class="map-content">
     <h1>Location of donation drive</h1>
     <div class="map-canvas" id="map">
     </div>
     <p>Go back to <a href="/">Home</a></p>
   </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer_top">
+      <div class="footer_top_col col-1">
+        <h2>FAQs</h2>
+        <p>Lorem ipsum dolor sit amet ?</p>
+        <p>Lorem ipsum dolor sit amet ?</p>
+        <p>Lorem ipsum dolor sit amet ?</p>
+      </div>
+      <div class="footer_top_col col-2">
+        <h2>Support</h2>
+        <p>Lorem ipsum dolor sit amet ?</p>
+        <p>Lorem ipsum dolor sit amet ?</p>
+        <p>Lorem ipsum dolor sit amet ?</p>
+      </div>
+      <div class="footer_top_logo">
+        <p>uGive</p>
+      </div>
+    </div>
+    <div class="footer_btm">
+      <p>Copyright uGive 2022</p>
+    </div>
+  </footer>
   <script>
     window.addEventListener('load', (event) => {
       getQuery()
