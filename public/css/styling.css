@@ -1,0 +1,15 @@
+.forgetPasswordSection {
+  height: 100%;
+  margin: 5%;
+}
+
+.forgetPasswordSection h1 {
+  font-family: "M-Medium";
+  font-size: 1.5rem;
+  padding-bottom: 0.3rem;
+}
+
+.forgetPassword-content p {
+  font-family: "M-Regular";
+  font-size: 0.8rem;
+}

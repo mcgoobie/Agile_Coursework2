@@ -24,6 +24,11 @@ module.exports = function (app) {
     res.render("login.html");
   });
 
+    // Route for forgetPassword Page
+    app.get("/forgetPassword", function (req, res) {
+      res.render("forgetpassword.html");
+    });
+
   // Route for rewards page
   app.get("/rewards", function (req, res) {
     res.render("rewards.html");
