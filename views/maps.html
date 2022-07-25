@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Maps</title>
+</head>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mapStyling.css">
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpmobSIOtFht6MrYp3ytLRTHBS5MyobY8&libraries=places&callback=initMap">
+  </script>
+<script type="text/javascript" src="scripts/googleAPI.js"></script>
+
+<body class="map-body">
+  <div class="map-content">
+    <h1>Location of donation drive</h1>
+    <div class="map-canvas" id="map">
+    </div>
+    <p>Go back to <a href="/">Home</a></p>
+  </div>
+  <script>
+    window.addEventListener('load', (event) => {
+      getQuery()
+    });
+  </script>
+</body>
+
+</html>
