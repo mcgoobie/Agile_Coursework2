@@ -34,6 +34,11 @@ module.exports = function (app) {
     res.render("rewards.html");
   });
 
+  // Route for rewards page
+  app.get("/editprofile", function (req, res) {
+    res.render("editprofile.html", { user: req.session.currentUser });
+  });
+
   app.post("/loginsuccess", function (req, res) {
     let sqlquery = "SELECT username FROM user WHERE username = ? AND password = ?";
     let loginDetails = [req.body.username, req.body.password];

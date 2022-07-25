@@ -12,4 +12,8 @@
 .forgetPassword-content p {
   font-family: "M-Regular";
   font-size: 0.8rem;
+
+.editprofile-section {
+  height: 800px;
+  border: 1px solid red;
 }
