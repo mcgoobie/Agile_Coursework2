@@ -72,10 +72,12 @@
         </h2>
         <button class="editprofile-btn" id="edit-button" onclick="editButtonClicked()">Edit Profile</button>
         <div class="editprofile-btn-div">
-          <button class="editprofile-btn profile-save-btn" id="save-button" onclick="saveButtonClicked()">Save Changes</button>
+          <button class="editprofile-btn profile-save-btn" id="save-button" onclick="saveButtonClicked()">Save
+            Changes</button>
           <button class="editprofile-btn cancel-changes-btn" id="cancel-button"
             onclick="cancelButtonClicked()">Cancel</button>
         </div>
+        <p id="error-msg" class="edit-error-field">Fields cannot be left empty!</p>
       </div>
     </div>
     <div class="editprofile-botdiv">
@@ -86,11 +88,11 @@
             <div class="profile-left-line"></div>
             <div class="editprofile-divbox">
               <p>First Name</p>
-              <input class="profile-fields" type="text" name="fName" value="<%= profile.fName %>" disabled required />
+              <input class="profile-fields" type="text" id="fName" name="fName" value="<%= profile.fName %>"
+                onchange="updateInput(this.id, this.value)" disabled required />
               <p>Last Name</p>
-              <input class="profile-fields" type="text" name="lName" value="<%= profile.lName %>" disabled required />
-              <p>Username</p>
-              <input class="profile-fields" type="text" name="userName" value="<%= profile.userName %>" disabled required />
+              <input class="profile-fields" type="text" id="lName" name="lName" value="<%= profile.lName %>"
+                onchange="updateInput(this.id, this.value)" disabled required />
             </div>
           </div>
           <div class="editprofile-botright">
@@ -98,14 +100,17 @@
             <div class="profile-right-line"></div>
             <div class="editprofile-divbox">
               <p>Email Address</p>
-              <input class="profile-fields" type="text" name="emailAddr" value="<%= profile.emailAddr %>" disabled required />
+              <input class="profile-fields" type="text" id="emailAddr" name="emailAddr" value="<%= profile.emailAddr %>"
+                onchange="updateInput(this.id, this.value)" disabled required />
               <p>Contact Number</p>
-              <input class="profile-fields" type="number" name="mobileNumber" value="<%= profile.mobileNumber %>"
-                disabled />
+              <input class="profile-fields" type="text" pattern="\d*" id="mobileNumber" name="mobileNumber"
+                value="<%= profile.mobileNumber %>" onchange="updateInput(this.id, this.value)" disabled />
               <p>Address</p>
-              <input class="profile-fields" type="text" name="address" value="<%= profile.address %>" disabled required />
+              <input class="profile-fields" type="text" id="address" name="address" value="<%= profile.address %>"
+                onchange="updateInput(this.id, this.value)" disabled required />
               <p>Postal Code</p>
-              <input class="profile-fields" type="text" name="postalCode" value="<%= profile.postalCode %>" disabled required />
+              <input class="profile-fields" type="text" id="postalCode" name="postalCode"
+                value="<%= profile.postalCode %>" onchange="updateInput(this.id, this.value)" disabled required />
             </div>
           </div>
         </form>
@@ -143,12 +148,33 @@
       var elements = form.elements;
       for (var i = 0, len = elements.length; i < len; ++i) {
         elements[i].disabled = false;
+        elements[i].style.borderColor = "#d0bf92";
       }
 
       document.getElementById("edit-button").style.display = "none";
 
       document.getElementById("save-button").style.display = "grid";
       document.getElementById("cancel-button").style.display = "grid";
+    }
+
+    function updateInput(id, type) {
+      console.log(type);
+      document.getElementById(id).value = type;
+    }
+
+    function checkFilled(formName) {
+      var form = document.getElementById(formName);
+      var childElems = form.elements;
+      var count = 0;
+
+      for (var i = 0, len = childElems.length; i < len; ++i) {
+        if (childElems[i].value != "")
+          count += 1;
+      }
+
+      if (childElems.length == count) {
+        return true;
+      }
     }
 
     function cancelButtonClicked() {
@@ -165,8 +191,12 @@
     }
 
     function saveButtonClicked() {
-      var form = document.getElementById("edit-form");
-      form.submit();
+      if (checkFilled('edit-form')) {
+        var form = document.getElementById("edit-form");
+        form.submit();
+      } else {
+        document.getElementById('error-msg').style.display = "block";
+      }
     }
   </script>
 </body>
