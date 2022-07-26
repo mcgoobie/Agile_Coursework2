@@ -24,10 +24,10 @@ module.exports = function (app) {
     res.render("login.html");
   });
 
-    // Route for forgetPassword Page
-    app.get("/forgetPassword", function (req, res) {
-      res.render("forgetpassword.html");
-    });
+  // Route for forgetPassword Page
+  app.get("/forgetPassword", function (req, res) {
+    res.render("forgetpassword.html");
+  });
 
   // Route for rewards page
   app.get("/rewards", function (req, res) {
@@ -36,7 +36,16 @@ module.exports = function (app) {
 
   // Route for rewards page
   app.get("/editprofile", function (req, res) {
-    res.render("editprofile.html", { user: req.session.currentUser });
+    let sqlquery = "SELECT userName, fName, lName, DoB, mobileNumber, emailAddr, address, postalCode FROM user WHERE username = ?";
+    let currentUser = [req.session.currentUser];
+
+    db.query(sqlquery, currentUser, (err, result) => {
+      if (err || result == '') {
+        res.redirect("/");
+      } else {
+        res.render("editprofile.html", { user: req.session.currentUser, profileInfo: result });
+      }
+    });
   });
 
   app.post("/loginsuccess", function (req, res) {

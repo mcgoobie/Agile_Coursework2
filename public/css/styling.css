@@ -12,8 +12,128 @@
 .forgetPassword-content p {
   font-family: "M-Regular";
   font-size: 0.8rem;
+}
 
 .editprofile-section {
-  height: 800px;
-  border: 1px solid red;
+  height: 100%;
+  margin: 5%;
+}
+
+.editprofile-topdiv,
+.editprofile-botdiv {
+  height: 50%;
+}
+
+.profile-pic {
+  background-color: white;
+  margin: auto;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 50%;
+}
+
+.profilepic-container h2 {
+  font-family: "M-Medium";
+  font-size: 1.5rem;
+  padding-bottom: 0.3rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 300px;
+}
+
+.editprofile-btn {
+  margin: auto;
+  display: grid;
+  -ms-grid-column-align: end;
+  justify-self: end;
+  font-family: "M-SemiBold";
+  font-size: 1rem;
+  color: white;
+  width: 150px;
+  height: 50px;
+  border-radius: 2rem;
+  background-color: black;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.editprofile-btn-div {
+  margin: auto;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-save-btn,
+.cancel-changes-btn {
+  display: none;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.editprofile-botleft,
+.editprofile-botright {
+  width: 50%;
+  height: 100%;
+  padding: 1%;
+}
+
+.editprofile-botleft {
+  float: left;
+}
+
+.editprofile-botright {
+  float: right;
+}
+
+.editprofile-para-header {
+  font-family: "M-SemiBold";
+  font-size: 1.0rem;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.profile-left-line {
+  border-top: 1px solid black;
+}
+
+.profile-right-line {
+  border-top: 1px solid black;
+}
+
+.editprofile-divbox {
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px 50px 20px 50px;
+  width: 80%;
+  height: fit-content;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+}
+
+.editprofile-divbox p {
+  font-family: "M-SemiBold";
+  font-size: 1.0rem;
+}
+
+.profile-fields {
+  font-family: "M-Regular";
+  font-size: 1rem;
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 20px;
+  padding: 5px;
+  padding-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }

@@ -62,7 +62,55 @@
 
   <!-- HERO SECTION -->
   <section class="editprofile-section">
-
+    <div class="editprofile-topdiv">
+      <div class="profilepic-container">
+        <div class="profile-pic">
+          <img class="profile-img" src="../img/blank-profile-picture-973460_640.png" />
+        </div>
+        <h2>
+          <%= user %>
+        </h2>
+        <button class="editprofile-btn" id="edit-button" onclick="editButtonClicked()">Edit Profile</button>
+        <div class="editprofile-btn-div">
+          <button class="editprofile-btn profile-save-btn" id="save-button" onclick="saveButtonClicked()">Save Changes</button>
+          <button class="editprofile-btn cancel-changes-btn" id="cancel-button"
+            onclick="cancelButtonClicked()">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div class="editprofile-botdiv">
+      <% profileInfo.forEach(function(profile){ %>
+        <form id="edit-form" action="/updateprofile" method="post">
+          <div class="editprofile-botleft">
+            <p class="editprofile-para-header">My Information</p>
+            <div class="profile-left-line"></div>
+            <div class="editprofile-divbox">
+              <p>First Name</p>
+              <input class="profile-fields" type="text" name="fName" value="<%= profile.fName %>" disabled required />
+              <p>Last Name</p>
+              <input class="profile-fields" type="text" name="lName" value="<%= profile.lName %>" disabled required />
+              <p>Username</p>
+              <input class="profile-fields" type="text" name="userName" value="<%= profile.userName %>" disabled required />
+            </div>
+          </div>
+          <div class="editprofile-botright">
+            <p class="editprofile-para-header">Where to contact me</p>
+            <div class="profile-right-line"></div>
+            <div class="editprofile-divbox">
+              <p>Email Address</p>
+              <input class="profile-fields" type="text" name="emailAddr" value="<%= profile.emailAddr %>" disabled required />
+              <p>Contact Number</p>
+              <input class="profile-fields" type="number" name="mobileNumber" value="<%= profile.mobileNumber %>"
+                disabled />
+              <p>Address</p>
+              <input class="profile-fields" type="text" name="address" value="<%= profile.address %>" disabled required />
+              <p>Postal Code</p>
+              <input class="profile-fields" type="text" name="postalCode" value="<%= profile.postalCode %>" disabled required />
+            </div>
+          </div>
+        </form>
+        <% }) %>
+    </div>
   </section>
   <!-- END OF HERO SECTION -->
 
@@ -89,6 +137,38 @@
       <p>Copyright uGive 2022</p>
     </div>
   </footer>
+  <script>
+    function editButtonClicked() {
+      var form = document.getElementById("edit-form");
+      var elements = form.elements;
+      for (var i = 0, len = elements.length; i < len; ++i) {
+        elements[i].disabled = false;
+      }
+
+      document.getElementById("edit-button").style.display = "none";
+
+      document.getElementById("save-button").style.display = "grid";
+      document.getElementById("cancel-button").style.display = "grid";
+    }
+
+    function cancelButtonClicked() {
+      var form = document.getElementById("edit-form");
+      var elements = form.elements;
+      for (var i = 0, len = elements.length; i < len; ++i) {
+        elements[i].disabled = true;
+      }
+
+      document.getElementById("edit-button").style.display = "grid";
+
+      document.getElementById("save-button").style.display = "none";
+      document.getElementById("cancel-button").style.display = "none";
+    }
+
+    function saveButtonClicked() {
+      var form = document.getElementById("edit-form");
+      form.submit();
+    }
+  </script>
 </body>
 
 </html>
