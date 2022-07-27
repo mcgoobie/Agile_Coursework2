@@ -48,7 +48,7 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/updateProfile", function (req, res) {
+  app.post("/editprofile", function (req, res) {
     let sqlquery = "UPDATE user SET fName = ?, lName = ?, mobileNumber = ?, emailAddr = ?, address = ?, postalCode = ? WHERE userName = ?"
     let updatedProfile = [req.body.fName, req.body.lName, req.body.mobileNumber, req.body.emailAddr, req.body.address, req.body.postalCode, req.session.currentUser];
 
@@ -56,8 +56,12 @@ module.exports = function (app) {
       if (err || result == '') {
         return console.error(err.message);
       } else {
-        console.log("updateProfile" + { user: req.session.currentUser, profileInfo: result.rows });
-        res.render("editprofile.html", { user: req.session.currentUser, profileInfo: result.rows });
+        let sqlquery = "SELECT fName, lName, DoB, mobileNumber, emailAddr, address, postalCode FROM user WHERE username = ?";
+        let currentUser = [req.session.currentUser];
+
+        db.query(sqlquery, currentUser, (err, result) => {
+            res.render("editprofile.html", { user: req.session.currentUser, profileInfo: result });
+        });
       }
     });
   });
