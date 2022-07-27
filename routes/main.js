@@ -1,4 +1,5 @@
 const session = require('express-session');
+const nodemailer = require('nodemailer');
 // The main.js file of your application
 module.exports = function (app) {
 
@@ -26,7 +27,35 @@ module.exports = function (app) {
 
   // Route for forgetPassword Page
   app.get("/forgetPassword", function (req, res) {
-    res.render("forgetpassword.html");
+    res.render("forgetpassword.html", { user: req.session.currentUser });
+  });
+
+  app.post("/sendNewPassword", function(req, res) {
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'owenleeweihern@gmail.com',
+        pass: 'Weihern207$'
+      }
+    });
+  
+    var mailOptions = {
+      // Won't work, need to set up business account for gmail to proceed, i no money :c .
+      from: '"The uGive Team" <uGivecontact@gmail.com>',
+      to: req.body.email,
+      subject: 'uGive Account Password Reset',
+      text: 'Hello! We noticed a request to change your uGive password, as such we are sending you your password here! Please try to remember it :)'
+    };
+  
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+    res.send("Email sent.");
   });
 
   // Route for rewards page
