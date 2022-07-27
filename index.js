@@ -6,7 +6,6 @@ const mysql = require("mysql");
 const port = 5000;
 const path = require("path");
 
-
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",

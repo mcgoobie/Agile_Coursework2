@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../css/style.css" rel="stylesheet" />
+  <link href="../css/styling.css" rel="stylesheet" />
+  <script type="text/javascript" src="scripts/mail.js"></script>
+  <title>uGive</title>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="mainHeader">
+    <!-- Logo -->
+    <div class="mainHeader_logo"><a href="/">uGive</a></div>
+    <!-- Nav -->
+    <nav class="mainHeader_nav">
+      <ul class="menu">
+        <a href="/about">
+          <li class="menu-item">About</li>
+        </a>
+        <a href="/rewards">
+          <li class="menu-item menu-active">Rewards</li>
+        </a>
+        <a href="/articles">
+          <li class="menu-item">Articles</li>
+        </a>
+        <a href="/schedule">
+          <li class="menu-item">Schedule pickup</li>
+        </a>
+        <% if(user) { %>
+          <p>Hello <%= user %>
+          </p>
+          <% } %>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <!-- Sign in btn -->
+    <div class="mainHeader_signupBtn"><a href="/login">Sign Up/Login</a></div>
+    <ul class="mainHeader_mobileMenu">
+      <a href="/about">
+        <li class="menu-item">About</li>
+      </a>
+      <a href="/rewards">
+        <li class="menu-item">Rewards</li>
+      </a>
+      <a href="/articles">
+        <li class="menu-item">Articles</li>
+      </a>
+      <a href="/schedule">
+        <li class="menu-item">Schedule pickup</li>
+      </a>
+    </ul>
+  </header>
+  <!-- END OF HEADER -->
+
+  <!-- HERO SECTION -->
+  <section class="editprofile-section">
+    <div class="editprofile-topdiv">
+      <div class="profilepic-container">
+        <div class="profile-pic">
+          <img class="profile-img" src="../img/blank-profile-picture-973460_640.png" />
+        </div>
+        <h2>
+          <%= user %>
+        </h2>
+        <button class="editprofile-btn" id="edit-button" onclick="editButtonClicked()">Edit Profile</button>
+        <div class="editprofile-btn-div">
+          <button class="editprofile-btn profile-save-btn" id="save-button" onclick="saveButtonClicked()">Save
+            Changes</button>
+          <button class="editprofile-btn cancel-changes-btn" id="cancel-button"
+            onclick="cancelButtonClicked()">Cancel</button>
+        </div>
+        <p id="error-msg" class="edit-error-field">Fields cannot be left empty!</p>
+      </div>
+    </div>
+    <div class="editprofile-botdiv">
+      <% profileInfo.forEach(function(profile){ %>
+        <form id="edit-form" action="/editprofile" method="post">
+          <div class="editprofile-botleft">
+            <p class="editprofile-para-header">My Information</p>
+            <div class="profile-left-line"></div>
+            <div class="editprofile-divbox">
+              <p>First Name: </p>
+              <input class="profile-fields" type="text" id="fName" name="fName" value="<%= profile.fName %>"
+                onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field');" disabled required />
+              <p>Last Name: </p>
+              <input class="profile-fields" type="text" id="lName" name="lName" value="<%= profile.lName %>"
+                onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field');" disabled required />
+            </div>
+          </div>
+          <div class="editprofile-botright">
+            <p class="editprofile-para-header">Where to contact me</p>
+            <div class="profile-right-line"></div>
+            <div class="editprofile-divbox">
+              <p>Email Address: </p>
+              <input class="profile-fields" type="text" id="emailAddr" name="emailAddr" value="<%= profile.emailAddr %>"
+                onchange="updateInput(this.id, this.value)" disabled required />
+              <p>Contact Number: </p>
+              <input class="profile-fields" type="text" pattern="\d*" id="mobileNumber" name="mobileNumber"
+                value="<%= profile.mobileNumber %>" onchange="updateInput(this.id, this.value)" disabled />
+              <p>Address</p>
+              <input class="profile-fields" type="text" id="address" name="address" value="<%= profile.address %>"
+                onchange="updateInput(this.id, this.value)" disabled required />
+              <p>Postal Code: </p>
+              <input class="profile-fields" type="text" id="postalCode" name="postalCode"
+                value="<%= profile.postalCode %>" onchange="updateInput(this.id, this.value)" disabled required />
+            </div>
+          </div>
+        </form>
+        <% }) %>
+    </div>
+  </section>
+  <!-- END OF HERO SECTION -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer_top">
+      <div class="footer_top_col col-1">
+        <h2>FAQs</h2>
+        <p>Lorem ipsum dolor sit amet ?</p>
+        <p>Lorem ipsum dolor sit amet ?</p>
+        <p>Lorem ipsum dolor sit amet ?</p>
+      </div>
+      <div class="footer_top_col col-2">
+        <h2>Support</h2>
+        <p>Lorem ipsum dolor sit amet ?</p>
+        <p>Lorem ipsum dolor sit amet ?</p>
+        <p>Lorem ipsum dolor sit amet ?</p>
+      </div>
+      <div class="footer_top_logo">
+        <p>uGive</p>
+      </div>
+    </div>
+    <div class="footer_btm">
+      <p>Copyright uGive 2022</p>
+    </div>
+  </footer>
+</body>
+
+</html>

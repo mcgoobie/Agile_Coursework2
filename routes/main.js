@@ -1,4 +1,5 @@
 const session = require('express-session');
+const nodemailer = require('nodemailer');
 // The main.js file of your application
 module.exports = function (app) {
 
@@ -24,9 +25,74 @@ module.exports = function (app) {
     res.render("login.html");
   });
 
+  // Route for forgetPassword Page
+  app.get("/forgetPassword", function (req, res) {
+    res.render("forgetpassword.html", { user: req.session.currentUser });
+  });
+
+  app.post("/sendNewPassword", function(req, res) {
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'owenleeweihern@gmail.com',
+        pass: 'Weihern207$'
+      }
+    });
+  
+    var mailOptions = {
+      // Won't work, need to set up business account for gmail to proceed, i no money :c .
+      from: '"The uGive Team" <uGivecontact@gmail.com>',
+      to: req.body.email,
+      subject: 'uGive Account Password Reset',
+      text: 'Hello! We noticed a request to change your uGive password, as such we are sending you your password here! Please try to remember it :)'
+    };
+  
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+    res.send("Email sent.");
+  });
+
   // Route for rewards page
   app.get("/rewards", function (req, res) {
     res.render("rewards.html");
+  });
+
+  // Route for rewards page
+  app.get("/editprofile", function (req, res) {
+    let sqlquery = "SELECT fName, lName, DoB, mobileNumber, emailAddr, address, postalCode FROM user WHERE username = ?";
+    let currentUser = [req.session.currentUser];
+
+    db.query(sqlquery, currentUser, (err, result) => {
+      if (err || result == '') {
+        res.redirect("/");
+      } else {
+        res.render("editprofile.html", { user: req.session.currentUser, profileInfo: result });
+      }
+    });
+  });
+
+  app.post("/editprofile", function (req, res) {
+    let sqlquery = "UPDATE user SET fName = ?, lName = ?, mobileNumber = ?, emailAddr = ?, address = ?, postalCode = ? WHERE userName = ?"
+    let updatedProfile = [req.body.fName, req.body.lName, req.body.mobileNumber, req.body.emailAddr, req.body.address, req.body.postalCode, req.session.currentUser];
+
+    db.query(sqlquery, updatedProfile, (err, result) => {
+      if (err || result == '') {
+        return console.error(err.message);
+      } else {
+        let sqlquery = "SELECT fName, lName, DoB, mobileNumber, emailAddr, address, postalCode FROM user WHERE username = ?";
+        let currentUser = [req.session.currentUser];
+
+        db.query(sqlquery, currentUser, (err, result) => {
+            res.render("editprofile.html", { user: req.session.currentUser, profileInfo: result });
+        });
+      }
+    });
   });
 
   app.post("/loginsuccess", function (req, res) {
