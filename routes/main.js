@@ -30,7 +30,7 @@ module.exports = function (app) {
     res.render("forgetpassword.html", { user: req.session.currentUser });
   });
 
-  app.post("/sendNewPassword", function(req, res) {
+  app.post("/sendNewPassword", function (req, res) {
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -38,7 +38,7 @@ module.exports = function (app) {
         pass: 'Weihern207$'
       }
     });
-  
+
     var mailOptions = {
       // Won't work, need to set up business account for gmail to proceed, i no money :c .
       from: '"The uGive Team" <uGivecontact@gmail.com>',
@@ -46,7 +46,7 @@ module.exports = function (app) {
       subject: 'uGive Account Password Reset',
       text: 'Hello! We noticed a request to change your uGive password, as such we are sending you your password here! Please try to remember it :)'
     };
-  
+
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
         console.log(error);
@@ -89,7 +89,7 @@ module.exports = function (app) {
         let currentUser = [req.session.currentUser];
 
         db.query(sqlquery, currentUser, (err, result) => {
-            res.render("editprofile.html", { user: req.session.currentUser, profileInfo: result });
+          res.render("editprofile.html", { user: req.session.currentUser, profileInfo: result });
         });
       }
     });
@@ -133,5 +133,9 @@ module.exports = function (app) {
     let locationName = encodeURIComponent([req.body.donationPoint]);
     console.log(locationName);
     res.redirect("/maps?location=" + locationName);
+  });
+
+  app.get("/articles", function (req, res) {
+    res.render("articles.html", { user: req.session.currentUser });
   });
 }
