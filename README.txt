@@ -14,3 +14,14 @@ CREATE TABLE user (
     password varchar(255),
     primary key(userId)
 );
+
+2. Rewards Table
+CREATE TABLE reward (
+	rewardID int NOT NULL auto_increment,
+    rewardName varchar(255) NOT NULL UNIQUE,
+    category varchar(255) NOT NULL,
+    points int NOT NULL,
+    description varchar(255) NOT NULL,
+    imagePath varchar(255) NOT NULL,
+    primary key(rewardID)
+);
