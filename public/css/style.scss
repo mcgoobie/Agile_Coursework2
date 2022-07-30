@@ -731,6 +731,7 @@ a {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       .img1 {
         width: 40px;
         height: 40px;
@@ -818,6 +819,96 @@ a {
           height: 60px;
         }
       }
+    }
+  }
+}
+
+// ******** REWARDS CATEGORY PAGE ********//
+.rewardCategoryHero {
+  width: 100vw;
+  height: 280px;
+  text-align: center;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-family: "M-SemiBold";
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  @include desktop {
+    height: 45vh;
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.searchSec {
+  width: 100vw;
+  height: 15vh;
+  padding: 0rem 1rem;
+  input[type="text"] {
+    width: 100%;
+    padding: 1rem 0.8rem;
+    font-family: "M-Regular";
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+  }
+  @include tablet-portrait {
+    input[type="text"] {
+      font-size: 1.3rem;
+    }
+  }
+  @include desktop {
+    height: 20vh;
+  }
+}
+
+.allItems {
+  width: 100vw;
+  height: 90vh;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  grid-gap: 20px;
+  padding: 2rem;
+  &_item {
+    width: 230px;
+    height: 340px;
+    border-radius: 2rem;
+    background-color: white;
+    img {
+      width: 100%;
+      border-radius: 2rem 2rem 0rem 0rem;
+    }
+    .desc {
+      font-family: "M-Regular";
+      padding: 1rem;
+      .itemName {
+        font-family: "M-SemiBold";
+      }
+    }
+  }
+
+  // Media Queries
+  @include tablet-portrait {
+    grid-template-columns: repeat(3, 1fr);
+    &_item {
+      width: 300px;
+      height: 400px;
+    }
+  }
+  @include desktop {
+    &_item {
+      width: 350px;
+      height: 400px;
     }
   }
 }

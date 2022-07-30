@@ -84,7 +84,49 @@ module.exports = function (app) {
     res.redirect("/maps?location=" + locationName);
   });
 
-  app.get("/category", (req, res) => {
-    res.render("category.html");
+  app.get("/household-appliance-category", (req, res) => {
+    let word = [req.query.categoryName];
+    console.log(word);
+    let sqlquery = "SELECT * FROM reward WHERE category like ?";
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      res.render("category.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/voucher-coupon-category", (req, res) => {
+    let word = [req.query.categoryName];
+    console.log(word);
+    let sqlquery = "SELECT * FROM reward WHERE category like ?";
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      res.render("couponVouchercategory.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/voucher-coupon-category/search", (req, res) => {
+    let word = [req.query.searchValue];
+    console.log(word);
+    let sqlquery = `SELECT * FROM reward WHERE rewardName like ? AND category = 'couponVoucher'`;
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      console.log(result);
+      res.render("couponVouchercategory.html", {
+        rewardProperty: result,
+      });
+    });
   });
 };

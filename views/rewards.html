@@ -73,7 +73,7 @@
     <section class="rewardsCategoriesSection">
       <h1>Redeem your points</h1>
       <div class="rewardsCategoriesSection_all">
-        <a href="/category" class="category">
+        <form action="/household-appliance-category" class="category">
           <div class="img1"></div>
           <p class="headerText">Household Appliances</p>
           <p class="subText">
@@ -81,8 +81,13 @@
             in diam nulla.
           </p>
           <p class="viewMore">View all items</p>
-        </a>
-        <a href="/category" class="category">
+          <input
+            type="hidden"
+            value="household_appliance"
+            name="categoryName"
+          />
+        </form>
+        <form action="/fashion-category" class="category">
           <div class="img2"></div>
           <p class="headerText">Clothing, Outerwear & Footwear</p>
           <p class="subText">
@@ -90,8 +95,9 @@
             in diam nulla.
           </p>
           <p class="viewMore">View all items</p>
-        </a>
-        <a href="/category" class="category">
+          <input type="hidden" value="fashion" name="categoryName" />
+        </form>
+        <form action="/voucher-coupon-category" class="category">
           <div class="img3"></div>
           <p class="headerText">Vouchers & Coupons</p>
           <p class="subText">
@@ -99,7 +105,8 @@
             in diam nulla.
           </p>
           <p class="viewMore">View all items</p>
-        </a>
+          <input type="hidden" value="couponVoucher" name="categoryName" />
+        </form>
       </div>
     </section>
 
@@ -146,6 +153,15 @@
         slides[slideIndex - 1].style.display = "block";
         setTimeout(showSlides, 3000); // Change image every 2 seconds
       }
+
+      // FORM
+      const allForms = document.querySelectorAll(".category");
+
+      allForms.forEach((form) => {
+        form.addEventListener("click", () => {
+          form.submit();
+        });
+      });
     </script>
   </body>
 </html>

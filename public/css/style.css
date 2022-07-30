@@ -933,6 +933,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
 }
 
 .rewardsCategoriesSection_all .category .img1 {
@@ -1033,6 +1034,122 @@ a {
   .rewardsCategoriesSection_all .category .img3 {
     width: 60px;
     height: 60px;
+  }
+}
+
+.rewardCategoryHero {
+  width: 100vw;
+  height: 280px;
+  text-align: center;
+  padding: 2rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rewardCategoryHero h1 {
+  font-family: "M-SemiBold";
+  font-size: 2rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .rewardCategoryHero {
+    height: 45vh;
+  }
+  .rewardCategoryHero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.searchSec {
+  width: 100vw;
+  height: 15vh;
+  padding: 0rem 1rem;
+}
+
+.searchSec input[type="text"] {
+  width: 100%;
+  padding: 1rem 0.8rem;
+  font-family: "M-Regular";
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .searchSec input[type="text"] {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .searchSec {
+    height: 20vh;
+  }
+}
+
+.allItems {
+  width: 100vw;
+  height: 90vh;
+  padding: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: 20px;
+  padding: 2rem;
+}
+
+.allItems_item {
+  width: 230px;
+  height: 340px;
+  border-radius: 2rem;
+  background-color: white;
+}
+
+.allItems_item img {
+  width: 100%;
+  border-radius: 2rem 2rem 0rem 0rem;
+}
+
+.allItems_item .desc {
+  font-family: "M-Regular";
+  padding: 1rem;
+}
+
+.allItems_item .desc .itemName {
+  font-family: "M-SemiBold";
+}
+
+@media screen and (min-width: 768px) {
+  .allItems {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+  .allItems_item {
+    width: 300px;
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .allItems_item {
+    width: 350px;
+    height: 400px;
   }
 }
 /*# sourceMappingURL=style.css.map */
