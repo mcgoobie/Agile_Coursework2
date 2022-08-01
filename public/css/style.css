@@ -1121,6 +1121,21 @@ a {
   background-color: white;
 }
 
+.allItems_item .applianceImg {
+  width: 80%;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.allItems_item .fashionImg {
+  width: 100%;
+  height: 60%;
+  overflow: hidden;
+}
+
 .allItems_item img {
   width: 100%;
   border-radius: 2rem 2rem 0rem 0rem;

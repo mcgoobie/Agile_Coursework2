@@ -93,7 +93,23 @@ module.exports = function (app) {
       if (err) {
         res.redirect("/");
       }
-      res.render("category.html", {
+      res.render("homeApplianceCategory.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/household-appliance-category/search", (req, res) => {
+    let word = [req.query.searchValue];
+    console.log(word);
+    let sqlquery = `SELECT * FROM reward WHERE rewardName like ? AND category = 'householdAppliance'`;
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      console.log(result);
+      res.render("homeApplianceCategory.html", {
         rewardProperty: result,
       });
     });
@@ -125,6 +141,37 @@ module.exports = function (app) {
       }
       console.log(result);
       res.render("couponVouchercategory.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/fashion-category", (req, res) => {
+    let word = [req.query.categoryName];
+    console.log(word);
+    let sqlquery = "SELECT * FROM reward WHERE category like ?";
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      res.render("fashionCategory.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/fashion-category/search", (req, res) => {
+    let word = [req.query.searchValue];
+    console.log(word);
+    let sqlquery = `SELECT * FROM reward WHERE rewardName like ? AND category = 'fashion'`;
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      console.log(result);
+      res.render("fashionCategory.html", {
         rewardProperty: result,
       });
     });

@@ -41,6 +41,29 @@
     <section class="rewardCategoryHero">
       <h1>Fashion</h1>
     </section>
+
+    <form class="searchSec" action="/fashion-category/search">
+      <input
+        type="text"
+        placeholder="Enter keywords to find rewards"
+        name="searchValue"
+      />
+    </form>
+
+    <section class="allItems">
+      <% rewardProperty.forEach(function(prop){ %>
+      <div class="allItems_item">
+        <div class="fashionImg">
+          <img src="<%= prop.imagePath %>" alt="" />
+        </div>
+        <div class="desc">
+          <p class="itemName"><%= prop.rewardName %></p>
+          <p class="itemPoints">Points required: <%= prop.points %></p>
+        </div>
+      </div>
+      <% }) %>
+    </section>
+
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer_top">
