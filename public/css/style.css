@@ -1119,19 +1119,30 @@ a {
   height: 340px;
   border-radius: 2rem;
   background-color: white;
+  cursor: pointer;
 }
 
 .allItems_item .applianceImg {
-  width: 80%;
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  width: 85%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 70%;
+  overflow: hidden;
+}
+
+.allItems_item .applianceImg img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .allItems_item .fashionImg {
   width: 100%;
+  height: 60%;
+  overflow: hidden;
+}
+
+.allItems_item .voucherImg {
   height: 60%;
   overflow: hidden;
 }
@@ -1163,8 +1174,155 @@ a {
 
 @media screen and (min-width: 1024px) {
   .allItems_item {
-    width: 350px;
+    width: 380px;
     height: 400px;
+  }
+}
+
+.rewardDetailSec {
+  width: 100vw;
+  height: 40vh;
+  padding: 1rem;
+  padding-top: 2rem;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: 20px;
+}
+
+.rewardDetailSec_sec1 {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rewardDetailSec_sec1 .sec1_img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.rewardDetailSec_sec1 .sec1_img img {
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.rewardDetailSec_sec2 {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 20px;
+}
+
+.rewardDetailSec_sec2 .sec2_header {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+}
+
+.rewardDetailSec_sec2 .sec2_header .headerTxt {
+  font-family: "M-Semibold";
+  font-size: 1.2rem;
+}
+
+.rewardDetailSec_sec2 .sec2_header .headerTxt .inner {
+  font-family: "M-Regular";
+  font-size: 1.2rem;
+}
+
+.rewardDetailSec_sec2 .sec2_header .subTxt {
+  font-family: "M-Regular";
+}
+
+.rewardDetailSec_sec2 .sec2_body {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+}
+
+.rewardDetailSec_sec2 .sec2_body .titleTxt {
+  font-family: "M-Semibold";
+  font-size: 1.2rem;
+}
+
+.rewardDetailSec_sec2 .sec2_body .descTxt {
+  font-family: "M-Regular";
+  font-size: 0.9rem;
+}
+
+.rewardDetailSec_sec2 .sec2_footer {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+}
+
+.rewardDetailSec_sec2 .sec2_footer .titleTxt {
+  font-family: "M-Semibold";
+  font-size: 1.2rem;
+}
+
+.rewardDetailSec_sec2 .sec2_footer .descTxt2 {
+  font-family: "M-Regular";
+  font-size: 0.9rem;
+  padding-left: 1rem;
+}
+
+.rewardDetailSec_sec2 .sec2_footer .descTxt2 li {
+  margin: 0.4rem 0rem;
+}
+
+@media screen and (min-width: 768px) {
+  .rewardDetailSec {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  .rewardDetailSec_sec2 {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .rewardDetailSec {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+    padding-top: 4rem;
+    grid-gap: 40px;
+  }
+  .rewardDetailSec_sec1 {
+    padding-left: 3rem;
+  }
+  .rewardDetailSec_sec2 {
+    width: 90%;
+  }
+  .rewardDetailSec_sec2 .sec2_header {
+    padding-bottom: 2rem;
+    height: 100%;
+  }
+  .rewardDetailSec_sec2 .sec2_body {
+    padding-bottom: 3rem;
+    height: 100%;
+  }
+  .rewardDetailSec_sec2 .sec2_footer {
+    padding-bottom: 4rem;
+    height: 100%;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -52,13 +52,19 @@
 
     <section class="allItems">
       <% rewardProperty.forEach(function(prop){ %>
-      <div class="allItems_item">
-        <img src="<%= prop.imagePath %>" alt="" class="applianceImg" />
+      <form
+        class="allItems_item"
+        action="/household-appliance-category/details"
+      >
+        <div class="applianceImg">
+          <img src="<%= prop.imagePath %>" alt="" />
+        </div>
         <div class="desc">
           <p class="itemName"><%= prop.rewardName %></p>
           <p class="itemPoints">Points required: <%= prop.points %></p>
         </div>
-      </div>
+        <input type="hidden" value="<%= prop.rewardName %>" name="name" />
+      </form>
       <% }) %>
     </section>
 
@@ -85,5 +91,15 @@
         <p>Copyright uGive 2022</p>
       </div>
     </footer>
+
+    <script>
+      // Form
+      const allForm = document.querySelectorAll(".allItems_item");
+      allForm.forEach((form) => {
+        form.addEventListener("click", () => {
+          form.submit();
+        });
+      });
+    </script>
   </body>
 </html>

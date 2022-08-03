@@ -115,6 +115,21 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/household-appliance-category/details", (req, res) => {
+    let word = [req.query.name];
+    console.log(word);
+    let sqlquery = "SELECT * FROM reward WHERE rewardName like ?";
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      res.render("itemDetails.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
   app.get("/voucher-coupon-category", (req, res) => {
     let word = [req.query.categoryName];
     console.log(word);
@@ -146,6 +161,21 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/voucher-coupon-category/details", (req, res) => {
+    let word = [req.query.name];
+    console.log(word);
+    let sqlquery = "SELECT * FROM reward WHERE rewardName like ?";
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      res.render("itemDetails.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
   app.get("/fashion-category", (req, res) => {
     let word = [req.query.categoryName];
     console.log(word);
@@ -172,6 +202,21 @@ module.exports = function (app) {
       }
       console.log(result);
       res.render("fashionCategory.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/fashion-category/details", (req, res) => {
+    let word = [req.query.name];
+    console.log(word);
+    let sqlquery = "SELECT * FROM reward WHERE rewardName like ?";
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      res.render("itemDetails.html", {
         rewardProperty: result,
       });
     });
