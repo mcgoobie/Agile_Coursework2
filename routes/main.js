@@ -135,7 +135,37 @@ module.exports = function (app) {
     res.redirect("/maps?location=" + locationName);
   });
 
-  app.get("/articles", function (req, res) {
-    res.render("articles.html", { user: req.session.currentUser });
+  app.get("/blog", function (req, res) {
+    res.render("blog.html", { user: req.session.currentUser });
   });
+
+  app.get("/article", function (req, res) {
+    res.render("article.html", { user: req.session.currentUser });
+  })
+
+  app.get("/schedule", function (req, res) {
+    let sqlquery = "SELECT  userId, mobileNumber, emailAddr, address, postalCode FROM user WHERE username = ?";
+    let currentUser = [req.session.currentUser];
+
+    db.query(sqlquery, currentUser, (err, result) => {
+      if (err || result == '') {
+        res.redirect("/");
+      } else {
+        res.render("booking.html", { user: req.session.currentUser, userDetails: result });
+      }
+    });
+  })
+
+  app.post("/bookingsuccess", function (req, res) {
+    let sqlquery = "INSERT INTO booking (userId, date, time, donationType1, donationDesc1, donationType2, donationDesc2, donationType3, donationDesc3) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    let newBooking = [req.body.userId, req.body.date, req.body.time, req.body.itemType1, req.body.itemDesc1, req.body.itemType2, req.body.itemDesc2, req.body.itemType3, req.body.itemDesc3];
+
+    db.query(sqlquery, newBooking, (err, result) => {
+      if (err || result == '') {
+        return console.error(err.message);
+      } else {
+        res.render("success.html", { user: req.session.currentUser });
+      }
+    });
+  })
 }

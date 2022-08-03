@@ -30,6 +30,10 @@
         <a href="/schedule">
           <li class="menu-item">Schedule pickup</li>
         </a>
+        <% if(user) { %>
+          <p>Hello <%= user %>
+          </p>
+          <% } %>
       </ul>
       <div class="hamburger">
         <span></span>
@@ -52,32 +56,40 @@
       <a href="/schedule">
         <li class="menu-item">Schedule pickup</li>
       </a>
-      <% if(user) { %>
-        <p>Hello <%= user %>
-        </p>
-        <% } %>
     </ul>
   </header>
   <!-- END OF HEADER -->
 
   <!-- HERO SECTION -->
-  <section class="forgetPasswordSection">
-    <div class="forgetpwd-divLeft">
-      <h1>Forget Password</h1>
-      <div class="forgetPassword-content">
-        <p>It seems you have forgotten your password, we can help with that!</p>
-        <p>Please key in your email so we can send you your password.</p>
+  <section class="blogpostSection">
+    <img class="blogpost-banner-img" src="img/article-img-2.jpeg" />
+    <div class="blogpost-body">
+      <div class="blogpost-headerdiv">
+        <h1>Title</h1>
+        <p>Written By: Author</p>
       </div>
-      <div class="forgetpwd-divbox">
-        <p>Fill in your registered e-mail:</p>
-        <form method="post" action="/sendNewPassword">
-          <input class="forgetpwd-field" type="text" id="email" name="email" placeholder="Enter email here.." required>
-          <button type="submit" class="forgetpwd-btn">→</button>
-        </form>
+      <div class="blogpost-content">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae sagittis et, commodo vel
+          odio. Vestibulum condimentum urna vel nisl aliquet,
+          non consectetur massa blandit. Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra
+          orci lacus, non tempus dolor ullamcorper et.
+          Mauris gravida varius est, non aliquet arcu vehicula vel. Aenean vitae leo porttitor, condimentum mauris sed,
+          gravida dolor.
+          Nulla dolor arcu, ultricies ac tempus ac, gravida vitae ipsum. Ut a lobortis diam. Cras ligula diam,
+          ullamcorper at rhoncus et, euismod ac lectus.
+          Aenean et mauris erat. Curabitur et nunc a turpis accumsan consequat quis nec sapien. Donec nibh sem, blandit
+          sit amet turpis vel, feugiat auctor libero.
+          Duis facilisis malesuada ultrices. Suspendisse aliquet mauris dapibus bibendum aliquam.
+
+          Vivamus non tellus at turpis tristique lobortis. Quisque sed nunc vel mauris venenatis cursus eu quis nibh.
+          Sed erat mauris, egestas non aliquet id, hendrerit in justo. In tincidunt, leo vitae sagittis sodales, lorem
+          est pharetra orci, quis viverra erat erat gravida quam. Aliquam posuere ligula in orci tincidunt, non
+          tincidunt massa sodales. Nunc leo magna, malesuada eu lobortis sed, tempor dignissim lorem. Suspendisse rutrum
+          mauris non pretium congue. Nulla ac lacinia arcu. Curabitur nisi mi, rhoncus sit amet gravida dignissim,
+          rhoncus sit amet felis.
+        </p>
       </div>
-    </div>
-    <div class="forgetpwd-divRight">
-      <img src="img/forget_password_img.png" />
     </div>
   </section>
   <!-- END OF HERO SECTION -->
