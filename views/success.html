@@ -30,6 +30,10 @@
         <a href="/schedule">
           <li class="menu-item">Schedule pickup</li>
         </a>
+        <% if(user) { %>
+          <p>Hello <%= user %>
+          </p>
+          <% } %>
       </ul>
       <div class="hamburger">
         <span></span>
@@ -52,32 +56,21 @@
       <a href="/schedule">
         <li class="menu-item">Schedule pickup</li>
       </a>
-      <% if(user) { %>
-        <p>Hello <%= user %>
-        </p>
-        <% } %>
     </ul>
   </header>
   <!-- END OF HEADER -->
 
   <!-- HERO SECTION -->
-  <section class="forgetPasswordSection">
-    <div class="forgetpwd-divLeft">
-      <h1>Forget Password</h1>
-      <div class="forgetPassword-content">
-        <p>It seems you have forgotten your password, we can help with that!</p>
-        <p>Please key in your email so we can send you your password.</p>
-      </div>
-      <div class="forgetpwd-divbox">
-        <p>Fill in your registered e-mail:</p>
-        <form method="post" action="/sendNewPassword">
-          <input class="forgetpwd-field" type="text" id="email" name="email" placeholder="Enter email here.." required>
-          <button type="submit" class="forgetpwd-btn">→</button>
-        </form>
+  <section class="successbookingSection">
+    <div class="successbooking-divLeft">
+      <h1>We will see you soon!</h1>
+      <div class="successbooking-content">
+        <p>Your appointment has been made successfully!</p>
+        <p>We will be sending you a confirmation email with the details to your registered email.</p>
       </div>
     </div>
-    <div class="forgetpwd-divRight">
-      <img src="img/forget_password_img.png" />
+    <div class="successbooking-divRight">
+      <img src="img/booking-success-screen.png" />
     </div>
   </section>
   <!-- END OF HERO SECTION -->

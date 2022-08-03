@@ -24,12 +24,16 @@
         <a href="/rewards">
           <li class="menu-item menu-active">Rewards</li>
         </a>
-        <a href="/articles">
+        <a href="/blog">
           <li class="menu-item">Articles</li>
         </a>
         <a href="/schedule">
           <li class="menu-item">Schedule pickup</li>
         </a>
+        <% if(user) { %>
+          <p>Hello <%= user %>
+          </p>
+          <% } %>
       </ul>
       <div class="hamburger">
         <span></span>
@@ -38,9 +42,7 @@
       </div>
     </nav>
     <!-- Sign in btn -->
-    <div class="mainHeader_signupBtn">
-      <p>Sign in/Login</p>
-    </div>
+    <div class="mainHeader_signupBtn"><a href="/login">Sign Up/Login</a></div>
     <ul class="mainHeader_mobileMenu">
       <a href="/about">
         <li class="menu-item">About</li>
@@ -48,22 +50,18 @@
       <a href="/rewards">
         <li class="menu-item">Rewards</li>
       </a>
-      <a href="/articles">
+      <a href="/blog">
         <li class="menu-item">Articles</li>
       </a>
       <a href="/schedule">
         <li class="menu-item">Schedule pickup</li>
       </a>
-      <% if(user) { %>
-        <p>Hello <%= user %>
-        </p>
-        <% } %>
     </ul>
   </header>
   <!-- END OF HEADER -->
 
   <!-- HERO SECTION -->
-  <section class="articleSection">
+  <section class="blogpostSection">
     <div class="article-headerdiv">
       <h1>Welcome to the uGive Knowledge Vault!</h1>
       <p>Here you can view articles regarding charity and things you can start doing to contribute to giving and
