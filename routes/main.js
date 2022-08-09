@@ -1,4 +1,3 @@
-const session = require("express-session");
 const nodemailer = require("nodemailer");
 const session = require("express-session");
 // The main.js file of your application
@@ -216,142 +215,142 @@ module.exports = function (app) {
       }
     });
   });
+
+  app.get("/household-appliance-category", (req, res) => {
+    let word = [req.query.categoryName];
+    console.log(word);
+    let sqlquery = "SELECT * FROM reward WHERE category like ?";
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      res.render("homeApplianceCategory.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/household-appliance-category/search", (req, res) => {
+    let word = [req.query.searchValue];
+    console.log(word);
+    let sqlquery = `SELECT * FROM reward WHERE rewardName like ? AND category = 'householdAppliance'`;
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      console.log(result);
+      res.render("homeApplianceCategory.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/household-appliance-category/details", (req, res) => {
+    let word = [req.query.name];
+    console.log(word);
+    let sqlquery = "SELECT * FROM reward WHERE rewardName like ?";
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      res.render("itemDetails.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/voucher-coupon-category", (req, res) => {
+    let word = [req.query.categoryName];
+    console.log(word);
+    let sqlquery = "SELECT * FROM reward WHERE category like ?";
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      res.render("couponVouchercategory.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/voucher-coupon-category/search", (req, res) => {
+    let word = [req.query.searchValue];
+    console.log(word);
+    let sqlquery = `SELECT * FROM reward WHERE rewardName like ? AND category = 'couponVoucher'`;
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      console.log(result);
+      res.render("couponVouchercategory.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/voucher-coupon-category/details", (req, res) => {
+    let word = [req.query.name];
+    console.log(word);
+    let sqlquery = "SELECT * FROM reward WHERE rewardName like ?";
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      res.render("itemDetails.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/fashion-category", (req, res) => {
+    let word = [req.query.categoryName];
+    console.log(word);
+    let sqlquery = "SELECT * FROM reward WHERE category like ?";
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      res.render("fashionCategory.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/fashion-category/search", (req, res) => {
+    let word = [req.query.searchValue];
+    console.log(word);
+    let sqlquery = `SELECT * FROM reward WHERE rewardName like ? AND category = 'fashion'`;
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      console.log(result);
+      res.render("fashionCategory.html", {
+        rewardProperty: result,
+      });
+    });
+  });
+
+  app.get("/fashion-category/details", (req, res) => {
+    let word = [req.query.name];
+    console.log(word);
+    let sqlquery = "SELECT * FROM reward WHERE rewardName like ?";
+    // execute sql query
+    db.query(sqlquery, word, (err, result) => {
+      if (err) {
+        res.redirect("/");
+      }
+      res.render("itemDetails.html", {
+        rewardProperty: result,
+      });
+    });
+  });
 };
-
-app.get("/household-appliance-category", (req, res) => {
-  let word = [req.query.categoryName];
-  console.log(word);
-  let sqlquery = "SELECT * FROM reward WHERE category like ?";
-  // execute sql query
-  db.query(sqlquery, word, (err, result) => {
-    if (err) {
-      res.redirect("/");
-    }
-    res.render("homeApplianceCategory.html", {
-      rewardProperty: result,
-    });
-  });
-});
-
-app.get("/household-appliance-category/search", (req, res) => {
-  let word = [req.query.searchValue];
-  console.log(word);
-  let sqlquery = `SELECT * FROM reward WHERE rewardName like ? AND category = 'householdAppliance'`;
-  // execute sql query
-  db.query(sqlquery, word, (err, result) => {
-    if (err) {
-      res.redirect("/");
-    }
-    console.log(result);
-    res.render("homeApplianceCategory.html", {
-      rewardProperty: result,
-    });
-  });
-});
-
-app.get("/household-appliance-category/details", (req, res) => {
-  let word = [req.query.name];
-  console.log(word);
-  let sqlquery = "SELECT * FROM reward WHERE rewardName like ?";
-  // execute sql query
-  db.query(sqlquery, word, (err, result) => {
-    if (err) {
-      res.redirect("/");
-    }
-    res.render("itemDetails.html", {
-      rewardProperty: result,
-    });
-  });
-});
-
-app.get("/voucher-coupon-category", (req, res) => {
-  let word = [req.query.categoryName];
-  console.log(word);
-  let sqlquery = "SELECT * FROM reward WHERE category like ?";
-  // execute sql query
-  db.query(sqlquery, word, (err, result) => {
-    if (err) {
-      res.redirect("/");
-    }
-    res.render("couponVouchercategory.html", {
-      rewardProperty: result,
-    });
-  });
-});
-
-app.get("/voucher-coupon-category/search", (req, res) => {
-  let word = [req.query.searchValue];
-  console.log(word);
-  let sqlquery = `SELECT * FROM reward WHERE rewardName like ? AND category = 'couponVoucher'`;
-  // execute sql query
-  db.query(sqlquery, word, (err, result) => {
-    if (err) {
-      res.redirect("/");
-    }
-    console.log(result);
-    res.render("couponVouchercategory.html", {
-      rewardProperty: result,
-    });
-  });
-});
-
-app.get("/voucher-coupon-category/details", (req, res) => {
-  let word = [req.query.name];
-  console.log(word);
-  let sqlquery = "SELECT * FROM reward WHERE rewardName like ?";
-  // execute sql query
-  db.query(sqlquery, word, (err, result) => {
-    if (err) {
-      res.redirect("/");
-    }
-    res.render("itemDetails.html", {
-      rewardProperty: result,
-    });
-  });
-});
-
-app.get("/fashion-category", (req, res) => {
-  let word = [req.query.categoryName];
-  console.log(word);
-  let sqlquery = "SELECT * FROM reward WHERE category like ?";
-  // execute sql query
-  db.query(sqlquery, word, (err, result) => {
-    if (err) {
-      res.redirect("/");
-    }
-    res.render("fashionCategory.html", {
-      rewardProperty: result,
-    });
-  });
-});
-
-app.get("/fashion-category/search", (req, res) => {
-  let word = [req.query.searchValue];
-  console.log(word);
-  let sqlquery = `SELECT * FROM reward WHERE rewardName like ? AND category = 'fashion'`;
-  // execute sql query
-  db.query(sqlquery, word, (err, result) => {
-    if (err) {
-      res.redirect("/");
-    }
-    console.log(result);
-    res.render("fashionCategory.html", {
-      rewardProperty: result,
-    });
-  });
-});
-
-app.get("/fashion-category/details", (req, res) => {
-  let word = [req.query.name];
-  console.log(word);
-  let sqlquery = "SELECT * FROM reward WHERE rewardName like ?";
-  // execute sql query
-  db.query(sqlquery, word, (err, result) => {
-    if (err) {
-      res.redirect("/");
-    }
-    res.render("itemDetails.html", {
-      rewardProperty: result,
-    });
-  });
-});
