@@ -68,6 +68,7 @@ a {
       text-decoration: none;
       list-style: none;
     }
+
     .hamburger {
       cursor: pointer;
       span {
@@ -106,6 +107,9 @@ a {
     background-color: black;
     justify-content: center;
     align-items: center;
+    .primaryBtn {
+      color: white;
+    }
   }
 
   //Media Queries
@@ -336,7 +340,7 @@ a {
 // PROCESS SECTION
 .processSection {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   padding: 1rem;
   display: grid;
   justify-content: center;
@@ -345,7 +349,7 @@ a {
     font-family: "M-Medium";
     font-size: 1.5rem;
     text-align: center;
-    padding-bottom: 1rem;
+    // padding-bottom: 1rem;
   }
   &_processes {
     display: grid;
@@ -612,6 +616,431 @@ a {
       align-items: center;
       font-family: "M-Regular";
       font-size: 0.9rem;
+    }
+  }
+
+  @include desktop {
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.rewardsOfferSection {
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    text-align: center;
+    font-family: "M-SemiBold";
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    text-decoration: underline;
+  }
+
+  @include desktop {
+    height: 80vh;
+    p {
+      font-size: 1.8rem;
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  cursor: pointer;
+
+  @include tablet-portrait {
+    width: 90%;
+    height: 80%;
+  }
+  @include desktop {
+    width: 95%;
+    height: 95%;
+  }
+}
+
+.mySlides {
+  display: none;
+  padding: 1rem;
+  padding-top: 0rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.divImage1 {
+  width: 100%;
+  height: 200px;
+  background-image: url("../img/goofy.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 4px solid black;
+  border-radius: 2rem;
+  @include desktop {
+    height: 350px;
+    background-position-y: -8rem;
+  }
+}
+
+.divImage2 {
+  width: 100%;
+  height: 200px;
+  background-image: url("../img/resort.jpg");
+  background-size: cover;
+  border: 4px solid black;
+  border-radius: 2rem;
+  @include desktop {
+    height: 350px;
+    background-position-y: -16rem;
+  }
+}
+
+// PROCESS SECTION
+.rewardsCategoriesSection {
+  width: 100vw;
+  height: 120vh;
+  padding: 1rem;
+  display: grid;
+  justify-content: center;
+  margin-bottom: 2rem;
+  h1 {
+    font-family: "M-Medium";
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    // padding-bottom: 1rem;
+  }
+  &_all {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    .category {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 1rem;
+      padding: 1.5rem 1rem 2.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      .img1 {
+        width: 40px;
+        height: 40px;
+        background-image: url("../img/icon4.png");
+        background-size: cover;
+      }
+      .img2 {
+        width: 40px;
+        height: 40px;
+        background-image: url("../img/icon5.png");
+        background-size: cover;
+      }
+      .img3 {
+        width: 40px;
+        height: 40px;
+        background-image: url("../img/icon6.png");
+        background-size: cover;
+      }
+
+      .headerText {
+        font-family: "M-SemiBold";
+        font-size: 1.2rem;
+        text-align: center;
+        padding-top: 0.5rem;
+      }
+      .subText {
+        font-family: "M-Regular";
+        font-size: 0.8rem;
+        text-align: center;
+        padding: 0.5rem 0rem;
+      }
+      .viewMore {
+        width: 100%;
+        display: grid;
+        justify-content: end;
+        align-items: flex-end;
+        padding-top: 3rem;
+        font-family: "M-SemiBold";
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -3px;
+          right: 0;
+          width: 20%;
+          height: 2px;
+          background-color: black;
+        }
+      }
+    }
+  }
+
+  // Media Queries
+  @include tablet-portrait {
+    height: 70vh;
+    h1 {
+      font-size: 1.8rem;
+      padding-bottom: 1rem;
+      text-decoration: underline;
+    }
+    &_all {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      .category {
+        padding: 1.5rem 1rem 2.5rem 1rem;
+        height: 100%;
+      }
+    }
+  }
+  @include desktop {
+    height: 80vh;
+    margin-bottom: 3rem;
+    &_all {
+      .category {
+        height: 340px;
+        padding-top: 1.5rem;
+        padding-bottom: 1rem;
+        .headerText {
+          font-size: 1.4rem;
+        }
+        .img1,
+        .img2,
+        .img3 {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+  }
+}
+
+// ******** REWARDS CATEGORY PAGE ********//
+.rewardCategoryHero {
+  width: 100vw;
+  height: 280px;
+  text-align: center;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-family: "M-SemiBold";
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  @include desktop {
+    height: 45vh;
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.searchSec {
+  width: 100vw;
+  height: 15vh;
+  padding: 0rem 1rem;
+  input[type="text"] {
+    width: 100%;
+    padding: 1rem 0.8rem;
+    font-family: "M-Regular";
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+  }
+  @include tablet-portrait {
+    input[type="text"] {
+      font-size: 1.3rem;
+    }
+  }
+  @include desktop {
+    height: 20vh;
+  }
+}
+
+.allItems {
+  width: 100vw;
+  height: 90vh;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  grid-gap: 20px;
+  padding: 2rem;
+  &_item {
+    width: 230px;
+    height: 340px;
+    border-radius: 2rem;
+    background-color: white;
+    cursor: pointer;
+    .applianceImg {
+      width: 85%;
+      display: flex;
+      height: 70%;
+      overflow: hidden;
+      img {
+        object-fit: contain;
+      }
+    }
+    .fashionImg {
+      width: 100%;
+      height: 60%;
+      overflow: hidden;
+    }
+    .voucherImg {
+      height: 60%;
+      overflow: hidden;
+    }
+    img {
+      width: 100%;
+      border-radius: 2rem 2rem 0rem 0rem;
+    }
+    .desc {
+      font-family: "M-Regular";
+      padding: 1rem;
+      .itemName {
+        font-family: "M-SemiBold";
+      }
+    }
+  }
+
+  // Media Queries
+  @include tablet-portrait {
+    grid-template-columns: repeat(3, 1fr);
+    &_item {
+      width: 300px;
+      height: 400px;
+    }
+  }
+  @include desktop {
+    &_item {
+      width: 380px;
+      height: 400px;
+    }
+  }
+}
+
+// ******** REWARDS DETAIL PAGE ********//
+.rewardDetailSec {
+  width: 100vw;
+  height: 40vh;
+  padding: 1rem;
+  padding-top: 2rem;
+  display: grid;
+  justify-content: center;
+  grid-gap: 20px;
+  &_sec1 {
+    display: grid;
+    justify-content: center;
+    .sec1_img {
+      width: 100%;
+      overflow: hidden;
+      img {
+        border-radius: 0.5rem;
+        width: 100%;
+      }
+    }
+  }
+  &_sec2 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 20px;
+    .sec2_header {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+      border: 1px solid #ccc;
+      .headerTxt {
+        font-family: "M-Semibold";
+        font-size: 1.2rem;
+        .inner {
+          font-family: "M-Regular";
+          font-size: 1.2rem;
+        }
+      }
+      .subTxt {
+        font-family: "M-Regular";
+      }
+    }
+    .sec2_body {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+      border: 1px solid #ccc;
+      .titleTxt {
+        font-family: "M-Semibold";
+        font-size: 1.2rem;
+      }
+      .descTxt {
+        font-family: "M-Regular";
+        font-size: 0.9rem;
+      }
+    }
+    .sec2_footer {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+      border: 1px solid #ccc;
+      .titleTxt {
+        font-family: "M-Semibold";
+        font-size: 1.2rem;
+      }
+      .descTxt2 {
+        font-family: "M-Regular";
+        font-size: 0.9rem;
+        padding-left: 1rem;
+        li {
+          margin: 0.4rem 0rem;
+        }
+      }
+    }
+  }
+
+  // Media Queries
+  @include tablet-portrait {
+    grid-template-columns: repeat(2, 1fr);
+    &_sec2 {
+      width: 80%;
+    }
+  }
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+    padding-top: 4rem;
+    grid-gap: 40px;
+    &_sec1 {
+      padding-left: 3rem;
+    }
+    &_sec2 {
+      width: 90%;
+      .sec2_header {
+        padding-bottom: 2rem;
+        height: 100%;
+      }
+      .sec2_body {
+        padding-bottom: 3rem;
+        height: 100%;
+      }
+      .sec2_footer {
+        padding-bottom: 4rem;
+        height: 100%;
+      }
     }
   }
 }

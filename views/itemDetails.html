@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="../css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="mainHeader">
+      <!-- Logo -->
+      <div class="mainHeader_logo"><a href="/">uGive</a></div>
+      <!-- Nav -->
+      <nav class="mainHeader_nav">
+        <ul class="menu">
+          <a href="/about"><li class="menu-item">About</li></a>
+          <a href="/rewards"><li class="menu-item menu-active">Rewards</li></a>
+          <a href="/articles"><li class="menu-item">Articles</li></a>
+          <a href="/schedule"><li class="menu-item">Schedule pickup</li></a>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+      <!-- Sign in btn -->
+      <div class="mainHeader_signupBtn"><p>Sign in/Login</p></div>
+      <ul class="mainHeader_mobileMenu">
+        <a href="/about"><li class="menu-item">About</li></a>
+        <a href="/rewards"><li class="menu-item">Rewards</li></a>
+        <a href="/articles"><li class="menu-item">Articles</li></a>
+        <a href="/schedule"><li class="menu-item">Schedule pickup</li></a>
+      </ul>
+    </header>
+    <!-- END OF HEADER -->
+
+    <!-- DETAILS -->
+    <section class="rewardDetailSec">
+      <% rewardProperty.forEach(function(prop){ %>
+      <div class="rewardDetailSec_sec1">
+        <div class="sec1_img">
+          <img src="<%= prop.imagePath %>" alt="" />
+        </div>
+      </div>
+      <div class="rewardDetailSec_sec2">
+        <div class="sec2_header">
+          <h1 class="headerTxt">
+            Name: <span class="inner"><%= prop.rewardName %></span>
+          </h1>
+          <p class="subTxt">Points required: <%= prop.points%></p>
+        </div>
+        <div class="sec2_body">
+          <h1 class="titleTxt">Description</h1>
+          <p class="descTxt"><%= prop.description%></p>
+        </div>
+        <div class="sec2_footer">
+          <h1 class="titleTxt">Terms & Condition</h1>
+          <ul class="descTxt2">
+            <li>Items can't be refund or returned</li>
+            <li>Multiple redemptions are allowed</li>
+            <li>No minimum purchase required</li>
+          </ul>
+        </div>
+      </div>
+      <% }) %>
+    </section>
+  </body>
+</html>
