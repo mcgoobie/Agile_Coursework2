@@ -38,7 +38,7 @@ CREATE TABLE reward (
     rewardName varchar(255) NOT NULL UNIQUE,
     category varchar(255) NOT NULL,
     points int NOT NULL,
-    description varchar(255) NOT NULL,
+    description varchar(1000) NOT NULL,
     imagePath varchar(255) NOT NULL,
     primary key(rewardID)
 );
