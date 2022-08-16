@@ -9,9 +9,9 @@ const path = require("path");
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "password",
-  // password: "",
-  database: "uGiveDb"
+  // password: "password",
+  password: "",
+  database: "uGiveDb",
 });
 
 // connect to the db
@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/css", express.static("css"));
 app.use("/img", express.static("img"));
 app.use("/fonts", express.static("fonts"));
-app.use("/script", express.static("script"));
+app.use("/scripts", express.static("scripts"));
 require("./routes/main")(app);
 
 app.set("views", __dirname + "/views");
