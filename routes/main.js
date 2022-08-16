@@ -21,6 +21,11 @@ module.exports = function (app) {
     res.render("register.html");
   });
 
+    // Route for Register Page
+    app.get("/failedRegistration", function (req, res) {
+      res.render("regFailed.html");
+    });
+
   // Route for login Page
   app.get("/login", function (req, res) {
     res.render("login.html");
@@ -150,6 +155,7 @@ module.exports = function (app) {
 
     db.query(sqlquery, newuser, (err, result) => {
       if (err) {
+        res.redirect("/failedRegistration");
         return console.error(err.message);
       } else {
         res.redirect("/login");
