@@ -33,7 +33,7 @@
             <li class="menu-item">Schedule pickup</li>
           </a>
           <% if(user) { %>
-          <p>Hello <%= user %></p>
+          <p><a href="/editprofile">Hello <%= user %></a></p>
           <% } %>
         </ul>
         <div class="hamburger">
@@ -44,7 +44,11 @@
       </nav>
       <!-- Sign in btn -->
       <div class="mainHeader_signupBtn">
-        <a href="/login" class="primaryBtn">Sign Up/Login</a>
+        <% if(user) { %>
+          <a href="/logout" class="primaryBtn">Logout</a>
+          <% } else { %>
+            <a href="/login" class="primaryBtn">Sign Up/Login</a>
+        <% } %>
       </div>
       <ul class="mainHeader_mobileMenu">
         <a href="/about">

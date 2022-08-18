@@ -63,59 +63,71 @@
 
   <!-- HERO SECTION -->
   <section class="editprofile-section">
-    <div class="editprofile-topdiv">
-      <div class="profilepic-container">
-        <div class="profile-pic">
-          <img class="profile-img" src="../img/blank-profile-picture-973460_640.png" />
-        </div>
-        <h2>
-          <%= user %>
-        </h2>
-        <button class="editprofile-btn" id="edit-button" onclick="editButtonClicked()">Edit Profile</button>
-        <div class="editprofile-btn-div">
-          <button class="editprofile-btn profile-save-btn" id="save-button" onclick="saveButtonClicked()">Save
-            Changes</button>
-          <button class="editprofile-btn cancel-changes-btn" id="cancel-button"
-            onclick="cancelButtonClicked()">Cancel</button>
-        </div>
-        <p id="error-msg" class="edit-error-field">Fields cannot be left empty!</p>
-      </div>
+    <div class="editprofile-sidebar">
+      <h2>
+        <%= user %>'s profile
+      </h2>
+      <ul class="profile-list">
+        <li class="profile-list-item item-active"><a href="/editprofile">View/edit profile</a></li>
+        <li class="profile-list-item"><a>View Bookings</a></li>
+        <li class="profile-list-item"><a href="/logout">Logout</a></li>
+      </ul>
     </div>
-    <div class="editprofile-botdiv">
-      <% profileInfo.forEach(function(profile){ %>
-        <form id="edit-form" action="/editprofile" method="post">
-          <div class="editprofile-botleft">
-            <p class="editprofile-para-header">My Information</p>
-            <div class="profile-left-line"></div>
-            <div class="editprofile-divbox">
-              <p>First Name: </p>
-              <input class="profile-fields" type="text" id="fName" name="fName" value="<%= profile.fName %>"
-                onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field');" disabled required />
-              <p>Last Name: </p>
-              <input class="profile-fields" type="text" id="lName" name="lName" value="<%= profile.lName %>"
-                onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field');" disabled required />
-            </div>
+    <div class="editprofile-main">
+      <div class="editprofile-topdiv">
+        <div class="profilepic-container">
+          <div class="profile-pic">
+            <img class="profile-img" src="../img/blank-profile-picture-973460_640.png" />
           </div>
-          <div class="editprofile-botright">
-            <p class="editprofile-para-header">Where to contact me</p>
-            <div class="profile-right-line"></div>
-            <div class="editprofile-divbox">
-              <p>Email Address: </p>
-              <input class="profile-fields" type="text" id="emailAddr" name="emailAddr" value="<%= profile.emailAddr %>"
-                onchange="updateInput(this.id, this.value)" disabled required />
-              <p>Contact Number: </p>
-              <input class="profile-fields" type="text" pattern="\d*" id="mobileNumber" name="mobileNumber"
-                value="<%= profile.mobileNumber %>" onchange="updateInput(this.id, this.value)" disabled />
-              <p>Address</p>
-              <input class="profile-fields" type="text" id="address" name="address" value="<%= profile.address %>"
-                onchange="updateInput(this.id, this.value)" disabled required />
-              <p>Postal Code: </p>
-              <input class="profile-fields" type="text" id="postalCode" name="postalCode"
-                value="<%= profile.postalCode %>" onchange="updateInput(this.id, this.value)" disabled required />
-            </div>
+          <h2>
+            <%= user %>
+          </h2>
+          <button class="editprofile-btn" id="edit-button" onclick="editButtonClicked()">Edit Profile</button>
+          <div class="editprofile-btn-div">
+            <button class="editprofile-btn profile-save-btn" id="save-button" onclick="saveButtonClicked()">Save
+              Changes</button>
+            <button class="editprofile-btn cancel-changes-btn" id="cancel-button"
+              onclick="cancelButtonClicked()">Cancel</button>
           </div>
-        </form>
-        <% }) %>
+          <p id="error-msg" class="edit-error-field">Fields cannot be left empty!</p>
+        </div>
+      </div>
+      <div class="editprofile-botdiv">
+        <% profileInfo.forEach(function(profile){ %>
+          <form id="edit-form" action="/editprofile" method="post">
+            <div class="editprofile-botleft">
+              <p class="editprofile-para-header">My Information</p>
+              <div class="profile-left-line"></div>
+              <div class="editprofile-divbox">
+                <p>First Name: </p>
+                <input class="profile-fields" type="text" id="fName" name="fName" value="<%= profile.fName %>"
+                  onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field');" disabled required />
+                <p>Last Name: </p>
+                <input class="profile-fields" type="text" id="lName" name="lName" value="<%= profile.lName %>"
+                  onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field');" disabled required />
+              </div>
+            </div>
+            <div class="editprofile-botright">
+              <p class="editprofile-para-header">Where to contact me</p>
+              <div class="profile-right-line"></div>
+              <div class="editprofile-divbox">
+                <p>Email Address: </p>
+                <input class="profile-fields" type="text" id="emailAddr" name="emailAddr"
+                  value="<%= profile.emailAddr %>" onchange="updateInput(this.id, this.value)" disabled required />
+                <p>Contact Number: </p>
+                <input class="profile-fields" type="text" pattern="\d*" id="mobileNumber" name="mobileNumber"
+                  value="<%= profile.mobileNumber %>" onchange="updateInput(this.id, this.value)" disabled />
+                <p>Address</p>
+                <input class="profile-fields" type="text" id="address" name="address" value="<%= profile.address %>"
+                  onchange="updateInput(this.id, this.value)" disabled required />
+                <p>Postal Code: </p>
+                <input class="profile-fields" type="text" id="postalCode" name="postalCode"
+                  value="<%= profile.postalCode %>" onchange="updateInput(this.id, this.value)" disabled required />
+              </div>
+            </div>
+          </form>
+          <% }) %>
+      </div>
     </div>
   </section>
   <!-- END OF HERO SECTION -->

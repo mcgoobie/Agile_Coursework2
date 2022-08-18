@@ -21,14 +21,21 @@ module.exports = function (app) {
     res.render("register.html");
   });
 
-    // Route for Register Page
-    app.get("/failedRegistration", function (req, res) {
-      res.render("regFailed.html");
-    });
+  // Route for Register Page
+  app.get("/failedRegistration", function (req, res) {
+    res.render("regFailed.html");
+  });
 
   // Route for login Page
   app.get("/login", function (req, res) {
     res.render("login.html");
+  });
+
+  // Route for logout
+  app.get('/logout', function (req, res) {
+    req.session.destroy(function (err) {
+      res.redirect("/");
+    })
   });
 
   // Route for forgetPassword Page
