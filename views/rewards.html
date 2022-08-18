@@ -27,7 +27,12 @@
         </div>
       </nav>
       <!-- Sign in btn -->
-      <div class="mainHeader_signupBtn"><a href="/login">Sign Up/Login</a></div>
+      <div class="mainHeader_signupBtn">
+        <% if(user) { %>
+          <a href="/logout" class="primaryBtn">Logout</a>
+          <% } else { %>
+            <a href="/login" class="primaryBtn">Sign Up/Login</a>
+        <% } %>
       <ul class="mainHeader_mobileMenu">
         <a href="/about"><li class="menu-item">About</li></a>
         <a href="/rewards"><li class="menu-item">Rewards</li></a>
