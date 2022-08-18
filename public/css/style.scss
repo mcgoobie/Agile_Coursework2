@@ -476,15 +476,18 @@ a {
         font-size: 1rem;
         margin-top: 0.2rem;
       }
-      .btn {
+      .locationBtn {
         width: 100%;
         display: grid;
         justify-content: end;
         font-family: "M-Semibold";
         padding: 1rem 0rem 0rem 0rem;
         cursor: pointer;
-        p {
+        .btn {
           position: relative;
+          font-family: "M-Semibold";
+          background-color: transparent;
+          border: none;
           &::after {
             content: "";
             position: absolute;

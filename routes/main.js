@@ -32,10 +32,10 @@ module.exports = function (app) {
   });
 
   // Route for logout
-  app.get('/logout', function (req, res) {
+  app.get("/logout", function (req, res) {
     req.session.destroy(function (err) {
       res.redirect("/");
-    })
+    });
   });
 
   // Route for forgetPassword Page
@@ -365,5 +365,10 @@ module.exports = function (app) {
         rewardProperty: result,
       });
     });
+  });
+
+  app.get("/about", (req, res) => {
+    // execute sql query
+    res.render("about.html");
   });
 };
