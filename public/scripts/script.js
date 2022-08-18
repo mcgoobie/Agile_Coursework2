@@ -49,8 +49,9 @@ function checkFilled(formName, fieldsToVal) {
     var count = 0;
 
     for (var i = 0, len = childElems.length; i < len; ++i) {
-      if (childElems.tagName == "input" && childElems[i].value != "")
+      if (childElems[i].tagName == "INPUT" && childElems[i].value != "")
         count += 1;
+        console.log(count);
     }
   } else if (form.tagName == "FORM") {
     var childElems = form.elements;
@@ -68,7 +69,7 @@ function checkFilled(formName, fieldsToVal) {
 }
 
 function reg_enableContactForm() {
-  if (reg_checkFilled()) {
+  if (checkFilled("register-formbody-left", 6)) {
     document.getElementsByClassName("formleft-warning")[0].style.display =
       "none";
     document.getElementById("register-form-right").style.opacity = "1";
@@ -86,7 +87,7 @@ function reg_enableContactForm() {
   }
 }
 
-function reg_validateEmail(obj) {
+function validateEmail(obj) {
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   var email = document.getElementById(obj.id);
 

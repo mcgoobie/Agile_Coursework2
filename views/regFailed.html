@@ -1,17 +1,16 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <title>Maps</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../css/style.css" rel="stylesheet" />
+  <link href="../css/styling.css" rel="stylesheet" />
+  <title>uGive</title>
 </head>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/mapStyling.css">
-<script async
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpmobSIOtFht6MrYp3ytLRTHBS5MyobY8&libraries=places&callback=initMap">
-  </script>
-<script type="text/javascript" src="scripts/googleAPI.js"></script>
 
-<body class="map-body">
+<body>
   <!-- HEADER -->
   <header class="mainHeader">
     <!-- Logo -->
@@ -31,9 +30,6 @@
         <a href="/schedule">
           <li class="menu-item">Schedule pickup</li>
         </a>
-        <% if(user) { %>
-          <p><a href="/editprofile">Hello <%= user %></a></p>
-          <% } %>
       </ul>
       <div class="hamburger">
         <span></span>
@@ -64,12 +60,22 @@
     </ul>
   </header>
   <!-- END OF HEADER -->
-  <div class="map-content">
-    <h1>Location of donation drive</h1>
-    <div class="map-canvas" id="map">
+
+  <!-- HERO SECTION -->
+  <section class="regFailedSection">
+    <div class="regFailed-divLeft">
+      <h1>Failed to register..</h1>
+      <div class="regFailed-content">
+        <p>It seems that you might be an existing user!</p>
+        <p>If you have forgotten your password, click <a class="regFailed-pwd-link" href="/forgetPassword">here</a> to get a new one.</p>
+      </div>
     </div>
-    <p>Go back to <a href="/">Home</a></p>
-  </div>
+    <div class="regFailed-divRight">
+      <img src="img/forget_password_img.png" />
+    </div>
+  </section>
+  <!-- END OF HERO SECTION -->
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer_top">
@@ -93,11 +99,6 @@
       <p>Copyright uGive 2022</p>
     </div>
   </footer>
-  <script>
-    window.addEventListener('load', (event) => {
-      getQuery()
-    });
-  </script>
 </body>
 
 </html>

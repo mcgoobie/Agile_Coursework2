@@ -1,16 +1,28 @@
-.forgetPasswordSection {
+.forgetPasswordSection,
+.regFailedSection {
   height: 90vh;
   margin: 5%;
   display: flex;
 }
 
 .forgetpwd-divLeft,
-.forgetpwd-divRight {
+.forgetpwd-divRight,
+.regFailed-divLeft,
+.regFailed-divRight {
   width: 100%;
   position: relative;
 }
 
-.forgetpwd-divRight img {
+.regFailed-pwd-link {
+  text-decoration: underline;
+}
+
+.regFailed-pwd-link:hover {
+  font-style: italic;
+}
+
+.forgetpwd-divRight img,
+.regFailed-divRight img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -18,14 +30,16 @@
   width: 75%;
 }
 
-.forgetPasswordSection h1 {
+.forgetPasswordSection h1,
+.regFailedSection h1 {
   font-family: "M-SemiBold";
   font-size: 2.0rem;
   padding-bottom: 0.3rem;
   margin-top: 20%;
 }
 
-.forgetPassword-content p {
+.forgetPassword-content,
+.regFailed-content p {
   font-family: "M-Medium";
   font-size: 1.2rem;
 }
@@ -48,10 +62,53 @@
   color: grey;
 }
 
+.editprofile-sidebar {
+  float: left;
+  width: 15%;
+  height: 95%;
+  padding-top: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-right: 2px solid black;
+}
+
+.editprofile-sidebar h2 {
+  font-family: "M-Medium";
+  text-decoration: underline;
+  font-size: 1.2rem;
+  padding-bottom: 0.3rem;
+  margin-top: 10px;
+}
+
+.profile-list {
+  font-family: "M-Regular";
+  font-size: 1.0rem;
+  margin-top: 5%;
+}
+
+.profile-list-item {
+  list-style-type: none;
+  margin-bottom: 10%;
+}
+
+.profile-list-item:hover {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.item-active {
+  font-weight: bold;
+}
+
 .editprofile-section {
   height: inherit;
-  margin: 5%;
-  /* overflow: scroll; */
+}
+
+.editprofile-main {
+  float: right;
+  width: 85%;
+  padding: 5%;
+  height: inherit;
 }
 
 .editprofile-topdiv,
@@ -150,12 +207,10 @@
   margin-bottom: 5px;
 }
 
-.profile-left-line {
-  border-top: 1px solid black;
-}
-
-.profile-right-line {
-  border-top: 1px solid black;
+.profile-left-line,
+.profile-right-line,
+.profile-side-line {
+  border-top: 2px solid black;
 }
 
 .editprofile-divbox,

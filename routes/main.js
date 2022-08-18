@@ -21,9 +21,21 @@ module.exports = function (app) {
     res.render("register.html");
   });
 
+  // Route for Register Page
+  app.get("/failedRegistration", function (req, res) {
+    res.render("regFailed.html");
+  });
+
   // Route for login Page
   app.get("/login", function (req, res) {
     res.render("login.html");
+  });
+
+  // Route for logout
+  app.get('/logout', function (req, res) {
+    req.session.destroy(function (err) {
+      res.redirect("/");
+    })
   });
 
   // Route for forgetPassword Page
@@ -35,8 +47,8 @@ module.exports = function (app) {
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "owenleeweihern@gmail.com",
-        pass: "Weihern207$",
+        user: "uGive_support_team@gmail.com",
+        pass: "123456",
       },
     });
 
@@ -61,7 +73,7 @@ module.exports = function (app) {
 
   // Route for rewards page
   app.get("/rewards", function (req, res) {
-    res.render("rewards.html");
+    res.render("rewards.html", { user: req.session.currentUser });
   });
 
   // Route for rewards page
@@ -150,6 +162,7 @@ module.exports = function (app) {
 
     db.query(sqlquery, newuser, (err, result) => {
       if (err) {
+        res.redirect("/failedRegistration");
         return console.error(err.message);
       } else {
         res.redirect("/login");
