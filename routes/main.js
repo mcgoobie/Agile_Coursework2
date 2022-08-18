@@ -47,8 +47,8 @@ module.exports = function (app) {
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "owenleeweihern@gmail.com",
-        pass: "Weihern207$",
+        user: "uGive_support_team@gmail.com",
+        pass: "123456",
       },
     });
 
@@ -73,7 +73,7 @@ module.exports = function (app) {
 
   // Route for rewards page
   app.get("/rewards", function (req, res) {
-    res.render("rewards.html");
+    res.render("rewards.html", { user: req.session.currentUser });
   });
 
   // Route for rewards page
