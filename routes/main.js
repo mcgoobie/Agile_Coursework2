@@ -366,4 +366,22 @@ module.exports = function (app) {
       });
     });
   });
+
+  app.get("/view-booking", (req, res) => {
+    let sqlquery = "SELECT b.* FROM booking b JOIN user u ON (b.userId = u.userId) WHERE u.username = ?";
+    let user = [req.session.currentUser];
+    // execute sql query
+    db.query(sqlquery, user, (err, result) => {
+      if (err || result == "") {
+        res.redirect("/");
+        return console.error(err.message);
+      } else {
+      res.render("viewBookings.html",
+        {
+          user: req.session.currentUser,
+          bookings: result,
+        });
+      }
+    });
+  });
 };

@@ -62,7 +62,7 @@
   color: grey;
 }
 
-.editprofile-sidebar {
+.profile-sidebar {
   float: left;
   width: 15%;
   height: 95%;
@@ -72,7 +72,7 @@
   border-right: 2px solid black;
 }
 
-.editprofile-sidebar h2 {
+.profile-sidebar h2 {
   font-family: "M-Medium";
   text-decoration: underline;
   font-size: 1.2rem;
@@ -100,11 +100,13 @@
   font-weight: bold;
 }
 
-.editprofile-section {
+.editprofile-section,
+.viewbooking-section {
   height: inherit;
 }
 
-.editprofile-main {
+.editprofile-main,
+.viewbooking-main {
   float: right;
   width: 85%;
   padding: 5%;
@@ -209,7 +211,8 @@
 
 .profile-left-line,
 .profile-right-line,
-.profile-side-line {
+.profile-side-line,
+.upcoming-booking-line {
   border-top: 2px solid black;
 }
 
@@ -500,4 +503,27 @@
 .successbooking-content p {
   font-family: "M-Medium";
   font-size: 1.2rem;
+}
+
+.viewbooking-main h2 {
+  font-family: "M-Medium";
+  font-size: 1.2rem;
+  padding-bottom: 0.3rem;
+  margin-top: 10px;
+}
+
+.booking-divbox p {
+  font-family: "M-Medium";
+  font-size: 1.2rem;
+}
+
+.booking-divbox {
+  background-color: white;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px 50px 20px 50px;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
 }
