@@ -389,4 +389,5 @@ module.exports = function (app) {
         });
       }
     });
+  });
 };
