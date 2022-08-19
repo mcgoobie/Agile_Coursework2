@@ -15,6 +15,12 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     res.render("index.html", { user: req.session.currentUser });
   });
+  
+  // Route for About Page
+  app.get("/about", (req, res) => {
+    // execute sql query
+    res.render("about.html");
+  });
 
   // Route for Register Page
   app.get("/register", function (req, res) {
@@ -367,8 +373,20 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/about", (req, res) => {
+  app.get("/view-booking", (req, res) => {
+    let sqlquery = "SELECT b.* FROM booking b JOIN user u ON (b.userId = u.userId) WHERE u.username = ?";
+    let user = [req.session.currentUser];
     // execute sql query
-    res.render("about.html");
-  });
+    db.query(sqlquery, user, (err, result) => {
+      if (err || result == "") {
+        res.redirect("/");
+        return console.error(err.message);
+      } else {
+      res.render("viewBookings.html",
+        {
+          user: req.session.currentUser,
+          bookings: result,
+        });
+      }
+    });
 };
