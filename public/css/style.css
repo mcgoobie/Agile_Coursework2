@@ -590,7 +590,7 @@ a {
   margin-top: 0.2rem;
 }
 
-.locationSection_form .locationForm .btn {
+.locationSection_form .locationForm .locationBtn {
   width: 100%;
   display: -ms-grid;
   display: grid;
@@ -602,11 +602,14 @@ a {
   cursor: pointer;
 }
 
-.locationSection_form .locationForm .btn p {
+.locationSection_form .locationForm .locationBtn .btn {
   position: relative;
+  font-family: "M-Semibold";
+  background-color: transparent;
+  border: none;
 }
 
-.locationSection_form .locationForm .btn p::after {
+.locationSection_form .locationForm .locationBtn .btn::after {
   content: "";
   position: absolute;
   bottom: 0;

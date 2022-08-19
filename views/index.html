@@ -26,7 +26,7 @@
           <a href="/rewards">
             <li class="menu-item">Rewards</li>
           </a>
-          <a href="/articles">
+          <a href="/blog">
             <li class="menu-item">Articles</li>
           </a>
           <a href="/schedule">
@@ -42,6 +42,7 @@
           <span></span>
         </div>
       </nav>
+      
       <!-- Sign in btn -->
       <div class="mainHeader_signupBtn">
         <% if(user) { %>
@@ -70,22 +71,6 @@
         <span></span>
       </div>
     </nav>
-    <!-- Sign in btn -->
-    <div class="mainHeader_signupBtn"><a href="/login">Sign Up/Login</a></div>
-    <ul class="mainHeader_mobileMenu">
-      <a href="/about">
-        <li class="menu-item">About</li>
-      </a>
-      <a href="/rewards">
-        <li class="menu-item">Rewards</li>
-      </a>
-      <a href="/blog">
-        <li class="menu-item">Articles</li>
-      </a>
-      <a href="/schedule">
-        <li class="menu-item">Schedule pickup</li>
-      </a>
-    </ul>
   </header>
   <!-- END OF HEADER -->
 
@@ -181,8 +166,8 @@
             name="donationPoint"
             placeholder="Example: Bukit Batok"
           />
-          <div class="btn">
-            <button type="submit">View available points</button>
+          <div class="locationBtn">
+            <button type="submit" class="btn">View available points</button>
           </div>
         </form>
       </div>

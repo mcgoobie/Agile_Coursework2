@@ -15,6 +15,12 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     res.render("index.html", { user: req.session.currentUser });
   });
+  
+  // Route for About Page
+  app.get("/about", (req, res) => {
+    // execute sql query
+    res.render("about.html");
+  });
 
   // Route for Register Page
   app.get("/register", function (req, res) {
@@ -32,10 +38,10 @@ module.exports = function (app) {
   });
 
   // Route for logout
-  app.get('/logout', function (req, res) {
+  app.get("/logout", function (req, res) {
     req.session.destroy(function (err) {
       res.redirect("/");
-    })
+    });
   });
 
   // Route for forgetPassword Page
@@ -383,5 +389,4 @@ module.exports = function (app) {
         });
       }
     });
-  });
 };
