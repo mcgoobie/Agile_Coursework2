@@ -517,6 +517,10 @@
   font-size: 1.2rem;
 }
 
+.booking-divbox-header {
+  font-weight: bold;
+}
+
 .booking-divbox {
   background-color: white;
   margin: auto;
