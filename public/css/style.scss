@@ -173,7 +173,7 @@ a {
       font-size: 2rem;
       text-align: center;
     }
-    p {
+    .btn {
       margin-top: 1rem;
       display: flex;
       justify-content: center;
@@ -488,6 +488,7 @@ a {
           font-family: "M-Semibold";
           background-color: transparent;
           border: none;
+          cursor: pointer;
           &::after {
             content: "";
             position: absolute;

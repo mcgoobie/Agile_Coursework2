@@ -235,7 +235,7 @@ a {
   text-align: center;
 }
 
-.heroSection_inner p {
+.heroSection_inner .btn {
   margin-top: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -607,6 +607,7 @@ a {
   font-family: "M-Semibold";
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .locationSection_form .locationForm .locationBtn .btn::after {
