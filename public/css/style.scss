@@ -555,6 +555,11 @@ a {
         font-family: "M-Regular";
         font-size: 0.8rem;
       }
+      a {
+        font-family: "M-Regular";
+        font-size: 0.8rem;
+        color: white;
+      }
     }
     &_logo {
       grid-column: 2;
@@ -1147,7 +1152,7 @@ a {
       border-radius: 1rem;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
       img {
-        width: 30%;
+        width: 25%;
       }
       &_header {
         font-family: "M-SemiBold";
@@ -1178,7 +1183,7 @@ a {
       grid-gap: 25px;
       .eachValue {
         img {
-          width: 20%;
+          width: 18%;
         }
       }
     }
@@ -1187,5 +1192,28 @@ a {
   @include desktop {
     height: 130vh;
     margin-top: 1rem;
+  }
+}
+
+// FAQs
+.questionSection {
+  width: 100vw;
+  height: 70vh;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  &_each {
+    width: 100%;
+    font-family: "M-Regular";
+    .header {
+      font-family: "M-Semibold";
+      padding-bottom: 0.6rem;
+    }
+  }
+
+  // Media Queries
+  @include tablet-portrait {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
