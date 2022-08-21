@@ -24,7 +24,7 @@ module.exports = function (app) {
 
   // Route for Register Page
   app.get("/register", function (req, res) {
-    res.render("register.html");
+    res.render("register.html");  
   });
 
   // Route for Register Page
@@ -177,7 +177,7 @@ module.exports = function (app) {
   });
 
   app.get("/maps", function (req, res) {
-    res.render("maps.html");
+    res.render("maps.html", { user: req.session.currentUser });
   });
 
   app.post("/locatePoints", function (req, res) {

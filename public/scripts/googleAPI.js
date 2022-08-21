@@ -8,24 +8,6 @@ function initMap() {
   infowindow = new google.maps.InfoWindow();
   map = new google.maps.Map(
     document.getElementById('map'), { center: singapore, zoom: 15 });
-
-  // const center = { lat: 1.374948, lng: 103.878960 };
-  // const defaultBounds = {
-  //   north: center.lat + 0.1,
-  //   south: center.lat - 0.1,
-  //   east: center.lng + 0.1,
-  //   west: center.lng - 0.1,
-  // };
-
-  // const options = {
-  //   bounds: defaultBounds,
-  //   componentRestrictions: { country: "sg" },
-  //   fields: ["address_components", "geometry", "icon", "name"],
-  //   strictBounds: false,
-  //   types: ["establishment"],
-  // };
-  // const input = document.getElementById("donation-point");
-  // new google.maps.places.Autocomplete(input, options);
 }
 
 function getQuery() {

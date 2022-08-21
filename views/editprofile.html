@@ -105,10 +105,10 @@
               <div class="editprofile-divbox">
                 <p>First Name: </p>
                 <input class="profile-fields" type="text" id="fName" name="fName" value="<%= profile.fName %>"
-                  onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field');" disabled required />
+                  onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field', 'profile-save-btn');" disabled required />
                 <p>Last Name: </p>
                 <input class="profile-fields" type="text" id="lName" name="lName" value="<%= profile.lName %>"
-                  onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field');" disabled required />
+                  onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field', 'profile-save-btn');" disabled required />
               </div>
             </div>
             <div class="editprofile-botright">
