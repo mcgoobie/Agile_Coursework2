@@ -62,6 +62,15 @@
   padding-bottom: 20px;
 }
 
+.register-formbody-left::-webkit-scrollbar {
+  display: none;
+}
+
+.register-formbody-left {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 .register-formbody-right {
   float: right;
   width: 50%;

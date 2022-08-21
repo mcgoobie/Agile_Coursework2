@@ -1,20 +1,20 @@
-function checkName(obj, error) {
+function checkName(obj, error, button) {
   const specialChars = /[`!@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?~]/;
   let stringVal = document.getElementById(obj.id).value;
 
   if (specialChars.test(stringVal)) {
     obj.style.borderColor = "red";
-    document.getElementsByClassName("formleft-warning")[0].style.display =
+    document.getElementsByClassName(error)[0].style.display =
       "block";
-    document.getElementsByClassName("formleft-warning")[0].innerHTML =
+    document.getElementsByClassName(error)[0].innerHTML =
       "Textfield cannot contain special characters!";
-    document.getElementsByClassName("next-btn")[0].disabled = true;
+    document.getElementsByClassName(button)[0].disabled = true;
   } else {
     console.log("Pass!");
     obj.style.borderColor = "#ececec";
-    document.getElementsByClassName("formleft-warning")[0].style.display =
+    document.getElementsByClassName(error)[0].style.display =
       "none";
-    document.getElementsByClassName("next-btn")[0].disabled = false;
+    document.getElementsByClassName(button)[0].disabled = false;
   }
 }
 
@@ -103,5 +103,49 @@ function validateEmail(obj) {
     document.getElementsByClassName("formright-warning")[0].innerHTML =
       "Please enter a valid email address.";
     document.getElementById("register-btn").disabled = true;
+  }
+}
+
+function editButtonClicked() {
+  var form = document.getElementById("edit-form");
+  var elements = form.elements;
+  for (var i = 0, len = elements.length; i < len; ++i) {
+    elements[i].disabled = false;
+    elements[i].style.borderColor = "black";
+  }
+
+  document.getElementById("edit-button").style.display = "none";
+
+  document.getElementById("save-button").style.display = "grid";
+  document.getElementById("cancel-button").style.display = "grid";
+}
+
+function updateInput(id, type) {
+  console.log(type);
+  document.getElementById(id).value = type;
+}
+
+function cancelButtonClicked() {
+  var form = document.getElementById("edit-form");
+  var elements = form.elements;
+  for (var i = 0, len = elements.length; i < len; ++i) {
+    elements[i].disabled = true;
+    elements[i].style.borderColor = "#ccc";
+  }
+
+  document.getElementById("edit-button").style.display = "grid";
+
+  document.getElementById("save-button").style.display = "none";
+  document.getElementById("cancel-button").style.display = "none";
+}
+
+function saveButtonClicked() {
+  if (checkFilled('edit-form', 6)) {
+    console.log("button clicked");
+    var form = document.getElementById("edit-form");
+    form.submit();
+  } else {
+    console.log("Failed to Save");
+    document.getElementById('error-msg').style.display = "block";
   }
 }

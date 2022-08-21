@@ -15,7 +15,7 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     res.render("index.html", { user: req.session.currentUser });
   });
-  
+
   // Route for About Page
   app.get("/about", (req, res) => {
     // execute sql query
@@ -24,7 +24,7 @@ module.exports = function (app) {
 
   // Route for Register Page
   app.get("/register", function (req, res) {
-    res.render("register.html");
+    res.render("register.html");  
   });
 
   // Route for Register Page
@@ -177,7 +177,7 @@ module.exports = function (app) {
   });
 
   app.get("/maps", function (req, res) {
-    res.render("maps.html");
+    res.render("maps.html", { user: req.session.currentUser });
   });
 
   app.post("/locatePoints", function (req, res) {
@@ -380,13 +380,16 @@ module.exports = function (app) {
     db.query(sqlquery, user, (err, result) => {
       if (err || result == "") {
         res.redirect("/");
-        return console.error(err.message);
       } else {
-      res.render("viewBookings.html",
-        {
-          user: req.session.currentUser,
-          bookings: result,
-        });
+        // convert dtae in mysql query to readable format
+        var date = new Date(result[0].date);
+        var readableDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+        res.render("viewBookings.html",
+          {
+            user: req.session.currentUser,
+            bookings: result,
+            date: readableDate
+          });
       }
     });
   });
