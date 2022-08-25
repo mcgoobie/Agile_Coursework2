@@ -10,7 +10,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   // password: "password",
-  password: "",
+  password: "tB719013",
   database: "uGiveDb",
 });
 
