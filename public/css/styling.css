@@ -531,3 +531,8 @@
   -webkit-box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
   box-shadow: 5px 5px 5px rgb(0 0 0 / 20%);
 }
+
+.upcoming-booking-container {
+  overflow: scroll;
+  height: 90%;
+}
