@@ -1,57 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../css/style.css" rel="stylesheet" />
-    <script
-      async
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpmobSIOtFht6MrYp3ytLRTHBS5MyobY8&libraries=places"
-    ></script>
-    <title>uGive</title>
-  </head>
 
-  <body>
-    <!-- HEADER -->
-    <header class="mainHeader">
-      <!-- Logo -->
-      <div class="mainHeader_logo"><a href="/">uGive</a></div>
-      <!-- Nav -->
-      <nav class="mainHeader_nav">
-        <ul class="menu">
-          <a href="/about">
-            <li class="menu-item">About</li>
-          </a>
-          <a href="/rewards">
-            <li class="menu-item">Rewards</li>
-          </a>
-          <a href="/blog">
-            <li class="menu-item">Articles</li>
-          </a>
-          <a href="/schedule">
-            <li class="menu-item">Schedule pickup</li>
-          </a>
-          <% if(user) { %>
-          <p><a href="/editprofile">Hello <%= user %></a></p>
-          <% } %>
-        </ul>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
-      
-      <!-- Sign in btn -->
-      <div class="mainHeader_signupBtn">
-        <% if(user) { %>
-          <a href="/logout" class="primaryBtn">Logout</a>
-          <% } else { %>
-            <a href="/login" class="primaryBtn">Sign Up/Login</a>
-        <% } %>
-      </div>
-      <ul class="mainHeader_mobileMenu">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../css/style.css" rel="stylesheet" />
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpmobSIOtFht6MrYp3ytLRTHBS5MyobY8&libraries=places"></script>
+  <title>uGive</title>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="mainHeader">
+    <!-- Logo -->
+    <div class="mainHeader_logo"><a href="/">uGive</a></div>
+    <!-- Nav -->
+    <nav class="mainHeader_nav">
+      <ul class="menu">
         <a href="/about">
           <li class="menu-item">About</li>
         </a>
@@ -64,12 +31,48 @@
         <a href="/schedule">
           <li class="menu-item">Schedule pickup</li>
         </a>
+        <% if(user) { %>
+          <a href="/editprofile">
+            <li>My Profile</li>
+          </a>
+          <p>Hello <%= user %>
+          </p>
+          <% } %>
       </ul>
       <div class="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
+    </nav>
+
+    <!-- Sign in btn -->
+    <div class="mainHeader_signupBtn">
+      <% if(user) { %>
+        <a href="/logout" class="primaryBtn">Logout</a>
+        <% } else { %>
+          <a href="/login" class="primaryBtn">Sign Up/Login</a>
+          <% } %>
+    </div>
+    <ul class="mainHeader_mobileMenu">
+      <a href="/about">
+        <li class="menu-item">About</li>
+      </a>
+      <a href="/rewards">
+        <li class="menu-item">Rewards</li>
+      </a>
+      <a href="/blog">
+        <li class="menu-item">Articles</li>
+      </a>
+      <a href="/schedule">
+        <li class="menu-item">Schedule pickup</li>
+      </a>
+    </ul>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     </nav>
   </header>
   <!-- END OF HEADER -->
@@ -100,118 +103,122 @@
       <div class="image image2"></div>
     </div>
   </section>
-    </header>
-   
+  </header>
 
-    <!-- REWARDS SECTION -->
-    <section class="rewardSection">
-      <div class="rewardSection_desc">
-        <h1>Stunning rewards to be claimed</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in
-          diam nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Curabitur in diam nulla.
+
+  <!-- REWARDS SECTION -->
+  <section class="rewardSection">
+    <div class="rewardSection_desc">
+      <h1>Stunning rewards to be claimed</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in
+        diam nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Curabitur in diam nulla.
+      </p>
+    </div>
+    <div class="rewardSection_img"></div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="processSection">
+    <h1>Process</h1>
+    <div class="processSection_processes">
+      <div class="process">
+        <div class="img1"></div>
+        <p class="headerText">Choose your timeslot</p>
+        <p class="subText">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+          in diam nulla.
         </p>
       </div>
-      <div class="rewardSection_img"></div>
-    </section>
-
-    <!-- PROCESS SECTION -->
-    <section class="processSection">
-      <h1>Process</h1>
-      <div class="processSection_processes">
-        <div class="process">
-          <div class="img1"></div>
-          <p class="headerText">Choose your timeslot</p>
-          <p class="subText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            in diam nulla.
-          </p>
-        </div>
-        <div class="process">
-          <div class="img2"></div>
-          <p class="headerText">Book an appointment</p>
-          <p class="subText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            in diam nulla.
-          </p>
-        </div>
-        <div class="process">
-          <div class="img3"></div>
-          <p class="headerText">Wait for your pickup</p>
-          <p class="subText">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            in diam nulla.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- DONATION SECTION -->
-    <section class="locationSection">
-      <div class="locationSection_desc">
-        <h1>Find your nearest donation point</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in
-          diam nulla. Integer porta tempus porta. Nulla aliquam cursus tortor
-          sed tincidunt. Maecenas justo risus, suscipit et erat sed,
+      <div class="process">
+        <div class="img2"></div>
+        <p class="headerText">Book an appointment</p>
+        <p class="subText">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+          in diam nulla.
         </p>
       </div>
-      <div class="locationSection_form">
-        <form class="locationForm" method="post" action="/locatePoints">
-          <label>Current location: </label>
-          <input
-            type="text"
-            id="donation-point"
-            name="donationPoint"
-            placeholder="Example: Bukit Batok"
-          />
-          <div class="locationBtn">
-            <button type="submit" class="btn">View available points</button>
-          </div>
-        </form>
+      <div class="process">
+        <div class="img3"></div>
+        <p class="headerText">Wait for your pickup</p>
+        <p class="subText">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+          in diam nulla.
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer_top">
-        <div class="footer_top_col col-1">
-          <h2>FAQs</h2>
-          <a href="/FAQ"><p>Lorem ipsum dolor sit amet ?</p></a>
-          <a href="/FAQ"><p>Lorem ipsum dolor sit amet ?</p></a>
-          <a href="/FAQ"><p>Lorem ipsum dolor sit amet ?</p></a>
+  <!-- DONATION SECTION -->
+  <section class="locationSection">
+    <div class="locationSection_desc">
+      <h1>Find your nearest donation point</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in
+        diam nulla. Integer porta tempus porta. Nulla aliquam cursus tortor
+        sed tincidunt. Maecenas justo risus, suscipit et erat sed,
+      </p>
+    </div>
+    <div class="locationSection_form">
+      <form class="locationForm" method="post" action="/locatePoints">
+        <label>Current location: </label>
+        <input type="text" id="donation-point" name="donationPoint" placeholder="Example: Bukit Batok" />
+        <div class="locationBtn">
+          <button type="submit" class="btn">View available points</button>
         </div>
-        <div class="footer_top_col col-2">
-          <h2>Support</h2>
-          <p>Lorem ipsum dolor sit amet ?</p>
-          <p>Lorem ipsum dolor sit amet ?</p>
-          <p>Lorem ipsum dolor sit amet ?</p>
-        </div>
-        <div class="footer_top_logo">
-          <p>uGive</p>
-        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer_top">
+      <div class="footer_top_col col-1">
+        <h2>FAQs</h2>
+        <a href="/FAQ">
+          <p>How do I get started?</p>
+        </a>
+        <a href="/FAQ">
+          <p>What items can I donate?</p>
+        </a>
+        <a href="/FAQ">
+          <p>View more > </p>
+        </a>
       </div>
-      <div class="footer_btm">
-        <p>Copyright uGive 2022</p>
+      <div class="footer_top_col col-2">
+        <h2>Support</h2>
+        <p>Operating hours: 11am to 6pm daily</p>
+        <p>Email us: contact@uGive.com </p>
+        <p>Call us: 6123 5678</p>
+        <p>Leave a feedback > </p>
       </div>
-    </footer>
-  </body>
-  <script>
-    function initialize() {
-      var input = document.getElementById("donation-point");
+      <div class="footer_top_logo">
+        <p>uGive</p>
+      </div>
+    </div>
+    <div class="footer_btm">
+      <p>Copyright uGive 2022</p>
+    </div>
+  </footer>
 
-      const options = {
-        componentRestrictions: { country: "sg" },
-        fields: ["address_components", "geometry", "icon", "name"],
-        types: ["establishment"],
-      };
+</body>
+<script>
+  function initialize() {
+    var input = document.getElementById("donation-point");
 
-      new google.maps.places.Autocomplete(input, options);
-    }
+    const options = {
+      componentRestrictions: { country: "sg" },
+      fields: ["address_components", "geometry", "icon", "name"],
+      types: ["establishment"],
+    };
 
-    window.addEventListener("load", (event) => {
-      initialize();
-    });
-  </script>
+    new google.maps.places.Autocomplete(input, options);
+  }
+
+  window.addEventListener("load", (event) => {
+    initialize();
+  });
+</script>
+
 </html>
