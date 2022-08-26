@@ -33,7 +33,7 @@ module.exports = function (app) {
     res.render("register.html");
   });
 
-  // Route for Register Page
+  // Route for Register failure Page
   app.get("/failedRegistration", function (req, res) {
     res.render("regFailed.html");
   });
@@ -386,7 +386,10 @@ module.exports = function (app) {
     // execute sql query
     db.query(sqlquery, user, (err, result) => {
       if (err || result == "") {
-        res.redirect("/");
+        res.render("viewBookings.html", {
+          user: req.session.currentUser,
+          bookings: result
+        });
       } else {
         // convert dtae in mysql query to readable format
         var date = new Date(result[0].date);
