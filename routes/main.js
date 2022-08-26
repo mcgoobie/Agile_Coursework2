@@ -19,13 +19,13 @@ module.exports = function (app) {
   // Route for About Page
   app.get("/about", (req, res) => {
     // execute sql query
-    res.render("about.html");
+    res.render("about.html", { user: req.session.currentUser });
   });
 
   // Route for FAQs Page
   app.get("/FAQ", (req, res) => {
     // execute sql query
-    res.render("faq.html");
+    res.render("faq.html", { user: req.session.currentUser });
   });
 
   // Route for Register Page
@@ -252,6 +252,7 @@ module.exports = function (app) {
       }
       res.render("homeApplianceCategory.html", {
         rewardProperty: result,
+        user: req.session.currentUser,
       });
     });
   });
@@ -268,6 +269,7 @@ module.exports = function (app) {
       console.log(result);
       res.render("homeApplianceCategory.html", {
         rewardProperty: result,
+        user: req.session.currentUser,
       });
     });
   });
@@ -283,6 +285,7 @@ module.exports = function (app) {
       }
       res.render("itemDetails.html", {
         rewardProperty: result,
+        user: req.session.currentUser,
       });
     });
   });
@@ -298,6 +301,7 @@ module.exports = function (app) {
       }
       res.render("couponVouchercategory.html", {
         rewardProperty: result,
+        user: req.session.currentUser,
       });
     });
   });
@@ -314,6 +318,7 @@ module.exports = function (app) {
       console.log(result);
       res.render("couponVouchercategory.html", {
         rewardProperty: result,
+        user: req.session.currentUser,
       });
     });
   });
@@ -329,6 +334,7 @@ module.exports = function (app) {
       }
       res.render("itemDetails.html", {
         rewardProperty: result,
+        user: req.session.currentUser,
       });
     });
   });
@@ -344,6 +350,7 @@ module.exports = function (app) {
       }
       res.render("fashionCategory.html", {
         rewardProperty: result,
+        user: req.session.currentUser,
       });
     });
   });
@@ -360,6 +367,7 @@ module.exports = function (app) {
       console.log(result);
       res.render("fashionCategory.html", {
         rewardProperty: result,
+        user: req.session.currentUser,
       });
     });
   });
@@ -375,6 +383,7 @@ module.exports = function (app) {
       }
       res.render("itemDetails.html", {
         rewardProperty: result,
+        user: req.session.currentUser,
       });
     });
   });
@@ -385,7 +394,9 @@ module.exports = function (app) {
     let user = [req.session.currentUser];
     // execute sql query
     db.query(sqlquery, user, (err, result) => {
-      if (err || result == "") {
+      if (user == "") {
+        res.redirect("/");
+      } else if (err || result == "") {
         res.render("viewBookings.html", {
           user: req.session.currentUser,
           bookings: result

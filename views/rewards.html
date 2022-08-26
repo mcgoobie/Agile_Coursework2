@@ -20,7 +20,11 @@
           <a href="/blog"><li class="menu-item">Articles</li></a>
           <a href="/schedule"><li class="menu-item">Schedule pickup</li></a>
           <% if(user) { %>
-            <p><a href="/editprofile">Hello <%= user %></a></p>
+            <a href="/editprofile">
+              <li>My Profile</li>
+            </a>
+            <p>Hello <%= user %>
+            </p>
             <% } %>
         </ul>
         <div class="hamburger">

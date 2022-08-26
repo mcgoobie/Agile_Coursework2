@@ -32,7 +32,11 @@
           <li class="menu-item">Schedule pickup</li>
         </a>
         <% if(user) { %>
-          <p><a href="/editprofile">Hello <%= user %></a></p>
+          <a href="/editprofile">
+            <li>My Profile</li>
+          </a>
+          <p>Hello <%= user %>
+          </p>
           <% } %>
       </ul>
       <div class="hamburger">
@@ -41,27 +45,27 @@
         <span></span>
       </div>
     </nav>
-      <!-- Sign in btn -->
-      <div class="mainHeader_signupBtn">
-        <% if(user) { %>
-          <a href="/logout" class="primaryBtn">Logout</a>
-          <% } else { %>
-            <a href="/login" class="primaryBtn">Sign Up/Login</a>
-        <% } %>
-    <ul class="mainHeader_mobileMenu">
-      <a href="/about">
-        <li class="menu-item">About</li>
-      </a>
-      <a href="/rewards">
-        <li class="menu-item">Rewards</li>
-      </a>
-      <a href="/blog">
-        <li class="menu-item">Articles</li>
-      </a>
-      <a href="/schedule">
-        <li class="menu-item">Schedule pickup</li>
-      </a>
-    </ul>
+    <!-- Sign in btn -->
+    <div class="mainHeader_signupBtn">
+      <% if(user) { %>
+        <a href="/logout" class="primaryBtn">Logout</a>
+        <% } else { %>
+          <a href="/login" class="primaryBtn">Sign Up/Login</a>
+          <% } %>
+            <ul class="mainHeader_mobileMenu">
+              <a href="/about">
+                <li class="menu-item">About</li>
+              </a>
+              <a href="/rewards">
+                <li class="menu-item">Rewards</li>
+              </a>
+              <a href="/blog">
+                <li class="menu-item">Articles</li>
+              </a>
+              <a href="/schedule">
+                <li class="menu-item">Schedule pickup</li>
+              </a>
+            </ul>
   </header>
   <!-- END OF HEADER -->
   <div class="map-content">
@@ -75,9 +79,15 @@
     <div class="footer_top">
       <div class="footer_top_col col-1">
         <h2>FAQs</h2>
-        <a href="/FAQ"><p>How do I get started?</p></a>
-        <a href="/FAQ"><p>What items can I donate?</p></a>
-        <a href="/FAQ"><p>View more > </p></a>
+        <a href="/FAQ">
+          <p>How do I get started?</p>
+        </a>
+        <a href="/FAQ">
+          <p>What items can I donate?</p>
+        </a>
+        <a href="/FAQ">
+          <p>View more > </p>
+        </a>
       </div>
       <div class="footer_top_col col-2">
         <h2>Support</h2>

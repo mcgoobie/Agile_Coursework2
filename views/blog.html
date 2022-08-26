@@ -31,7 +31,11 @@
           <li class="menu-item">Schedule pickup</li>
         </a>
         <% if(user) { %>
-          <p><a href="/editprofile">Hello <%= user %></a></p>
+          <a href="/editprofile">
+            <li>My Profile</li>
+          </a>
+          <p>Hello <%= user %>
+          </p>
           <% } %>
       </ul>
       <div class="hamburger">
@@ -40,27 +44,27 @@
         <span></span>
       </div>
     </nav>
-      <!-- Sign in btn -->
-      <div class="mainHeader_signupBtn">
-        <% if(user) { %>
-          <a href="/logout" class="primaryBtn">Logout</a>
-          <% } else { %>
-            <a href="/login" class="primaryBtn">Sign Up/Login</a>
-        <% } %>
-    <ul class="mainHeader_mobileMenu">
-      <a href="/about">
-        <li class="menu-item">About</li>
-      </a>
-      <a href="/rewards">
-        <li class="menu-item">Rewards</li>
-      </a>
-      <a href="/blog">
-        <li class="menu-item">Articles</li>
-      </a>
-      <a href="/schedule">
-        <li class="menu-item">Schedule pickup</li>
-      </a>
-    </ul>
+    <!-- Sign in btn -->
+    <div class="mainHeader_signupBtn">
+      <% if(user) { %>
+        <a href="/logout" class="primaryBtn">Logout</a>
+        <% } else { %>
+          <a href="/login" class="primaryBtn">Sign Up/Login</a>
+          <% } %>
+            <ul class="mainHeader_mobileMenu">
+              <a href="/about">
+                <li class="menu-item">About</li>
+              </a>
+              <a href="/rewards">
+                <li class="menu-item">Rewards</li>
+              </a>
+              <a href="/blog">
+                <li class="menu-item">Articles</li>
+              </a>
+              <a href="/schedule">
+                <li class="menu-item">Schedule pickup</li>
+              </a>
+            </ul>
   </header>
   <!-- END OF HEADER -->
 
@@ -81,8 +85,10 @@
           <h2 class="article-title">Need help navigating our website?</h2><br>
           <p class="article-author">Written By: Sally Teo</p><br>
           <p class="article-exc">
-            To get started, simply register for an account with us to unlock all features! Here, you can schedule doorstep pick-up services 
-            and earn reward points for donating your items and redeem attractive rewards!<br><br><a class="reading-tag" href="/article">Continue Reading ></a>
+            To get started, simply register for an account with us to unlock all features! Here, you can schedule
+            doorstep pick-up services
+            and earn reward points for donating your items and redeem attractive rewards!<br><br><a class="reading-tag"
+              href="/article">Continue Reading ></a>
           </p>
         </div>
       </div>
@@ -95,8 +101,10 @@
           <h2 class="article-title">Learn how else you can contribute</h2><br>
           <p class="article-author">Written By: John Doe</p><br>
           <p class="article-exc">
-            Do not have any items to donate? Fret not! Learn how you can contribute monetarily by sponsoring meals and activities to help 
-            with social programmes in elderly homes.<br><br><a class="reading-tag" href="/article">Continue Reading ></a>
+            Do not have any items to donate? Fret not! Learn how you can contribute monetarily by sponsoring meals and
+            activities to help
+            with social programmes in elderly homes.<br><br><a class="reading-tag" href="/article">Continue Reading
+              ></a>
           </p>
         </div>
       </div>
@@ -109,8 +117,10 @@
           <h2 class="article-title">What can I donate?</h2><br>
           <p class="article-author">Written By: Lucas Harper</p><br>
           <p class="article-exc">
-            With our one-stop platform, you can donate items ranging from used clothing to electrical appliances to stationery and even old furniture! 
-            No matter what pre-loved items you are willing to give up, we will make sure it gets the second life it deserves.<br><br><a class="reading-tag" href="/article">Continue Reading ></a>
+            With our one-stop platform, you can donate items ranging from used clothing to electrical appliances to
+            stationery and even old furniture!
+            No matter what pre-loved items you are willing to give up, we will make sure it gets the second life it
+            deserves.<br><br><a class="reading-tag" href="/article">Continue Reading ></a>
           </p>
         </div>
       </div>
@@ -123,8 +133,10 @@
           <h2 class="article-title">Has online donation taken over traditional giving methods?</h2><br>
           <p class="article-author">Written By: Charlotte Jo</p><br>
           <p class="article-exc">
-            With the rise of online monetary donation platforms, have offline giving methods become obsolete? While online platforms are becoming the norm, 
-            there are still doubts of whether our personal data stays private when we donate online. How can we ensure safety when contributing online? <br><br><a class="reading-tag" href="/article">Continue Reading ></a>
+            With the rise of online monetary donation platforms, have offline giving methods become obsolete? While
+            online platforms are becoming the norm,
+            there are still doubts of whether our personal data stays private when we donate online. How can we ensure
+            safety when contributing online? <br><br><a class="reading-tag" href="/article">Continue Reading ></a>
           </p>
         </div>
       </div>
@@ -137,8 +149,10 @@
           <h2 class="article-title">Learn how you can save the world just by donating your used items!</h2><br>
           <p class="article-author">Written By: Ng Yu Xin</p><br>
           <p class="article-exc">
-            With diposal being much more convenient than donating, the amount of waste generated yearly are on the rise. Learn how a simple act of donation 
-            can help save Singapore and our limited landfill that might be running out of space sooner than predicted. <br><br><a class="reading-tag" href="/article">Continue Reading ></a>
+            With diposal being much more convenient than donating, the amount of waste generated yearly are on the rise.
+            Learn how a simple act of donation
+            can help save Singapore and our limited landfill that might be running out of space sooner than predicted.
+            <br><br><a class="reading-tag" href="/article">Continue Reading ></a>
           </p>
         </div>
       </div>
@@ -151,9 +165,15 @@
     <div class="footer_top">
       <div class="footer_top_col col-1">
         <h2>FAQs</h2>
-        <a href="/FAQ"><p>How do I get started?</p></a>
-        <a href="/FAQ"><p>What items can I donate?</p></a>
-        <a href="/FAQ"><p>View more > </p></a>
+        <a href="/FAQ">
+          <p>How do I get started?</p>
+        </a>
+        <a href="/FAQ">
+          <p>What items can I donate?</p>
+        </a>
+        <a href="/FAQ">
+          <p>View more > </p>
+        </a>
       </div>
       <div class="footer_top_col col-2">
         <h2>Support</h2>
@@ -171,4 +191,5 @@
     </div>
   </footer>
 </body>
+
 </html>
