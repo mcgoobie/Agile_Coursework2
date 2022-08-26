@@ -95,10 +95,21 @@
   width: 60%;
 }
 
-.register-para-0 {
+.register-para-0,
+.login-para-a,
+.login-para-b {
   margin-top: 0px;
   color: red;
   font-style: italic;
+}
+
+.login-para-b {
+  display: none;
+}
+
+.error-a-tag {
+  color: red;
+  text-decoration: underline;
 }
 
 .register-para-1 {
