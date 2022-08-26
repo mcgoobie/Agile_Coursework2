@@ -81,6 +81,7 @@
       <h2>Upcoming Appointments</h2>
       <div class="upcoming-booking-line"></div>
       <div class="upcoming-booking-container">
+        <% if(bookings) { %>
         <% bookings.forEach(function(booking){ %>
         <div class="booking-divbox">
           <p class="booking-divbox-header">Date and Time of Appointment: </p>
@@ -95,6 +96,9 @@
           <% } %>
         </div>
         <% }) %>
+        <% } else { %>
+          <p class="view-booking-none-para">You have no upcoming bookings scheduled.</p>
+        <% } %>
       </div>
     </div>
   </section>
@@ -105,15 +109,16 @@
     <div class="footer_top">
       <div class="footer_top_col col-1">
         <h2>FAQs</h2>
-        <p>Lorem ipsum dolor sit amet ?</p>
-        <p>Lorem ipsum dolor sit amet ?</p>
-        <p>Lorem ipsum dolor sit amet ?</p>
+        <a href="/FAQ"><p>How do I get started?</p></a>
+        <a href="/FAQ"><p>What items can I donate?</p></a>
+        <a href="/FAQ"><p>View more > </p></a>
       </div>
       <div class="footer_top_col col-2">
         <h2>Support</h2>
-        <p>Lorem ipsum dolor sit amet ?</p>
-        <p>Lorem ipsum dolor sit amet ?</p>
-        <p>Lorem ipsum dolor sit amet ?</p>
+        <p>Operating hours: 11am to 6pm daily</p>
+        <p>Email us: contact@uGive.com </p>
+        <p>Call us: 6123 5678</p>
+        <p>Leave a feedback > </p>
       </div>
       <div class="footer_top_logo">
         <p>uGive</p>
@@ -124,5 +129,4 @@
     </div>
   </footer>
 </body>
-
 </html>

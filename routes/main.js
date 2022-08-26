@@ -22,12 +22,18 @@ module.exports = function (app) {
     res.render("about.html");
   });
 
-  // Route for Register Page
-  app.get("/register", function (req, res) {
-    res.render("register.html");  
+  // Route for FAQs Page
+  app.get("/FAQ", (req, res) => {
+    // execute sql query
+    res.render("faq.html");
   });
 
   // Route for Register Page
+  app.get("/register", function (req, res) {
+    res.render("register.html");
+  });
+
+  // Route for Register failure Page
   app.get("/failedRegistration", function (req, res) {
     res.render("regFailed.html");
   });
@@ -374,22 +380,26 @@ module.exports = function (app) {
   });
 
   app.get("/view-booking", (req, res) => {
-    let sqlquery = "SELECT b.* FROM booking b JOIN user u ON (b.userId = u.userId) WHERE u.username = ?";
+    let sqlquery =
+      "SELECT b.* FROM booking b JOIN user u ON (b.userId = u.userId) WHERE u.username = ?";
     let user = [req.session.currentUser];
     // execute sql query
     db.query(sqlquery, user, (err, result) => {
       if (err || result == "") {
-        res.redirect("/");
+        res.render("viewBookings.html", {
+          user: req.session.currentUser,
+          bookings: result
+        });
       } else {
         // convert dtae in mysql query to readable format
         var date = new Date(result[0].date);
-        var readableDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
-        res.render("viewBookings.html",
-          {
-            user: req.session.currentUser,
-            bookings: result,
-            date: readableDate
-          });
+        var readableDate =
+          date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+        res.render("viewBookings.html", {
+          user: req.session.currentUser,
+          bookings: result,
+          date: readableDate,
+        });
       }
     });
   });
