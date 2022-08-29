@@ -27,6 +27,10 @@
           <a href="/schedule">
             <li class="menu-item">Schedule pickup</li>
           </a>
+          <% if(user) { %>
+          <a href="/editprofile">
+            <li>Hello <%= user %></li></a>
+          <% } %>
         </ul>
         <div class="hamburger">
           <span></span>

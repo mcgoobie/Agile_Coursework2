@@ -33,7 +33,8 @@
             <li class="menu-item">Schedule pickup</li>
           </a>
           <% if(user) { %>
-          <p><a href="/editprofile">Hello <%= user %></a></p>
+          <a href="/editprofile">
+            <li>Hello <%= user %></li></a>
           <% } %>
         </ul>
         <div class="hamburger">
@@ -100,9 +101,8 @@
       <div class="image image2"></div>
     </div>
   </section>
-    </header>
+    
    
-
     <!-- REWARDS SECTION -->
     <section class="rewardSection">
       <div class="rewardSection_desc">
