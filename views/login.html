@@ -14,7 +14,8 @@
         <form class="login-form" method="post" action="/loginsuccess">
           <input class="username-input" name="username" type="text" placeholder="username" required><br />
           <input class="password-input" name="password" type="password" placeholder="password" required><br />
-          <p class="register-para-0" id="loginError"></p>
+          <p class="login-para-a" id="loginError"></p>
+          <p class="login-para-b" id="loginError1">If you have forgetten your password, click <a class="error-a-tag" href="/forgetPassword">here.</a></p>
           <p class="register-para-1">I am new here! <a href="/register">Register</a> an account</p>
           <button class="login-btn" type="submit">LOG IN</button>
           <p class="register-para-2">Go back to <a href="/">Home</a></p>
@@ -33,6 +34,7 @@
       document.getElementById('loginError').innerHTML = error;
 
       if (params.has('errorMsg')) {
+        document.getElementById('loginError1').style.display = "block";
         document.getElementsByClassName("username-input")[0].style.borderColor = "red";
         document.getElementsByClassName("password-input")[0].style.borderColor = "red";
       }

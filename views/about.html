@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="../css/style.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="../css/style.css" rel="stylesheet" />
 </head>
+
 <body>
     <!-- HEADER -->
     <header class="mainHeader">
@@ -27,10 +29,6 @@
           <a href="/schedule">
             <li class="menu-item">Schedule pickup</li>
           </a>
-          <% if(user) { %>
-          <a href="/editprofile">
-            <li>Hello <%= user %></li></a>
-          <% } %>
         </ul>
         <div class="hamburger">
           <span></span>
@@ -66,98 +64,125 @@
     </header>
   <!-- END OF HEADER -->
 
- <!-- HERO SECTION -->
-    <section class="aboutHeroSection">
-      <div class="aboutHeroSection_inner">
-        <h1>Spreading the awareness of donation</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in
-          diam nulla.
-        </p>
-      </div>
-    </section>
- <!-- END OF HERO SECTION -->
+  <!-- HERO SECTION -->
+  <section class="aboutHeroSection">
+    <div class="aboutHeroSection_inner">
+      <h1>Spreading the awareness of donation</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in
+        diam nulla.
+      </p>
+    </div>
+  </section>
+  <!-- END OF HERO SECTION -->
 
- <!-- DESCRIPTION SECTION -->
-    <section class="aboutDescSection">
-      <div class="aboutDescSection_col1">
-        <p class="subHeader">Our goals</p>
-        <p class="header">Increasing Singapore donation rate</p>
-        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit. Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor ullamcorper et. Mauris gravida varius </p>
-      </div>
-      <div class="aboutDescSection_col2">
-        <div class="backgroundImg">
-          <img src="/img/aboutDesc.jpg" alt=""/>
-        </div>
-      </div>
-    </section>
- <!-- END OF DESCRIPTION SECTION -->
-
- <!-- VALUES SECTION -->
-    <div class="aboutValueSection">
-      <p class="subHeader">Why choose us</p>
-      <p class="header">All-in-one platform to make donation easier</p>
-      <div class="aboutValueSection_grid">
-        <div class="eachValue">
-          <img src="/img/icon9.png" alt="">
-          <p class="eachValue_header">Fast pickups</p>
-          <p class="eachValue_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit. Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor ullamcorper et. Mauris gravida varius</p>
-        </div>
-        <div class="eachValue">
-          <img src="/img/icon8.png" alt="">
-          <p class="eachValue_header">Easy to use</p>
-          <p class="eachValue_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit. Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor ullamcorper et. Mauris gravida varius</p>
-        </div>
-        <div class="eachValue">
-          <img src="/img/icon7.png" alt="">
-          <p class="eachValue_header">For the better good</p>
-          <p class="eachValue_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit. Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor ullamcorper et. Mauris gravida varius</p>
-        </div>
-        <div class="eachValue">
-          <img src="/img/icon11.png" alt="">
-          <p class="eachValue_header">Provide various information</p>
-          <p class="eachValue_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit. Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor ullamcorper et. Mauris gravida varius</p>
-        </div>
-        <div class="eachValue">
-          <img src="/img/icon10.png" alt="">
-          <p class="eachValue_header">No fee charged</p>
-          <p class="eachValue_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit. Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor ullamcorper et. Mauris gravida varius</p>
-        </div>
-        <div class="eachValue">
-          <img src="/img/icon12.png" alt="">
-          <p class="eachValue_header">Earn rewards</p>
-          <p class="eachValue_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit. Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor ullamcorper et. Mauris gravida varius</p>
-        </div>
+  <!-- DESCRIPTION SECTION -->
+  <section class="aboutDescSection">
+    <div class="aboutDescSection_col1">
+      <p class="subHeader">Our goals</p>
+      <p class="header">Increasing Singapore's donation rate</p>
+      <p class="description">We aim to help make donation a fuss-free experience for Singaporeans so that we can raise
+        the donation rate by at least 5% in the next year.</p>
+    </div>
+    <div class="aboutDescSection_col2">
+      <div class="backgroundImg">
+        <img src="/img/aboutDesc.jpg" alt="" />
       </div>
     </div>
+  </section>
+  <!-- END OF DESCRIPTION SECTION -->
 
- <!-- END OF VALUES SECTION -->
-
-
-
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer_top">
-        <div class="footer_top_col col-1">
-          <h2>FAQs</h2>
-          <a href="/FAQ"><p>Lorem ipsum dolor sit amet ?</p></a>
-          <a href="/FAQ"><p>Lorem ipsum dolor sit amet ?</p></a>
-          <a href="/FAQ"><p>Lorem ipsum dolor sit amet ?</p></a>
-        </div>
-        <div class="footer_top_col col-2">
-          <h2>Support</h2>
-          <p>Lorem ipsum dolor sit amet ?</p>
-          <p>Lorem ipsum dolor sit amet ?</p>
-          <p>Lorem ipsum dolor sit amet ?</p>
-        </div>
-        <div class="footer_top_logo">
-          <p>uGive</p>
-        </div>
+  <!-- VALUES SECTION -->
+  <div class="aboutValueSection">
+    <p class="subHeader">Why choose us</p>
+    <p class="header">All-in-one platform to make donation easier</p>
+    <div class="aboutValueSection_grid">
+      <div class="eachValue">
+        <img src="/img/icon9.png" alt="">
+        <p class="eachValue_header">Fast pickups</p>
+        <p class="eachValue_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae
+          sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit.
+          Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor
+          ullamcorper et. Mauris gravida varius</p>
       </div>
-      <div class="footer_btm">
-        <p>Copyright uGive 2022</p>
+      <div class="eachValue">
+        <img src="/img/icon8.png" alt="">
+        <p class="eachValue_header">Easy to use</p>
+        <p class="eachValue_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae
+          sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit.
+          Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor
+          ullamcorper et. Mauris gravida varius</p>
       </div>
-    </footer>
-  </body>
+      <div class="eachValue">
+        <img src="/img/icon7.png" alt="">
+        <p class="eachValue_header">For the better good</p>
+        <p class="eachValue_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae
+          sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit.
+          Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor
+          ullamcorper et. Mauris gravida varius</p>
+      </div>
+      <div class="eachValue">
+        <img src="/img/icon11.png" alt="">
+        <p class="eachValue_header">Provide various information</p>
+        <p class="eachValue_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae
+          sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit.
+          Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor
+          ullamcorper et. Mauris gravida varius</p>
+      </div>
+      <div class="eachValue">
+        <img src="/img/icon10.png" alt="">
+        <p class="eachValue_header">No fee charged</p>
+        <p class="eachValue_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae
+          sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit.
+          Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor
+          ullamcorper et. Mauris gravida varius</p>
+      </div>
+      <div class="eachValue">
+        <img src="/img/icon12.png" alt="">
+        <p class="eachValue_header">Earn rewards</p>
+        <p class="eachValue_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit nisl, maximus vitae
+          sagittis et, commodo vel odio. Vestibulum condimentum urna vel nisl aliquet, non consectetur massa blandit.
+          Nunc elit nulla, fermentum eu massa et, ultrices interdum purus. Nunc viverra orci lacus, non tempus dolor
+          ullamcorper et. Mauris gravida varius</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- END OF VALUES SECTION -->
+
+
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer_top">
+      <div class="footer_top_col col-1">
+        <h2>FAQs</h2>
+        <a href="/FAQ">
+          <p>How do I get started?</p>
+        </a>
+        <a href="/FAQ">
+          <p>What items can I donate?</p>
+        </a>
+        <a href="/FAQ">
+          <p>View more > </p>
+        </a>
+      </div>
+      <div class="footer_top_col col-2">
+        <h2>Support</h2>
+        <p>Operating hours: 11am to 6pm daily</p>
+        <p>Email us: contact@uGive.com </p>
+        <p>Call us: 6123 5678</p>
+        <p>Leave a feedback > </p>
+      </div>
+      <div class="footer_top_logo">
+        <p>uGive</p>
+      </div>
+    </div>
+    <div class="footer_btm">
+      <p>Copyright uGive 2022</p>
+    </div>
+  </footer>
+</body>
+
 </html>
