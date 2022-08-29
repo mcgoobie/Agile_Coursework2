@@ -20,12 +20,11 @@
           <a href="/blog"><li class="menu-item">Articles</li></a>
           <a href="/schedule"><li class="menu-item">Schedule pickup</li></a>
           <% if(user) { %>
-            <a href="/editprofile">
-              <li>My Profile</li>
-            </a>
-            <p>Hello <%= user %>
-            </p>
-            <% } %>
+          <a href="/editprofile">
+            <li>My Profile</li>
+          </a>
+          <a href="/"><li>Hello <%= user %></li></a>
+          <% } %>
         </ul>
         <div class="hamburger">
           <span></span>
@@ -79,14 +78,14 @@
           <h2>FAQs</h2>
           <a href="/FAQ"><p>How do I get started?</p></a>
           <a href="/FAQ"><p>What items can I donate?</p></a>
-          <a href="/FAQ"><p>View more > </p></a>
+          <a href="/FAQ"><p>View more ></p></a>
         </div>
         <div class="footer_top_col col-2">
           <h2>Support</h2>
           <p>Operating hours: 11am to 6pm daily</p>
-          <p>Email us: contact@uGive.com </p>
+          <p>Email us: contact@uGive.com</p>
           <p>Call us: 6123 5678</p>
-          <p>Leave a feedback > </p>
+          <p>Leave a feedback ></p>
         </div>
         <div class="footer_top_logo">
           <p>uGive</p>
@@ -96,7 +95,6 @@
         <p>Copyright uGive 2022</p>
       </div>
     </footer>
-
 
     <script>
       // Form

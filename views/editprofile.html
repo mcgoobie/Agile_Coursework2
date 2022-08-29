@@ -31,12 +31,12 @@
         <a href="/schedule">
           <li class="menu-item">Schedule pickup</li>
         </a>
-        <% if(user) { %>
+       <% if(user) { %>
           <a href="/editprofile">
             <li>My Profile</li>
           </a>
-          <p>Hello <%= user %>
-          </p>
+          <a href="/"><li>Hello <%= user %>
+          </li></a>
           <% } %>
       </ul>
       <div class="hamburger">
