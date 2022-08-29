@@ -1032,7 +1032,7 @@ a {
   }
   @include desktop {
     grid-template-columns: repeat(2, 1fr);
-    height: 100vh;
+    height: 140vh;
     padding-top: 4rem;
     grid-gap: 40px;
     &_sec1 {
