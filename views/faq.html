@@ -29,6 +29,12 @@
         <a href="/schedule">
           <li class="menu-item">Schedule pickup</li>
         </a>
+        <% if(user) { %>
+          <a href="/editprofile">
+            <li>My Profile</li>
+          </a>
+          <a href="/"><li>Hello <%= user %></li></a>
+          <% } %>
       </ul>
       <div class="hamburger">
         <span></span>
@@ -38,9 +44,13 @@
     </nav>
 
     <!-- Sign in btn -->
-    <div class="mainHeader_signupBtn">
-      <a href="/login" class="primaryBtn">Sign Up/Login</a>
-    </div>
+      <div class="mainHeader_signupBtn">
+        <% if(user) { %>
+        <a href="/logout" class="primaryBtn">Logout</a>
+        <% } else { %>
+        <a href="/login" class="primaryBtn">Sign Up/Login</a>
+        <% } %>
+      </div>
     <ul class="mainHeader_mobileMenu">
       <a href="/about">
         <li class="menu-item">About</li>
