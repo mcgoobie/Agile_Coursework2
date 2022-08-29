@@ -20,12 +20,12 @@
           <a href="/blog"><li class="menu-item">Articles</li></a>
           <a href="/schedule"><li class="menu-item">Schedule pickup</li></a>
           <% if(user) { %>
-            <a href="/editprofile">
-              <li>My Profile</li>
-            </a>
-            <p>Hello <%= user %>
-            </p>
-            <% } %>
+          <a href="/editprofile">
+            <li>My Profile</li>
+          </a>
+          <a href="/"><li>Hello <%= user %>
+          </li></a>
+          <% } %>
         </ul>
         <div class="hamburger">
           <span></span>

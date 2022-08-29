@@ -10,13 +10,49 @@
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header class="mainHeader">
-    <!-- Logo -->
-    <div class="mainHeader_logo"><a href="/">uGive</a></div>
-    <!-- Nav -->
-    <nav class="mainHeader_nav">
-      <ul class="menu">
+    <!-- HEADER -->
+    <header class="mainHeader">
+      <!-- Logo -->
+      <div class="mainHeader_logo"><a href="/">uGive</a></div>
+      <!-- Nav -->
+      <nav class="mainHeader_nav">
+        <ul class="menu">
+          <a href="/about">
+            <li class="menu-item">About</li>
+          </a>
+          <a href="/rewards">
+            <li class="menu-item">Rewards</li>
+          </a>
+          <a href="/blog">
+            <li class="menu-item">Articles</li>
+          </a>
+          <a href="/schedule">
+            <li class="menu-item">Schedule pickup</li>
+          </a>
+           <% if(user) { %>
+          <a href="/editprofile">
+            <li>My Profile</li>
+          </a>
+          <a href="/"><li>Hello <%= user %>
+          </li></a>
+          <% } %>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+      
+     <!-- Sign in btn -->
+    <div class="mainHeader_signupBtn">
+      <% if(user) { %>
+        <a href="/logout" class="primaryBtn">Logout</a>
+        <% } else { %>
+          <a href="/login" class="primaryBtn">Sign Up/Login</a>
+          <% } %>
+    </div>
+      <ul class="mainHeader_mobileMenu">
         <a href="/about">
           <li class="menu-item">About</li>
         </a>
@@ -29,13 +65,6 @@
         <a href="/schedule">
           <li class="menu-item">Schedule pickup</li>
         </a>
-        <% if(user) { %>
-          <a href="/editprofile">
-            <li>My Profile</li>
-          </a>
-          <p>Hello <%= user %>
-          </p>
-          <% } %>
       </ul>
       <div class="hamburger">
         <span></span>
@@ -43,32 +72,7 @@
         <span></span>
       </div>
     </nav>
-
-    <!-- Sign in btn -->
-    <div class="mainHeader_signupBtn">
-      <a href="/login" class="primaryBtn">Sign Up/Login</a>
-    </div>
-    <ul class="mainHeader_mobileMenu">
-      <a href="/about">
-        <li class="menu-item">About</li>
-      </a>
-      <a href="/rewards">
-        <li class="menu-item">Rewards</li>
-      </a>
-      <a href="/blog">
-        <li class="menu-item">Articles</li>
-      </a>
-      <a href="/schedule">
-        <li class="menu-item">Schedule pickup</li>
-      </a>
-    </ul>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    </nav>
-  </header>
+    </header>
   <!-- END OF HEADER -->
 
   <!-- HERO SECTION -->

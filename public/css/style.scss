@@ -115,7 +115,7 @@ a {
   //Media Queries
   @include desktop {
     padding: 1.5rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     &_logo {
       font-family: "M-Black";
       font-size: 2rem;
@@ -125,6 +125,7 @@ a {
       justify-content: stretch;
       align-content: center;
       width: 100%;
+      grid-column: 2/4;
       .menu {
         display: flex;
         justify-content: space-evenly;
@@ -582,7 +583,7 @@ a {
 
   // Media Queries
   @include tablet-portrait {
-    height: 35vh;
+    height: 38vh;
     padding-top: 2rem;
     &_top {
       grid-template-columns: repeat(3, 1fr);
