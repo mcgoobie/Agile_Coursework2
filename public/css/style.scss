@@ -583,7 +583,7 @@ a {
 
   // Media Queries
   @include tablet-portrait {
-    height: 35vh;
+    height: 38vh;
     padding-top: 2rem;
     &_top {
       grid-template-columns: repeat(3, 1fr);
