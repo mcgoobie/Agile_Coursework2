@@ -65,7 +65,7 @@
 .profile-sidebar {
   float: left;
   width: 15%;
-  height: 95%;
+  height: 100%;
   padding-top: 5%;
   padding-left: 2%;
   padding-right: 2%;
@@ -103,13 +103,23 @@
 .editprofile-section,
 .viewbooking-section {
   height: inherit;
+  overflow: auto;
+  margin: 2%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.editprofile-section::-webkit-scrollbar,
+.viewbooking-section::-webkit-scrollbar {
+  display: none;
 }
 
 .editprofile-main,
 .viewbooking-main {
   float: right;
+  padding: 0% 5% 0% 5%;
+  margin-top: 5%;
   width: 85%;
-  padding: 5%;
   height: inherit;
 }
 
@@ -143,7 +153,8 @@
 }
 
 .editprofile-btn,
-.make-appointment-btn {
+.make-appointment-btn,
+.search-user-button {
   margin: auto;
   display: grid;
   -ms-grid-column-align: end;
@@ -309,6 +320,13 @@
   height: 60%;
   padding: 20px;
   margin: auto;
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.article-content::-webkit-scrollbar {
+  display: none;
 }
 
 .article-cate {
@@ -512,7 +530,8 @@
   margin-top: 10px;
 }
 
-.booking-divbox p {
+.booking-divbox p,
+.m-booking-divbox p {
   font-family: "M-Medium";
   font-size: 1.2rem;
 }
@@ -521,7 +540,8 @@
   font-weight: bold;
 }
 
-.booking-divbox {
+.booking-divbox,
+.m-booking-divbox {
   background-color: white;
   margin: auto;
   margin-top: 20px;
@@ -535,7 +555,13 @@
 .upcoming-booking-container {
   overflow: scroll;
   height: 90%;
- }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.upcoming-booking-container::-webkit-scrollbar {
+  display: none;
+}
 
 .view-booking-none-para {
   text-align: center;
@@ -543,4 +569,57 @@
   font-family: "M-Regular";
   font-size: 1.2rem;
   font-style: italic;
+}
+
+.user-search-container {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.search-user-input {
+  width: 85%;
+  height: 100%;
+  background-color: white;
+  padding: 20px 50px 20px 50px;
+  border-radius: 2rem;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.search-user-button {
+  margin: 0;
+  width: fit-content;
+  height: 100%;
+  padding: 10px;
+}
+
+.m-booking-divbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.m-booking-right-container {
+  text-align: center;
+  border-left: 2px solid black;
+  padding-left: 50px;
+}
+
+.m-booking-btn {
+  background: none;
+  border: none;
+  color: green;
+  font-family: "M-Regular";
+  font-size: 1.2rem;
+  margin-top: 50%;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.m-booking-btn:hover {
+  font-family: "M-SemiBold";
+  text-decoration: underline;
 }

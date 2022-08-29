@@ -31,12 +31,18 @@
         <a href="/schedule">
           <li class="menu-item">Schedule pickup</li>
         </a>
-        <% if(user) { %>
+        <% if(user && admin == undefined) { %>
           <a href="/editprofile">
             <li>My Profile</li>
           </a>
           <p>Hello <%= user %>
           </p>
+          <% } else if (user && admin == 1) { %>
+            <a href="/manage-booking">
+              <li>Manage Bookings</li>
+            </a>
+            <p>Welcome <%= user %>
+            </p>
           <% } %>
       </ul>
       <div class="hamburger">

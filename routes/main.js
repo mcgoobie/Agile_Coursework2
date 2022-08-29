@@ -13,7 +13,8 @@ module.exports = function (app) {
 
   // Route for Home Page
   app.get("/", function (req, res) {
-    res.render("index.html", { user: req.session.currentUser });
+    console.log(req.session.adminRights);
+    res.render("index.html", { user: req.session.currentUser, admin: req.session.adminRights });
   });
 
   // Route for About Page
@@ -139,7 +140,7 @@ module.exports = function (app) {
 
   app.post("/loginsuccess", function (req, res) {
     let sqlquery =
-      "SELECT username FROM user WHERE username = ? AND password = ?";
+      "SELECT username, is_admin FROM user WHERE username = ? AND password = ?";
     let loginDetails = [req.body.username, req.body.password];
     let username = req.body.username;
 
@@ -151,6 +152,11 @@ module.exports = function (app) {
       if (err || result == "") {
         res.redirect("/login?errorMsg=" + errorString);
       } else {
+        if (result[0].is_admin)
+        {
+          req.session.adminRights = true;
+        }
+
         req.session.currentUser = username;
         res.redirect("/");
       }
@@ -407,6 +413,60 @@ module.exports = function (app) {
         var readableDate =
           date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
         res.render("viewBookings.html", {
+          user: req.session.currentUser,
+          bookings: result,
+          date: readableDate,
+        });
+      }
+    });
+  });
+
+  app.get("/manage-booking", (req, res) => {
+    let sqlquery =
+      "SELECT b.*, u.* FROM booking b JOIN user u ON (b.userId = u.userId)";
+    let user = [req.session.currentUser];
+    // execute sql query
+    db.query(sqlquery, user, (err, result) => {
+      if (user == "") {
+        res.redirect("/");
+      } else if (err || result == "") {
+        res.render("manageBookings.html", {
+          user: req.session.currentUser,
+          bookings: result
+        });
+      } else {
+        // convert datee in mysql query to readable format
+        var date = new Date(result[0].date);
+        var readableDate =
+          date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+        res.render("manageBookings.html", {
+          user: req.session.currentUser,
+          bookings: result,
+          date: readableDate,
+        });
+      }
+    });
+  });
+
+  app.post("/manage-booking", (req, res) => {
+    let sqlquery =
+      "SELECT b.*, u.* FROM booking b JOIN user u ON (b.userId = u.userId) WHERE u.username = ?";
+    let user = [req.session.currentUser];
+    // execute sql query
+    db.query(sqlquery, user, (err, result) => {
+      if (user == "") {
+        res.redirect("/");
+      } else if (err || result == "") {
+        res.render("manageBookings.html", {
+          user: req.session.currentUser,
+          bookings: result
+        });
+      } else {
+        // convert date in mysql query to readable format
+        var date = new Date(result[0].date);
+        var readableDate =
+          date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+        res.render("manageBookings.html", {
           user: req.session.currentUser,
           bookings: result,
           date: readableDate,
