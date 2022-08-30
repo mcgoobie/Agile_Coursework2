@@ -51,7 +51,7 @@ function checkFilled(formName, fieldsToVal) {
     for (var i = 0, len = childElems.length; i < len; ++i) {
       if (childElems[i].tagName == "INPUT" && childElems[i].value != "")
         count += 1;
-        console.log(count);
+      console.log(count);
     }
   } else if (form.tagName == "FORM") {
     var childElems = form.elements;
@@ -147,5 +147,22 @@ function saveButtonClicked() {
   } else {
     console.log("Failed to Save");
     document.getElementById('error-msg').style.display = "block";
+  }
+}
+
+function searchForUser(input) {
+  var div_row = document.getElementsByClassName("m-booking-divbox");
+  var searchKey = document.getElementById(input);
+  
+  for (var i = 0; i < div_row.length; i++) {
+    var user = div_row[i].children[0];
+    user = user.children.namedItem("username")
+    var username = user.innerText.toString();
+
+    if (username.includes(searchKey.value) == false) {
+      div_row[i].style.display = "none";
+    } else if (username.includes(searchKey.value)) {
+      div_row[i].style.display = "flex";
+    }
   }
 }

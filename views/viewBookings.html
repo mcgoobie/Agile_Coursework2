@@ -89,7 +89,7 @@
         <% bookings.forEach(function(booking){ %>
         <div class="booking-divbox">
           <p class="booking-divbox-header">Date and Time of Appointment: </p>
-          <p><%= date %> at <%= booking.time %> Hrs</p><br>
+          <p><%= booking.date %> at <%= booking.time %> Hrs</p><br>
           <p class="booking-divbox-header">Item(s) to be collected: </p>
           <% if(booking.donationDesc1) { %>
             <p><%= booking.donationDesc1 %> (<%= booking.donationType1 %>)</p>

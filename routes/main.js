@@ -13,19 +13,19 @@ module.exports = function (app) {
 
   // Route for Home Page
   app.get("/", function (req, res) {
-    res.render("index.html", { user: req.session.currentUser });
+    res.render("index.html", { user: req.session.currentUser, admin: req.session.adminRights });
   });
 
   // Route for About Page
   app.get("/about", (req, res) => {
     // execute sql query
-    res.render("about.html", { user: req.session.currentUser });
+    res.render("about.html", { user: req.session.currentUser, admin: req.session.adminRights });
   });
 
   // Route for FAQs Page
   app.get("/FAQ", (req, res) => {
     // execute sql query
-    res.render("faq.html", { user: req.session.currentUser });
+    res.render("faq.html", { user: req.session.currentUser, admin: req.session.adminRights });
   });
 
   // Route for Register Page
@@ -52,7 +52,7 @@ module.exports = function (app) {
 
   // Route for forgetPassword Page
   app.get("/forgetPassword", function (req, res) {
-    res.render("forgetpassword.html", { user: req.session.currentUser });
+    res.render("forgetpassword.html", { user: req.session.currentUser, admin: req.session.adminRights });
   });
 
   app.post("/sendNewPassword", function (req, res) {
@@ -85,7 +85,7 @@ module.exports = function (app) {
 
   // Route for rewards page
   app.get("/rewards", function (req, res) {
-    res.render("rewards.html", { user: req.session.currentUser });
+    res.render("rewards.html", { user: req.session.currentUser, admin: req.session.adminRights });
   });
 
   // Route for rewards page
@@ -100,6 +100,7 @@ module.exports = function (app) {
       } else {
         res.render("editprofile.html", {
           user: req.session.currentUser,
+          admin: req.session.adminRights,
           profileInfo: result,
         });
       }
@@ -130,6 +131,7 @@ module.exports = function (app) {
         db.query(sqlquery, currentUser, (err, result) => {
           res.render("editprofile.html", {
             user: req.session.currentUser,
+            admin: req.session.adminRights,
             profileInfo: result,
           });
         });
@@ -139,7 +141,7 @@ module.exports = function (app) {
 
   app.post("/loginsuccess", function (req, res) {
     let sqlquery =
-      "SELECT username FROM user WHERE username = ? AND password = ?";
+      "SELECT username, is_admin FROM user WHERE username = ? AND password = ?";
     let loginDetails = [req.body.username, req.body.password];
     let username = req.body.username;
 
@@ -151,6 +153,10 @@ module.exports = function (app) {
       if (err || result == "") {
         res.redirect("/login?errorMsg=" + errorString);
       } else {
+        if (result[0].is_admin) {
+          req.session.adminRights = true;
+        }
+
         req.session.currentUser = username;
         res.redirect("/");
       }
@@ -183,7 +189,7 @@ module.exports = function (app) {
   });
 
   app.get("/maps", function (req, res) {
-    res.render("maps.html", { user: req.session.currentUser });
+    res.render("maps.html", { user: req.session.currentUser, admin: req.session.adminRights });
   });
 
   app.post("/locatePoints", function (req, res) {
@@ -193,11 +199,11 @@ module.exports = function (app) {
   });
 
   app.get("/blog", function (req, res) {
-    res.render("blog.html", { user: req.session.currentUser });
+    res.render("blog.html", { user: req.session.currentUser, admin: req.session.adminRights });
   });
 
   app.get("/article", function (req, res) {
-    res.render("article.html", { user: req.session.currentUser });
+    res.render("article.html", { user: req.session.currentUser, admin: req.session.adminRights });
   });
 
   app.get("/schedule", function (req, res) {
@@ -211,6 +217,7 @@ module.exports = function (app) {
       } else {
         res.render("booking.html", {
           user: req.session.currentUser,
+          admin: req.session.adminRights,
           userDetails: result,
         });
       }
@@ -220,9 +227,15 @@ module.exports = function (app) {
   app.post("/bookingsuccess", function (req, res) {
     let sqlquery =
       "INSERT INTO booking (userId, date, time, donationType1, donationDesc1, donationType2, donationDesc2, donationType3, donationDesc3) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    // convert datee in mysql query to readable format
+    var date = new Date(req.body.date);
+    console.log(date);
+    var readableDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+
     let newBooking = [
       req.body.userId,
-      req.body.date,
+      readableDate,
       req.body.time,
       req.body.itemType1,
       req.body.itemDesc1,
@@ -236,7 +249,7 @@ module.exports = function (app) {
       if (err || result == "") {
         return console.error(err.message);
       } else {
-        res.render("success.html", { user: req.session.currentUser });
+        res.render("success.html", { user: req.session.currentUser, admin: req.session.adminRights });
       }
     });
   });
@@ -253,6 +266,7 @@ module.exports = function (app) {
       res.render("homeApplianceCategory.html", {
         rewardProperty: result,
         user: req.session.currentUser,
+        admin: req.session.adminRights,
       });
     });
   });
@@ -270,6 +284,7 @@ module.exports = function (app) {
       res.render("homeApplianceCategory.html", {
         rewardProperty: result,
         user: req.session.currentUser,
+        admin: req.session.adminRights,
       });
     });
   });
@@ -286,6 +301,7 @@ module.exports = function (app) {
       res.render("itemDetails.html", {
         rewardProperty: result,
         user: req.session.currentUser,
+        admin: req.session.adminRights,
       });
     });
   });
@@ -302,6 +318,7 @@ module.exports = function (app) {
       res.render("couponVouchercategory.html", {
         rewardProperty: result,
         user: req.session.currentUser,
+        admin: req.session.adminRights,
       });
     });
   });
@@ -319,6 +336,7 @@ module.exports = function (app) {
       res.render("couponVouchercategory.html", {
         rewardProperty: result,
         user: req.session.currentUser,
+        admin: req.session.adminRights,
       });
     });
   });
@@ -335,6 +353,7 @@ module.exports = function (app) {
       res.render("itemDetails.html", {
         rewardProperty: result,
         user: req.session.currentUser,
+        admin: req.session.adminRights,
       });
     });
   });
@@ -351,6 +370,7 @@ module.exports = function (app) {
       res.render("fashionCategory.html", {
         rewardProperty: result,
         user: req.session.currentUser,
+        admin: req.session.adminRights,
       });
     });
   });
@@ -368,6 +388,7 @@ module.exports = function (app) {
       res.render("fashionCategory.html", {
         rewardProperty: result,
         user: req.session.currentUser,
+        admin: req.session.adminRights,
       });
     });
   });
@@ -384,6 +405,7 @@ module.exports = function (app) {
       res.render("itemDetails.html", {
         rewardProperty: result,
         user: req.session.currentUser,
+        admin: req.session.adminRights,
       });
     });
   });
@@ -402,16 +424,108 @@ module.exports = function (app) {
           bookings: result
         });
       } else {
-        // convert dtae in mysql query to readable format
-        var date = new Date(result[0].date);
-        var readableDate =
-          date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
         res.render("viewBookings.html", {
           user: req.session.currentUser,
           bookings: result,
-          date: readableDate,
         });
       }
     });
   });
+
+  app.get("/manage-booking", (req, res) => {
+    let sqlquery =
+      "SELECT b.*, u.* FROM booking b JOIN user u ON (b.userId = u.userId)";
+    // execute sql query
+    db.query(sqlquery, (err, result) => {
+      // if user is not an admin
+      if (req.session.adminRights == undefined || req.session.adminRights == false) {
+        res.redirect("/");
+      }
+      // if there are no bookings
+      else if (err || result == "") {
+        res.render("manageBookings.html", {
+          user: req.session.currentUser,
+          admin: req.session.adminRights,
+          bookings: result
+        });
+      }
+      else {
+        res.render("manageBookings.html", {
+          user: req.session.currentUser,
+          admin: req.session.adminRights,
+          bookings: result
+        });
+      }
+    });
+  });
+
+  app.post("/manage-booking", (req, res) => {
+    let insertQuery =
+      "INSERT INTO booking_archive (userId, date, time, donationType1, donationDesc1, donationType2, donationDesc2, donationType3, donationDesc3) VALUES (?,?,?,?,?,?,?,?,?)";
+    let fields = [
+      req.body.userId,
+      req.body.date,
+      req.body.time,
+      req.body.donationType1,
+      req.body.donationDesc1,
+      req.body.donationType2,
+      req.body.donationDesc2,
+      req.body.donationType3,
+      req.body.donationDesc3,
+    ];
+    // execute sql query
+    db.query(insertQuery, fields, (err, result) => {
+      if (err || result == "") {
+        return console.error(err.message);
+      }
+      else {
+        let deleteQuery = "DELETE FROM booking WHERE bookingId = ?";
+        let id = [req.body.bookingId];
+
+        db.query(deleteQuery, id, (err, result) => {
+          if (err || result == "") {
+            return console.error(err.message);
+          } else {
+            let sqlquery = "SELECT b.*, u.* FROM booking b JOIN user u ON (b.userId = u.userId)";
+            // execute sql query
+            db.query(sqlquery, (err, result) => {
+              res.render("manageBookings.html", {
+                user: req.session.currentUser,
+                admin: req.session.adminRights,
+                bookings: result,
+              });
+            });
+          }
+        });
+      }
+    });
+  });
+
+  app.get("/booking-archive", (req, res) => {
+    let sqlquery =
+      "SELECT b.*, u.* FROM booking_archive b JOIN user u ON (b.userId = u.userId)";
+    // execute sql query
+    db.query(sqlquery, (err, result) => {
+      // if user is not an admin
+      if (req.session.adminRights == undefined || req.session.adminRights == false) {
+        res.redirect("/");
+      }
+      // if there are no bookings
+      else if (err || result == "") {
+        res.render("bookingArchive.html", {
+          user: req.session.currentUser,
+          admin: req.session.adminRights,
+          bookings: result
+        });
+      }
+      else {
+        res.render("bookingArchive.html", {
+          user: req.session.currentUser,
+          admin: req.session.adminRights,
+          bookings: result
+        });
+      }
+    });
+  });
+
 };

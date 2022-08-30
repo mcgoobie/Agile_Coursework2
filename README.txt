@@ -12,15 +12,22 @@ CREATE TABLE user (
     address varchar(255) NOT NULL,
     postalCode nvarchar(6) NOT NULL,
     password varchar(255),
+    is_admin bool,
     primary key(userId)
 );
+
+1a. Add is_admin column (if user table is following old schema)
+ALTER TABLE user ADD is_admin bool;
+
+1b. Insert Admin User
+INSERT INTO user (username, fName, lName, DoB, mobileNumber, emailAddr, address, postalCode, password, is_Admin) VALUES ('ugive-admin', 'u', 'Give', '2022-08-28', 91238456, 'ugive-admin@gmail,com', '-', '-', 'uGive123', TRUE);
 
 
 2. Booking Table
 CREATE TABLE booking (
     bookingId int NOT NULL AUTO_INCREMENT,
     userId int NOT NULL,
-	date date NOT NULL,
+	date nvarchar(255) NOT NULL,
     time varchar(126) NOT NULL,
     donationType1 varchar(255) NOT NULL,
     donationDesc1 varchar(255) NOT NULL,
@@ -32,7 +39,10 @@ CREATE TABLE booking (
     FOREIGN KEY (userId) REFERENCES user(userId)
 );
 
-2. Rewards Table
+2a. Modify date object to be readable
+ALTER TABLE booking MODIFY COLUMN date nvarchar(255);
+
+3. Rewards Table
 CREATE TABLE reward (
 	rewardID int NOT NULL auto_increment,
     rewardName varchar(255) NOT NULL UNIQUE,
@@ -43,7 +53,7 @@ CREATE TABLE reward (
     primary key(rewardID)
 );
 
-3. Insert rewards DATA
+3a. Insert rewards DATA
 INSERT INTO reward (rewardName, category, points, description, imagePath)VALUES('POPULAR $20 Voucher', 'couponVoucher', 200, 'Valid at all POPULAR Bookstores, UrbanWrite stores and CD-RAMA outlets islandwide.' , '/img/voucher1.jpg');
 INSERT INTO reward (rewardName, category, points, description, imagePath)VALUES('GOLDEN VILLAGE $10 Voucher', 'couponVoucher', 100, 'One Golden Village All Days Movie eVoucher to be redeemed on www.gv.com.sg or iGV App (both iOS and Android)' , '/img/voucher2.jpg');
 INSERT INTO reward (rewardName, category, points, description, imagePath)VALUES('CATHAY CINEPLEX $30 Voucher', 'couponVoucher', 300, 'Available at all outlets islandwide.' , '/img/voucher3.jpg');
@@ -52,3 +62,18 @@ INSERT INTO reward (rewardName, category, points, description, imagePath)VALUES(
 INSERT INTO reward (rewardName, category, points, description, imagePath)VALUES('ADICOLOR CLASSICS 3-STRIPES TEE', 'fashion', 600, 'No need to overcomplicate things — this adidas t-shirt is all about ease. Keep your vibe real, real chill with the understated look. Though it does not give into full minimalism. The comfort goes all out, thanks to the super soft cotton build.' , '/img/fashion1.jpg');
 INSERT INTO reward (rewardName, category, points, description, imagePath)VALUES('ARSENAL 22/23 AWAY JERSEY', 'fashion', 600, 'The cannon badge. The concrete sculpture-inspired signoff. All the way down to its bronze trim, this adidas Arsenal football jersey comes loaded with Emirates Stadium landmarks. Whatever match day looks like for you, this supporter-focused shirt will keep you comfortable with moisture-absorbing AEROREADY and mesh panels.' , '/img/fashion2.jpg');
 
+4. Booking Archive Table
+CREATE TABLE booking_archive (
+    archiveId int NOT NULL AUTO_INCREMENT,
+    userId int NOT NULL,
+	date nvarchar(255) NOT NULL,
+    time varchar(126) NOT NULL,
+    donationType1 varchar(255) NOT NULL,
+    donationDesc1 varchar(255) NOT NULL,
+    donationType2 varchar(255),
+    donationDesc2 varchar(255),
+    donationType3 varchar(255),
+    donationDesc3 varchar(255),
+    primary key(archiveId),
+    FOREIGN KEY (userId) REFERENCES user(userId)
+);
