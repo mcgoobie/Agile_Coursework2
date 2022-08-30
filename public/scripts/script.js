@@ -151,26 +151,18 @@ function saveButtonClicked() {
 }
 
 function searchForUser(input) {
-  var div_row = document.getElementsByClassName("booking-divbox");
+  var div_row = document.getElementsByClassName("m-booking-divbox");
   var searchKey = document.getElementById(input);
-
+  
   for (var i = 0; i < div_row.length; i++) {
-    var user = div_row[i].children.namedItem("username");
+    var user = div_row[i].children[0];
+    user = user.children.namedItem("username")
     var username = user.innerText.toString();
 
     if (username.includes(searchKey.value) == false) {
       div_row[i].style.display = "none";
     } else if (username.includes(searchKey.value)) {
-      div_row[i].style.display = "block";
+      div_row[i].style.display = "flex";
     }
   }
 }
-
-// const collection = document.getElementsByTagName("p");
-// var user = collection.namedItem("username");
-// var username = user.toString();
-
-//   if (username.includes(input))
-//   {
-//     console.log(user);
-//   }

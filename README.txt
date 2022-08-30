@@ -27,7 +27,7 @@ INSERT INTO user (username, fName, lName, DoB, mobileNumber, emailAddr, address,
 CREATE TABLE booking (
     bookingId int NOT NULL AUTO_INCREMENT,
     userId int NOT NULL,
-	date date NOT NULL,
+	date nvarchar(255) NOT NULL,
     time varchar(126) NOT NULL,
     donationType1 varchar(255) NOT NULL,
     donationDesc1 varchar(255) NOT NULL,
@@ -38,6 +38,9 @@ CREATE TABLE booking (
     primary key(bookingId),
     FOREIGN KEY (userId) REFERENCES user(userId)
 );
+
+2a. Modify date object to be readable
+ALTER TABLE booking MODIFY COLUMN date nvarchar(255);
 
 3. Rewards Table
 CREATE TABLE reward (
@@ -59,3 +62,18 @@ INSERT INTO reward (rewardName, category, points, description, imagePath)VALUES(
 INSERT INTO reward (rewardName, category, points, description, imagePath)VALUES('ADICOLOR CLASSICS 3-STRIPES TEE', 'fashion', 600, 'No need to overcomplicate things — this adidas t-shirt is all about ease. Keep your vibe real, real chill with the understated look. Though it does not give into full minimalism. The comfort goes all out, thanks to the super soft cotton build.' , '/img/fashion1.jpg');
 INSERT INTO reward (rewardName, category, points, description, imagePath)VALUES('ARSENAL 22/23 AWAY JERSEY', 'fashion', 600, 'The cannon badge. The concrete sculpture-inspired signoff. All the way down to its bronze trim, this adidas Arsenal football jersey comes loaded with Emirates Stadium landmarks. Whatever match day looks like for you, this supporter-focused shirt will keep you comfortable with moisture-absorbing AEROREADY and mesh panels.' , '/img/fashion2.jpg');
 
+4. Booking Archive Table
+CREATE TABLE booking_archive (
+    archiveId int NOT NULL AUTO_INCREMENT,
+    userId int NOT NULL,
+	date nvarchar(255) NOT NULL,
+    time varchar(126) NOT NULL,
+    donationType1 varchar(255) NOT NULL,
+    donationDesc1 varchar(255) NOT NULL,
+    donationType2 varchar(255),
+    donationDesc2 varchar(255),
+    donationType3 varchar(255),
+    donationDesc3 varchar(255),
+    primary key(archiveId),
+    FOREIGN KEY (userId) REFERENCES user(userId)
+);

@@ -74,13 +74,13 @@
         Administration Options
       </h2>
       <ul class="profile-list">
-        <li class="profile-list-item item-active"><a href="/manage-booking">Manage Bookings</a></li>
-        <li class="profile-list-item"><a href="/booking-archive">View Archive</a></li>
+        <li class="profile-list-item"><a href="/manage-booking">Manage Bookings</a></li>
+        <li class="profile-list-item item-active"><a href="/booking-archive">View Archive</a></li>
         <li class="profile-list-item"><a href="/logout">Logout</a></li>
       </ul>
     </div>
     <div class="viewbooking-main">
-      <h2>Existing Appointments</h2>
+      <h2>Archived Appointments</h2>
       <div class="upcoming-booking-line"></div>
       <div class="upcoming-booking-container">
         <form method="post" action="/manage-booking">
@@ -111,27 +111,10 @@
                   <%= booking.address %>, Singapopore <%= booking.postalCode%>
                 </p><br>
               </div>
-              <div class="m-booking-right-container">
-                <p class="booking-divbox-header underline">Booking Fulfilled(?)</p>
-                <form method="post" action="/manage-booking">
-                  <input type="hidden" name="bookingId" value="<%= booking.bookingId %>">
-                  <input type="hidden" name="userId" value="<%= booking.userId %>">
-                  <input type="hidden" name="date" value="<%= booking.date %>">
-                  <input type="hidden" name="time" value="<%= booking.time %>">
-                  <input type="hidden" name="donationType1" value="<%= booking.donationType1 %>">
-                  <input type="hidden" name="donationDesc1" value="<%= booking.donationDesc1 %>">
-                  <input type="hidden" name="donationType2" value="<%= booking.donationType2 %>">
-                  <input type="hidden" name="donationDesc2" value="<%= booking.donationDesc2 %>">
-                  <input type="hidden" name="donationType3" value="<%= booking.donationType3 %>">
-                  <input type="hidden" name="donationDesc3" value="<%= booking.donationDesc3 %>">
-
-                  <button class="m-booking-btn" type="submit">Archive</button>
-                </form>
-              </div>
             </div>
             <% }) %>
               <% } else { %>
-                <p class="view-booking-none-para">There are currently no upcoming appointments in the database.</p>
+                <p class="view-booking-none-para">There are currently no archived appointments in the database to reference.</p>
                 <% } %>
       </div>
     </div>
