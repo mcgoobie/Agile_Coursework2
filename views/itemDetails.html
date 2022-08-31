@@ -63,15 +63,21 @@
             Name: <span class="inner"><%= prop.rewardName %></span>
           </h1>
           <p class="subTxt">Points required: <%= prop.points%></p>
+          <p class="subTxt">Stock Availability: <%= prop.in_stock%></p>
         </div>
         <div class="sec2_body">
           <h1 class="titleTxt">Description</h1>
           <p class="descTxt"><%= prop.description%></p>
+          <br>
+          <% if (prop.details != null) { %>
+            <h1 class="titleTxt">Specifications</h1>
+            <p class="descTxt"><%= prop.details%></p>
+          <% } %>
         </div>
         <div class="sec2_footer">
-          <h1 class="titleTxt">Terms & Condition</h1>
+          <h1 class="titleTxt">Terms & Conditions</h1>
           <ul class="descTxt2">
-            <li>Items can't be refund or returned</li>
+            <li>No returns or exchanges</li>
             <li>Multiple redemptions are allowed</li>
             <li>No minimum purchase required</li>
           </ul>
