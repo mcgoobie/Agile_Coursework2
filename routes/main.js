@@ -177,13 +177,15 @@ module.exports = function (app) {
       req.body.postal,
       req.body.password,
     ];
+    let username = req.body.username;
 
     db.query(sqlquery, newuser, (err, result) => {
       if (err) {
         res.redirect("/failedRegistration");
         return console.error(err.message);
       } else {
-        res.redirect("/login");
+        req.session.currentUser = username;
+        res.redirect("/");
       }
     });
   });
