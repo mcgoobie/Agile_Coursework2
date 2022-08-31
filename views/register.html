@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/signInStyling.css">
 <script type="text/javascript" src="scripts/script.js"></script>
+
 <body>
   <div class="register-body">
     <div class="register-content">
@@ -32,12 +33,16 @@
         <div id="register-form-right" class="register-formbody-right">
           <h1>Personal Particulars</h1>
           <p class="register-num-heading">- Where/how may we contact you? -</p>
-          <input class="mobilenum-input" id="mobilenum" name="mobilenum" type="text" pattern="\d*" placeholder="Mobile number"
-            minlength="8" maxlength="8" required><br />
-          <input class="email-input" id="email" name="email" type="text" placeholder="Email Address" onfocusout="validateEmail(this)" required><br />
+          <input class="mobilenum-input" id="mobilenum" name="mobilenum" type="text" pattern="\d*"
+            placeholder="Mobile number" onchange="validateMobile('register-btn')" required><br />
+          <p class="formright-warning" id="mobile-warning"></p>
+          <input class="email-input" id="email" name="email" type="text" placeholder="Email Address"
+            onchange="validateEmail('register-btn')" required><br />
+          <p class="formright-warning" id="email-warning"></p>
           <input class="address-input" id="address" name="address" type="text" placeholder="Address" required><br />
-          <input class="postal-input" id="postal" name="postal" type="text" pattern="\d*" minlength="6" maxlength="6" placeholder="Postal Code" required><br />
-          <p class="formright-warning"></p>
+          <input class="postal-input" id="postal" name="postal" type="text" pattern="\d*" onchange="validatePostal('register-btn')"
+            placeholder="Postal Code" required><br />
+          <p class="formright-warning" id="postal-warning"></p>
           <button class="register-btn" id="register-btn" type="submit">Register</button>
         </div>
       </form>

@@ -87,22 +87,85 @@ function reg_enableContactForm() {
   }
 }
 
-function validateEmail(obj) {
+function validateEmail(button) {
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  var email = document.getElementById(obj.id);
+  var email = document.getElementById("email");
 
   if (email.value.match(mailformat)) {
-    email.style.borderColor = "#ececec";
-    document.getElementsByClassName("formright-warning")[0].style.display =
+    if (button == "register-btn")
+      email.style.borderColor = "#ececec";
+    else if (button == "save-button")
+      email.style.borderColor = "#000000";
+
+    document.getElementById("email-warning").style.display =
       "none";
-    document.getElementById("register-btn").disabled = false;
+    document.getElementById(button).disabled = false;
+
+    return true;
   } else {
     email.style.borderColor = "red";
-    document.getElementsByClassName("formright-warning")[0].style.display =
+    document.getElementById("email-warning").style.display =
       "block";
-    document.getElementsByClassName("formright-warning")[0].innerHTML =
+    document.getElementById("email-warning").innerHTML =
       "Please enter a valid email address.";
-    document.getElementById("register-btn").disabled = true;
+    document.getElementById(button).disabled = true;
+
+    return false;
+  }
+}
+
+function validateMobile(button) {
+  var mobileFormat = /^[0-9]{8}$/;
+  var mobileField = document.getElementById("mobilenum");
+
+  if (mobileField.value.match(mobileFormat)) {
+    if (button == "register-btn")
+      mobileField.style.borderColor = "#ececec";
+    else if (button == "save-button")
+      mobileField.style.borderColor = "#000000";
+
+    document.getElementById("mobile-warning").style.display =
+      "none";
+    document.getElementById(button).disabled = false;
+
+    return true;
+  } else {
+    mobileField.style.borderColor = "red";
+    document.getElementById("mobile-warning").style.display =
+      "block";
+    document.getElementById("mobile-warning").innerHTML =
+      "Please enter a valid mobile number of 8 digits only.";
+    document.getElementById(button).disabled = true;
+
+    return false;
+  }
+}
+
+function validatePostal(button) {
+  var postalFormat = /^[0-9]{6}$/;
+  var postalField = document.getElementById("postal");
+
+  console.log(postalField.value);
+
+  if (postalField.value.match(postalFormat)) {
+    if (button == "register-btn")
+      postalField.style.borderColor = "#ececec";
+    else if (button == "save-button")
+      postalField.style.borderColor = "#000000";
+    document.getElementById("postal-warning").style.display =
+      "none";
+    document.getElementById(button).disabled = false;
+
+    return true;
+  } else {
+    postalField.style.borderColor = "red";
+    document.getElementById("postal-warning").style.display =
+      "block";
+    document.getElementById("postal-warning").innerHTML =
+      "Please enter a valid postal number of 6 digits only.";
+    document.getElementById(button).disabled = true;
+
+    return false;
   }
 }
 
@@ -121,7 +184,6 @@ function editButtonClicked() {
 }
 
 function updateInput(id, type) {
-  console.log(type);
   document.getElementById(id).value = type;
 }
 
@@ -153,7 +215,7 @@ function saveButtonClicked() {
 function searchForUser(input) {
   var div_row = document.getElementsByClassName("m-booking-divbox");
   var searchKey = document.getElementById(input);
-  
+
   for (var i = 0; i < div_row.length; i++) {
     var user = div_row[i].children[0];
     user = user.children.namedItem("username")

@@ -198,6 +198,12 @@
   display: none;
 }
 
+#email-warning,
+#mobile-warning,
+#postal-warning {
+  margin-top: -10px;
+}
+
 .editprofile-botleft,
 .editprofile-botright {
   width: 50%;
