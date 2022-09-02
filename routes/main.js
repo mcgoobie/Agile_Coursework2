@@ -233,7 +233,7 @@ module.exports = function (app) {
     // convert datee in mysql query to readable format
     var date = new Date(req.body.date);
     console.log(date);
-    var readableDate = date.toLocaleDateString();
+    var readableDate = date.toLocaleDateString('en-GB');
     console.log(readableDate);
 
     let newBooking = [
