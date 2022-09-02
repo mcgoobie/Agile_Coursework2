@@ -18,24 +18,18 @@
     <!-- Nav -->
     <nav class="mainHeader_nav">
       <ul class="menu">
-        <a href="/about">
-          <li class="menu-item">About</li>
-        </a>
-        <a href="/rewards">
-          <li class="menu-item menu-active">Rewards</li>
-        </a>
-        <a href="/blog">
-          <li class="menu-item">Articles</li>
-        </a>
-        <a href="/schedule">
-          <li class="menu-item">Schedule pickup</li>
-        </a>
-         <% if(user) { %>
-          <a href="/editprofile">
-            <li>My Profile</li>
-          </a>
-          <a href="/"><li>Hello <%= user %>
-          </li></a>
+        <a href="/about"> <li class="menu-item">About</li></a>
+        <a href="/rewards"><li class="menu-item">Rewards</li></a>
+        <a href="/blog"><li class="menu-item">Articles</li></a>
+        <% if(user || admin) { %>
+        <a href="/schedule"><li class="menu-item">Schedule pickup</li></a>
+        <% } else { %>
+        <a href="/login"><li class="menu-item">Schedule pickup</li></a>
+        <% } %>
+        <% if(user && admin == undefined) { %>
+          <a href="/editprofile"><li>My Profile</li></a><p>Hello <%= user %></p>
+          <% } else if (user && admin == 1) { %>
+            <a href="/manage-booking"><li>Admin Settings</li></a>
           <% } %>
       </ul>
       <div class="hamburger">
@@ -101,8 +95,18 @@
           <p class="bookingform-header">Date and Time of Appointment</p>
           <div class="bookingform-line"></div>
           <div class="bookingform-divbox">
+            
+            <% var today = new Date(); %>
+            <% var endDate = new Date(); %>
+            <% var month = (today.getMonth()+4) %>
+            <% if (month>12) { %>
+            <%    month = month%12; %>
+            <%    endDate.setYear(endDate.getFullYear()+1); %>
+            <% } %>
+            <% endDate.setMonth(month); %>
+
             <p>Date of Appointment: </p>
-            <input class="booking-details" name="date" type="date" required />
+            <input class="booking-details" name="date" type="date" min="<%= today.toLocaleDateString('en-ca')%>" max="<%= endDate.toLocaleDateString('en-ca') %>"  required />            
             <p>Time(between <b>11am</b> to <b>6pm</b>): </p>
             <input class="booking-details" name="time" type="time" min="11:00" max="18:00" onchange="console.log(this.value)" required />
           </div>

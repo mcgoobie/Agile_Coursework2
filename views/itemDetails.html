@@ -15,16 +15,19 @@
       <!-- Nav -->
       <nav class="mainHeader_nav">
         <ul class="menu">
-          <a href="/about"><li class="menu-item">About</li></a>
-          <a href="/rewards"><li class="menu-item menu-active">Rewards</li></a>
+          <a href="/about"> <li class="menu-item">About</li></a>
+          <a href="/rewards"><li class="menu-item">Rewards</li></a>
           <a href="/blog"><li class="menu-item">Articles</li></a>
+          <% if(user || admin) { %>
           <a href="/schedule"><li class="menu-item">Schedule pickup</li></a>
-          <% if(user) { %>
-          <a href="/editprofile">
-            <li>My Profile</li>
-          </a>
-          <a href="/"><li>Hello <%= user %></li></a>
+          <% } else { %>
+          <a href="/login"><li class="menu-item">Schedule pickup</li></a>
           <% } %>
+          <% if(user && admin == undefined) { %>
+            <a href="/editprofile"><li>My Profile</li></a><p>Hello <%= user %></p>
+            <% } else if (user && admin == 1) { %>
+              <a href="/manage-booking"><li>Admin Settings</li></a>
+            <% } %>
         </ul>
         <div class="hamburger">
           <span></span>
@@ -63,15 +66,21 @@
             Name: <span class="inner"><%= prop.rewardName %></span>
           </h1>
           <p class="subTxt">Points required: <%= prop.points%></p>
+          <p class="subTxt">Stock Availability: <%= prop.in_stock%></p>
         </div>
         <div class="sec2_body">
           <h1 class="titleTxt">Description</h1>
           <p class="descTxt"><%= prop.description%></p>
+          <br>
+          <% if (prop.details != null) { %>
+            <h1 class="titleTxt">Specifications</h1>
+            <p class="descTxt"><%= prop.details%></p>
+          <% } %>
         </div>
         <div class="sec2_footer">
-          <h1 class="titleTxt">Terms & Condition</h1>
+          <h1 class="titleTxt">Terms & Conditions</h1>
           <ul class="descTxt2">
-            <li>Items can't be refund or returned</li>
+            <li>No returns or exchanges</li>
             <li>Multiple redemptions are allowed</li>
             <li>No minimum purchase required</li>
           </ul>

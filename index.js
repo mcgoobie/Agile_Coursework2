@@ -9,7 +9,7 @@ const path = require("path");
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "password",
+  password: "",
   // password: "",
   database: "uGiveDb",
 });
