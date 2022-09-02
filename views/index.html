@@ -75,7 +75,11 @@
   <section class="heroSection">
     <div class="heroSection_inner">
       <h1>Building a better city with your help</h1>
-      <a href="/login" class="btn">Let's donate</a>
+      <% if(user) { %>
+        <a href="/schedule" class="btn">Let's donate</a>
+      <% } else { %>
+        <a href="/login" class="btn">Let's donate</a>
+      <% } %>
     </div>
     <div class="heroSection_img"></div>
   </section>
