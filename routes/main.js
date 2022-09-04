@@ -177,13 +177,15 @@ module.exports = function (app) {
       req.body.postal,
       req.body.password,
     ];
+    let username = req.body.username;
 
     db.query(sqlquery, newuser, (err, result) => {
       if (err) {
         res.redirect("/failedRegistration");
         return console.error(err.message);
       } else {
-        res.redirect("/login");
+        req.session.currentUser = username;
+        res.redirect("/");
       }
     });
   });
@@ -231,7 +233,8 @@ module.exports = function (app) {
     // convert datee in mysql query to readable format
     var date = new Date(req.body.date);
     console.log(date);
-    var readableDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+    var readableDate = date.toLocaleDateString('en-GB');
+    console.log(readableDate);
 
     let newBooking = [
       req.body.userId,

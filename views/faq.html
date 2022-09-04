@@ -17,23 +17,18 @@
     <!-- Nav -->
     <nav class="mainHeader_nav">
       <ul class="menu">
-        <a href="/about">
-          <li class="menu-item">About</li>
-        </a>
-        <a href="/rewards">
-          <li class="menu-item">Rewards</li>
-        </a>
-        <a href="/blog">
-          <li class="menu-item">Articles</li>
-        </a>
-        <a href="/schedule">
-          <li class="menu-item">Schedule pickup</li>
-        </a>
-        <% if(user) { %>
-          <a href="/editprofile">
-            <li>My Profile</li>
-          </a>
-          <a href="/"><li>Hello <%= user %></li></a>
+        <a href="/about"> <li class="menu-item">About</li></a>
+        <a href="/rewards"><li class="menu-item">Rewards</li></a>
+        <a href="/blog"><li class="menu-item">Articles</li></a>
+        <% if(user || admin) { %>
+        <a href="/schedule"><li class="menu-item">Schedule pickup</li></a>
+        <% } else { %>
+        <a href="/login"><li class="menu-item">Schedule pickup</li></a>
+        <% } %>
+        <% if(user && admin == undefined) { %>
+          <a href="/editprofile"><li>My Profile</li></a><p>Hello <%= user %></p>
+          <% } else if (user && admin == 1) { %>
+            <a href="/manage-booking"><li>Admin Settings</li></a>
           <% } %>
       </ul>
       <div class="hamburger">
@@ -95,16 +90,15 @@
   <!-- QUESTION SECTION -->
   <section class="questionSection">
     <div class="questionSection_each">
-      <p class="header"> Must I be a registed user to start donating?</p>
+      <p class="header"> Must I be a registered user to start donating?</p>
       <p class="description"> Yes, this is to ensure that all reward points are accurately recorded.</p>
     </div>
     <div class="questionSection_each">
       <p class="header"> What items can I donate?</p>
       <p class="description"> Some items we accept include used clothing, furniture, stationery, electrical appliances,
         and non-perishable food. All items should also be in
-        usable condition so that we are able to give these items a second life. You can find the ful list of items
-        <u>here</u>.
-      </p>
+        usable condition so that we are able to give these items a second life. You can find the full list of items
+        <u><a href="/blog">here</a></u>.</p>
     </div>
     <div class="questionSection_each">
       <p class="header"> How many items can I donate in one pick-up schedule?</p>

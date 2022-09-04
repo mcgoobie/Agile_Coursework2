@@ -19,25 +19,13 @@
     <!-- Nav -->
     <nav class="mainHeader_nav">
       <ul class="menu">
-        <a href="/about">
-          <li class="menu-item">About</li>
-        </a>
-        <a href="/rewards">
-          <li class="menu-item menu-active">Rewards</li>
-        </a>
-        <a href="/blog">
-          <li class="menu-item">Articles</li>
-        </a>
-        <a href="/schedule">
-          <li class="menu-item">Schedule pickup</li>
-        </a>
-       <% if(user) { %>
-          <a href="/editprofile">
-            <li>My Profile</li>
-          </a>
-          <a href="/"><li>Hello <%= user %>
-          </li></a>
-          <% } %>
+        <a href="/about"><li class="menu-item">About</li></a>
+        <a href="/rewards"><li class="menu-item menu-active">Rewards</li></a>
+        <a href="/blog"><li class="menu-item">Articles</li></a>
+        <a href="/schedule"><li class="menu-item">Schedule pickup</li></a>
+        <% if(user) { %>
+          <a href="/editprofile"><li>My Profile</li></a><li>Hello <%= user %></li>
+        <% } %>
       </ul>
       <div class="hamburger">
         <span></span>
@@ -45,27 +33,27 @@
         <span></span>
       </div>
     </nav>
-      <!-- Sign in btn -->
-      <div class="mainHeader_signupBtn">
-        <% if(user) { %>
-          <a href="/logout" class="primaryBtn">Logout</a>
-          <% } else { %>
-            <a href="/login" class="primaryBtn">Sign Up/Login</a>
-        <% } %>
-    <ul class="mainHeader_mobileMenu">
-      <a href="/about">
-        <li class="menu-item">About</li>
-      </a>
-      <a href="/rewards">
-        <li class="menu-item">Rewards</li>
-      </a>
-      <a href="/blog">
-        <li class="menu-item">Articles</li>
-      </a>
-      <a href="/schedule">
-        <li class="menu-item">Schedule pickup</li>
-      </a>
-    </ul>
+    <!-- Sign in btn -->
+    <div class="mainHeader_signupBtn">
+      <% if(user) { %>
+        <a href="/logout" class="primaryBtn">Logout</a>
+        <% } else { %>
+          <a href="/login" class="primaryBtn">Sign Up/Login</a>
+          <% } %>
+            <ul class="mainHeader_mobileMenu">
+              <a href="/about">
+                <li class="menu-item">About</li>
+              </a>
+              <a href="/rewards">
+                <li class="menu-item">Rewards</li>
+              </a>
+              <a href="/blog">
+                <li class="menu-item">Articles</li>
+              </a>
+              <a href="/schedule">
+                <li class="menu-item">Schedule pickup</li>
+              </a>
+            </ul>
   </header>
   <!-- END OF HEADER -->
 
@@ -109,10 +97,12 @@
               <div class="editprofile-divbox">
                 <p>First Name: </p>
                 <input class="profile-fields" type="text" id="fName" name="fName" value="<%= profile.fName %>"
-                  onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field', 'profile-save-btn');" disabled required />
+                  onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field', 'profile-save-btn');"
+                  disabled required />
                 <p>Last Name: </p>
                 <input class="profile-fields" type="text" id="lName" name="lName" value="<%= profile.lName %>"
-                  onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field', 'profile-save-btn');" disabled required />
+                  onchange="updateInput(this.id, this.value); checkName(this, 'edit-error-field', 'profile-save-btn');"
+                  disabled required />
               </div>
             </div>
             <div class="editprofile-botright">
@@ -120,17 +110,20 @@
               <div class="profile-right-line"></div>
               <div class="editprofile-divbox">
                 <p>Email Address: </p>
-                <input class="profile-fields" type="text" id="emailAddr" name="emailAddr"
-                  value="<%= profile.emailAddr %>" onchange="updateInput(this.id, this.value)" disabled required />
+                <input class="profile-fields" type="text" id="email" name="emailAddr"
+                  value="<%= profile.emailAddr %>" onchange="validateEmail('save-button'); updateInput(this.id, this.value);" disabled required />
+                <p class="edit-error-field" id="email-warning"></p>
                 <p>Contact Number: </p>
-                <input class="profile-fields" type="text" pattern="\d*" id="mobileNumber" name="mobileNumber"
-                  value="<%= profile.mobileNumber %>" onchange="updateInput(this.id, this.value)" disabled />
+                <input class="profile-fields" type="text" pattern="\d*" id="mobilenum" name="mobileNumber"
+                  value="<%= profile.mobileNumber %>" onchange="validateMobile('save-button'); updateInput(this.id, this.value);" disabled />
+                <p class="edit-error-field" id="mobile-warning"></p>
                 <p>Address</p>
                 <input class="profile-fields" type="text" id="address" name="address" value="<%= profile.address %>"
                   onchange="updateInput(this.id, this.value)" disabled required />
                 <p>Postal Code: </p>
-                <input class="profile-fields" type="text" id="postalCode" name="postalCode"
-                  value="<%= profile.postalCode %>" onchange="updateInput(this.id, this.value)" disabled required />
+                <input class="profile-fields" type="text" id="postal" name="postalCode"
+                  value="<%= profile.postalCode %>" onchange="validatePostal('save-button'); updateInput(this.id, this.value);" disabled required />
+                <p class="edit-error-field" id="postal-warning"></p>
               </div>
             </div>
           </form>
@@ -145,9 +138,15 @@
     <div class="footer_top">
       <div class="footer_top_col col-1">
         <h2>FAQs</h2>
-        <a href="/FAQ"><p>How do I get started?</p></a>
-        <a href="/FAQ"><p>What items can I donate?</p></a>
-        <a href="/FAQ"><p>View more > </p></a>
+        <a href="/FAQ">
+          <p>How do I get started?</p>
+        </a>
+        <a href="/FAQ">
+          <p>What items can I donate?</p>
+        </a>
+        <a href="/FAQ">
+          <p>View more > </p>
+        </a>
       </div>
       <div class="footer_top_col col-2">
         <h2>Support</h2>
@@ -165,4 +164,5 @@
     </div>
   </footer>
 </body>
+
 </html>

@@ -19,23 +19,15 @@
     <!-- Nav -->
     <nav class="mainHeader_nav">
       <ul class="menu">
-        <a href="/about">
-          <li class="menu-item">About</li>
-        </a>
-        <a href="/rewards">
-          <li class="menu-item menu-active">Rewards</li>
-        </a>
-        <a href="/blog">
-          <li class="menu-item">Articles</li>
-        </a>
-        <a href="/schedule">
-          <li class="menu-item">Schedule pickup</li>
-        </a>
-        <% if (user && admin == 1) { %>
+        <a href="/about"><li class="menu-item">About</li></a>
+        <a href="/rewards"><li class="menu-item menu-active">Rewards</li></a>
+        <a href="/blog"><li class="menu-item">Articles</li></a>
+        <a href="/schedule"><li class="menu-item">Schedule pickup</li></a>
+        <% if (user && admin==1) { %>
           <a href="/manage-booking">
             <li>Admin Settings</li>
           </a>
-        <% } %>
+          <% } %>
       </ul>
       <div class="hamburger">
         <span></span>
@@ -83,13 +75,10 @@
       <h2>Existing Appointments</h2>
       <div class="upcoming-booking-line"></div>
       <div class="upcoming-booking-container">
-        <form method="post" action="/manage-booking">
-          <div class="user-search-container">
-            <input class="search-user-input" id="search-user-input" type="text" name="user-query"
-              onkeyup="searchForUser(this.id)" placeholder="Search for a user via their username..." />
-            <input class="search-user-button" type="submit" value="Search for user">
-          </div>
-        </form>
+        <div class="user-search-container">
+          <input class="search-user-input" id="search-user-input" type="text" name="user-query"
+            onkeyup="searchForUser(this.id)" placeholder="Search for a user via their username..." />
+        </div>
         <% if(bookings) { %>
           <% bookings.forEach(function(booking){ %>
             <div class="m-booking-divbox">
@@ -108,7 +97,7 @@
                 </p><br>
                 <p class="booking-divbox-header">User Address: </p>
                 <p>
-                  <%= booking.address %>, Singapopore <%= booking.postalCode%>
+                  <%= booking.address %>, Singapore <%= booking.postalCode%>
                 </p><br>
               </div>
               <div class="m-booking-right-container">
