@@ -1,97 +1,36 @@
-SQL CREATION STATEMENTS FOR uGiveDb
+Project uGive
 
-1. User Table
-CREATE TABLE user (
-    userId int NOT NULL AUTO_INCREMENT,
-    username varchar(255) NOT NULL UNIQUE,
-    fName varchar(255) NOT NULL,
-    lName varchar(255) NOT NULL,
-    DoB date NOT NULL,
-	mobileNumber nvarchar(8) NOT NULL UNIQUE,
-    emailAddr varchar(255) NOT NULL UNIQUE,
-    address varchar(255) NOT NULL,
-    postalCode nvarchar(6) NOT NULL,
-    password varchar(255),
-    is_admin bool,
-    primary key(userId)
-);
+Group Members:
 
-1a. Add is_admin column (if user table is following old schema)
-ALTER TABLE user ADD is_admin bool;
+- Owen Lee Wei Hern
+- Lindy Zhang Ling Yee
+- Lim Ya Li
+- Jovin Jia Jun Sim
+- Kimberly Jia Hui Kwok
 
-1b. Insert Admin User
-INSERT INTO user (username, fName, lName, DoB, mobileNumber, emailAddr, address, postalCode, password, is_Admin) VALUES ('ugive-admin', 'u', 'Give', '2022-08-28', 91238456, 'ugive-admin@gmail,com', '-', '-', 'uGive123', TRUE);
+Abstract:
+We intend to create a solution to be the bridge between Singaporeans and donation, so that we are able to increase the donation rates by 5% in Singapore in the next year. We want to create an online platform that allows users to conveniently donate and spread awareness about the importance of donation. 
+As the team is composed of Singaporean students, the members have first-hand understanding of the donation situation in Singapore, which will greatly help with the development of the one-stop platform web application. Previously, a survey was carried out targeting homemakers in Singapore to better understand how we could better develop the application to cater to their needs, to encourage them to be more proactive in donating
 
 
-2. Booking Table
-CREATE TABLE booking (
-    bookingId int NOT NULL AUTO_INCREMENT,
-    userId int NOT NULL,
-	date nvarchar(255) NOT NULL,
-    time varchar(126) NOT NULL,
-    donationType1 varchar(255) NOT NULL,
-    donationDesc1 varchar(255) NOT NULL,
-    donationType2 varchar(255),
-    donationDesc2 varchar(255),
-    donationType3 varchar(255),
-    donationDesc3 varchar(255),
-    primary key(bookingId),
-    FOREIGN KEY (userId) REFERENCES user(userId)
-);
+Setting Up:
 
-2a. Modify date object to be readable
-ALTER TABLE booking MODIFY COLUMN date nvarchar(255);
+1.) Install all node modules in package.json.
 
-3. Rewards Table
-CREATE TABLE reward (
-	rewardID int NOT NULL auto_increment,
-    rewardName varchar(255) NOT NULL UNIQUE,
-    category varchar(255) NOT NULL,
-    points int NOT NULL,
-    description varchar(1000) NOT NULL,
-    imagePath varchar(255) NOT NULL,
-    in_stock varchar(20) NOT NULL,
-    details varchar(255),
-    primary key(rewardID)
-);
+2.) Link up database w/ MySQL, database and table schema/CREATE statements can be found in "TABLE SCHEMAS.txt"
 
-3a. Insert rewards DATA
-INSERT INTO reward (rewardName, category, points, description, imagePath, in_stock)VALUES('POPULAR $20 Voucher', 'couponVoucher', 200, 'Valid at all POPULAR Bookstores, UrbanWrite stores and CD-RAMA outlets islandwide.' , '/img/voucher1.jpg','In Stock');
-INSERT INTO reward (rewardName, category, points, description, imagePath, in_stock, details)VALUES('GOLDEN VILLAGE $10 Voucher', 'couponVoucher', 100, 'One Golden Village All Days Movie eVoucher to be redeemed on www.gv.com.sg or iGV App (both iOS and Android)' , '/img/voucher2.jpg','In Stock','Voucher Type: E-voucher');
-INSERT INTO reward (rewardName, category, points, description, imagePath, in_stock)VALUES('CATHAY CINEPLEX $30 Voucher', 'couponVoucher', 300, 'Available at all outlets islandwide.' , '/img/voucher3.jpg','Running Low');
-INSERT INTO reward (rewardName, category, points, description, imagePath, in_stock, details)VALUES('SAMSUNG MICROWAVE OVEN', 'householdAppliance', 700, 'A variety of fresh and healthy meals are at your fingertips with 15 pre-set cook modes on the Samsung MC28 Smart Oven. Now you can confidently and conveniently cook everything from broccoli to brown rice, boneless chicken breast to fresh salmon fillets.' , '/img/appliance1.jpg', 'In Stock','Dimensions(WxHxD): 520x300x410 mm, Oven Capacity: 30L, Max Power Consumption: 1500W');
-INSERT INTO reward (rewardName, category, points, description, imagePath, in_stock, details)VALUES('SAMSUNG ROBOT CLEANER', 'householdAppliance', 1500, 'Save time and effort by cleaning and mopping at once! The 2-in-1 Vacuum and Mop Cleaning System captures dust and dirt and mops the floor to clean effectively. The water tank detects if a mop pad is attached and automatically switches on the mopping and adjusts the amount of water.' , '/img/appliance2.jpg', 'In Stock','Dimensions(WxHxD): 340x85x340 mm, Dust Capacity: 0.2L, Max Power Consumption: 55W');
-INSERT INTO reward (rewardName, category, points, description, imagePath, in_stock, details)VALUES('ADICOLOR CLASSICS 3-STRIPES TEE', 'fashion', 600, 'No need to overcomplicate things — this adidas t-shirt is all about ease. Keep your vibe real, real chill with the understated look. Though it does not give into full minimalism. The comfort goes all out, thanks to the super soft cotton build.' , '/img/fashion1.jpg', 'Out of Stock','Material: 100% cotton single jersey, Fit: Slim Fit, Sizes Available: XS to 2XL');
-INSERT INTO reward (rewardName, category, points, description, imagePath, in_stock, details)VALUES('ARSENAL 22/23 AWAY JERSEY', 'fashion', 600, 'The cannon badge. The concrete sculpture-inspired signoff. All the way down to its bronze trim, this adidas Arsenal football jersey comes loaded with Emirates Stadium landmarks. Whatever match day looks like for you, this supporter-focused shirt will keep you comfortable with moisture-absorbing AEROREADY and mesh panels.' , '/img/fashion2.jpg','Out of Stock','Material: 100% recycled polyester doubleknit, Fit: Regular Fit, Sizes Available: XS to 3XL');
+3.) Rmb to change const db varriable in index.js to fit your MySQL settings.
 
-3b. Add in_stock column (if user table is following old schema)
-ALTER TABLE reward ADD in_stock varchar(20) NOT NULL;
-UPDATE reward SET in_stock = 'In Stock' WHERE rewardName = 'POPULAR $20 Voucher';
-UPDATE reward SET in_stock = 'In Stock' WHERE rewardName = 'GOLDEN VILLAGE $10 Voucher';
-UPDATE reward SET in_stock = 'Running Low' WHERE rewardName = 'CATHAY CINEPLEX $30 Voucher';
-UPDATE reward SET in_stock = 'In Stock' WHERE rewardName = 'SAMSUNG MICROWAVE OVEN';
-UPDATE reward SET in_stock = 'In Stock' WHERE rewardName = 'SAMSUNG ROBOT CLEANER';
-UPDATE reward SET in_stock = 'Out of Stock' WHERE rewardName = 'ADICOLOR CLASSICS 3-STRIPES TEE';
-UPDATE reward SET in_stock = 'Out of Stock' WHERE rewardName = 'ARSENAL 22/23 AWAY JERSEY';
-ALTER TABLE reward ADD details varchar(255);
-UPDATE reward SET details = 'Voucher Type: E-voucher' WHERE rewardName = 'GOLDEN VILLAGE $10 Voucher';
-UPDATE reward SET details = 'Dimensions(WxHxD): 520x300x410 mm, Oven Capacity: 30L, Max Power Consumption: 1500W' WHERE rewardName = 'SAMSUNG MICROWAVE OVEN';
-UPDATE reward SET details = 'Dimensions(WxHxD): 340x85x340 mm, Dust Capacity: 0.2L, Max Power Consumption: 55W' WHERE rewardName = 'SAMSUNG ROBOT CLEANER';
-UPDATE reward SET details = 'Material: 100% cotton single jersey, Fit: Slim Fit, Sizes Available: XS to 2XL' WHERE rewardName = 'ADICOLOR CLASSICS 3-STRIPES TEE';
-UPDATE reward SET details = 'Material: 100% recycled polyester doubleknit, Fit: Regular Fit, Sizes Available: XS to 3XL' WHERE rewardName = 'ARSENAL 22/23 AWAY JERSEY';
+4.) run "node index.js" to run app
 
-4. Booking Archive Table
-CREATE TABLE booking_archive (
-    archiveId int NOT NULL AUTO_INCREMENT,
-    userId int NOT NULL,
-	date nvarchar(255) NOT NULL,
-    time varchar(126) NOT NULL,
-    donationType1 varchar(255) NOT NULL,
-    donationDesc1 varchar(255) NOT NULL,
-    donationType2 varchar(255),
-    donationDesc2 varchar(255),
-    donationType3 varchar(255),
-    donationDesc3 varchar(255),
-    primary key(archiveId),
-    FOREIGN KEY (userId) REFERENCES user(userId)
-);
+
+
+Before Pulling/Pushing code:
+
+1.) Before starting work on new features, always pull from the latest branch, check repo, should be main branch.
+
+2.) When pushing up code, do not push directly to main, use another branch.
+    - For example, if working on login feature, push to a new branch called 'Login_Feature' branch.
+
+3.) When pull request has been made and merged, delete inactive branches.
+

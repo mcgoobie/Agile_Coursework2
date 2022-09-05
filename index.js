@@ -3,14 +3,13 @@ const app = express();
 
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
-const port = 5001;
+const port = 5000;
 const path = require("path");
 
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "password",
-  // password: "",
+  password: "",
   database: "uGiveDb",
 });
 
